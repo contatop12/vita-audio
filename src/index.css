@@ -1,0 +1,60 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --color-vita-blue: #006dc4;
+  --color-vita-blue-dark: #005aa0;
+  --color-vita-orange: #ffb643;
+  --color-vita-gray-bg: #f0f0f0;
+  --color-vita-text: #333333;
+  --color-vita-text-mid: #555555;
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--font-sans);
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--color-vita-text);
+    background: #fff;
+    text-wrap: balance;
+  }
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+}
+
+@keyframes vita-wa-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 14px rgba(37, 211, 102, 0);
+  }
+}
+
+@layer utilities {
+  .animate-vita-wa-pulse {
+    animation: vita-wa-pulse 2.5s ease-in-out infinite;
+  }
+}

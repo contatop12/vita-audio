@@ -22,7 +22,7 @@ const itens = [
 
 export function Section03Diferenciais() {
   return (
-    <section className="bg-vita-blue py-[60px]">
+    <section id="diferenciais" className="bg-vita-blue py-[60px]">
       <div
         className={`${container} grid grid-cols-1 items-center gap-12 md:grid-cols-[1fr_500px]`}
       >

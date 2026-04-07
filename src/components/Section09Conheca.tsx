@@ -2,7 +2,7 @@ import { container } from "../vita-tw"
 
 export function Section09Conheca() {
   return (
-    <section className="bg-vita-gray-bg py-[60px]">
+    <section id="sobre-nos" className="bg-vita-gray-bg py-[60px]">
       <div
         className={`${container} grid grid-cols-1 items-center gap-[60px] md:grid-cols-2`}
       >

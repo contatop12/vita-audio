@@ -67,7 +67,7 @@ const produtos: { src: string; alt: string; title: string; desc: string }[] = [
 
 export function Section08Produtos() {
   return (
-    <section className="bg-vita-gray-bg py-[70px] text-center">
+    <section id="produtos" className="bg-vita-gray-bg py-[70px] text-center">
       <div className={container}>
         <h2 className="mb-9 text-[28px] font-semibold text-vita-blue md:text-[32px]">
           Nossos produtos

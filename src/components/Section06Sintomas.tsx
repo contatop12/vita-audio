@@ -44,7 +44,7 @@ const cards: { src: string; alt: string; title: string; body: string }[] = [
 
 export function Section06Sintomas() {
   return (
-    <section className="bg-vita-gray-bg py-[70px] text-center">
+    <section id="sintomas" className="bg-vita-gray-bg py-[70px] text-center">
       <div className={container}>
         <p className="mb-3 inline-flex items-center justify-center gap-2 rounded-full border border-[rgba(255,182,67,0.45)] bg-[rgba(255,182,67,0.18)] px-4 py-2 text-[13px] font-semibold uppercase tracking-wide text-[#c45c00]">
           <AlertTriangle

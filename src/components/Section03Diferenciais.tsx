@@ -1,5 +1,5 @@
-import { WHATSAPP_URL } from "../constants/site"
 import { btnCta, btnIco, container } from "../vita-tw"
+import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
 const itens = [
@@ -41,15 +41,10 @@ export function Section03Diferenciais() {
               </li>
             ))}
           </ul>
-          <a
-            href={WHATSAPP_URL}
-            className={btnCta}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <button type="button" onClick={openWhatsAppLeadPopup} className={btnCta}>
             <WhatsAppIcon className={btnIco} size={18} />
             <span>FALE AGORA COM UM ESPECIALISTA</span>
-          </a>
+          </button>
         </div>
         <div className="order-first flex justify-center md:order-none">
           <img

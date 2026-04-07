@@ -8,9 +8,9 @@ import {
   FACEBOOK_URL,
   INSTAGRAM_URL,
   WHATSAPP_DISPLAY,
-  WHATSAPP_URL,
 } from "../constants/site"
 import { container } from "../vita-tw"
+import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
 const quickLinks = [
@@ -68,9 +68,13 @@ export function Section12Footer() {
                   className="mt-0.5 size-4 shrink-0 text-vita-orange"
                   aria-hidden
                 />
-                <a href={WHATSAPP_URL} className="transition-colors hover:text-vita-orange">
+                <button
+                  type="button"
+                  onClick={openWhatsAppLeadPopup}
+                  className="transition-colors hover:text-vita-orange"
+                >
                   {WHATSAPP_DISPLAY} (WhatsApp)
-                </a>
+                </button>
               </li>
               <li className="flex items-start gap-2.5">
                 <Mail className="mt-0.5 size-4 shrink-0 text-vita-orange" aria-hidden />
@@ -95,15 +99,14 @@ export function Section12Footer() {
 
         <div className="flex flex-col items-center justify-between gap-5 pt-6 text-center md:flex-row md:text-left">
           <div className="flex gap-3">
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
+            <button
+              type="button"
+              onClick={openWhatsAppLeadPopup}
               className="flex size-10 items-center justify-center rounded-lg bg-[#25D366] text-white transition-opacity hover:opacity-[0.85]"
               title="WhatsApp"
-              rel="noreferrer"
             >
               <WhatsAppIcon size={20} />
-            </a>
+            </button>
             <a
               href={INSTAGRAM_URL}
               target="_blank"

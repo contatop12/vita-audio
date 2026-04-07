@@ -1,6 +1,6 @@
 import { AlertTriangle } from "lucide-react"
-import { WHATSAPP_URL } from "../constants/site"
 import { btnCta, btnIco, container } from "../vita-tw"
+import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
 const cards: { src: string; alt: string; title: string; body: string }[] = [
@@ -84,15 +84,14 @@ export function Section06Sintomas() {
               agende sua consulta agora mesmo
             </strong>
           </p>
-          <a
-            href={WHATSAPP_URL}
+          <button
+            type="button"
+            onClick={openWhatsAppLeadPopup}
             className={`${btnCta} shrink-0`}
-            target="_blank"
-            rel="noreferrer"
           >
             <WhatsAppIcon className={btnIco} size={18} />
             <span>AGENDAR CONSULTA PELO WHATSAPP</span>
-          </a>
+          </button>
         </div>
       </div>
     </section>

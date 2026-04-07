@@ -1,5 +1,5 @@
-import { WHATSAPP_URL } from "../constants/site"
 import { btnCta, btnIco, container } from "../vita-tw"
+import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
 export function Section07NaoPercas() {
@@ -28,15 +28,14 @@ export function Section07NaoPercas() {
               Quer conhecer a solução que te traz uma vida melhor? Fale conosco!
             </strong>
           </p>
-          <a
-            href={WHATSAPP_URL}
+          <button
+            type="button"
+            onClick={openWhatsAppLeadPopup}
             className={`${btnCta} mt-2.5 inline-flex`}
-            target="_blank"
-            rel="noreferrer"
           >
             <WhatsAppIcon className={btnIco} size={18} />
             <span>QUERO MAIS INFORMAÇÕES</span>
-          </a>
+          </button>
         </div>
         <div className="order-first md:order-none">
           <img

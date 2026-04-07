@@ -1,5 +1,5 @@
-import { WHATSAPP_URL } from "../constants/site"
 import { btnCta, btnIco, container } from "../vita-tw"
+import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
 const heroBackgroundImage = `linear-gradient(
@@ -37,15 +37,10 @@ export function Section02Hero() {
           <p className="mb-7 text-[15px] font-medium leading-relaxed text-neutral-900 max-md:text-neutral-950 [text-shadow:0_1px_0_rgba(255,255,255,0.85)] max-md:[text-shadow:0_1px_1px_rgba(255,255,255,0.9)] md:text-neutral-800">
             Resolva seus problemas de audição e zumbido no ouvido de uma vez por todas!
           </p>
-          <a
-            href={WHATSAPP_URL}
-            className={btnCta}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <button type="button" onClick={openWhatsAppLeadPopup} className={btnCta}>
             <WhatsAppIcon className={btnIco} size={18} />
             <span>AGENDE UM TESTE GRÁTIS</span>
-          </a>
+          </button>
         </div>
       </div>
     </section>

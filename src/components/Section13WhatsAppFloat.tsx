@@ -1,5 +1,10 @@
-import { FormEvent, useState } from "react"
+import { FormEvent, useEffect, useState } from "react"
 import { WHATSAPP_CHAT_URL } from "../constants/site"
+import {
+  WHATSAPP_LEAD_FORM_ID,
+  WHATSAPP_LEAD_POPUP_EVENT,
+  openWhatsAppLeadPopup,
+} from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
 export function Section13WhatsAppFloat() {
@@ -8,6 +13,12 @@ export function Section13WhatsAppFloat() {
   const [email, setEmail] = useState("")
   const [whats, setWhats] = useState("")
   const [consent, setConsent] = useState(false)
+
+  useEffect(() => {
+    const handleOpen = () => setIsOpen(true)
+    window.addEventListener(WHATSAPP_LEAD_POPUP_EVENT, handleOpen)
+    return () => window.removeEventListener(WHATSAPP_LEAD_POPUP_EVENT, handleOpen)
+  }, [])
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
@@ -30,7 +41,7 @@ export function Section13WhatsAppFloat() {
     <>
       <button
         type="button"
-        onClick={() => setIsOpen(true)}
+        onClick={openWhatsAppLeadPopup}
         className="animate-vita-wa-pulse fixed bottom-7 right-7 z-999 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110"
         title="Fale pelo WhatsApp"
         aria-label="Abrir formulário de contato no WhatsApp"
@@ -47,7 +58,12 @@ export function Section13WhatsAppFloat() {
             <p className="mt-1 mb-6 text-sm leading-relaxed text-vita-text-mid">
               Preencha os dados para continuar no WhatsApp.
             </p>
-            <form className="space-y-4" onSubmit={handleSubmit}>
+            <form
+              id={WHATSAPP_LEAD_FORM_ID}
+              data-form-id={WHATSAPP_LEAD_FORM_ID}
+              className="space-y-4"
+              onSubmit={handleSubmit}
+            >
               <label className="block space-y-1.5">
                 <span className="text-xs font-semibold tracking-wide text-vita-blue/80">
                   Nome

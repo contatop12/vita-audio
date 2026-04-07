@@ -1,5 +1,5 @@
-import { WHATSAPP_URL } from "../constants/site"
 import { btnCta, btnIco, container } from "../vita-tw"
+import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
 const produtos: { src: string; alt: string; title: string; desc: string }[] = [
@@ -93,10 +93,10 @@ export function Section08Produtos() {
           ))}
         </div>
         <div className="mt-10 text-center">
-          <a href={WHATSAPP_URL} className={btnCta} target="_blank" rel="noreferrer">
+          <button type="button" onClick={openWhatsAppLeadPopup} className={btnCta}>
             <WhatsAppIcon className={btnIco} size={18} />
             <span>AGENDAR UM TESTE GRATUITO</span>
-          </a>
+          </button>
         </div>
       </div>
     </section>

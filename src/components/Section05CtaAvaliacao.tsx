@@ -1,5 +1,5 @@
-import { WHATSAPP_URL } from "../constants/site"
 import { btnCta, btnIco, container } from "../vita-tw"
+import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
 export function Section05CtaAvaliacao() {
@@ -18,10 +18,10 @@ export function Section05CtaAvaliacao() {
           detalhadas sobre o tipo de perda e sua configuração, para assim recomendar o
           melhor aparelho.
         </p>
-        <a href={WHATSAPP_URL} className={btnCta} target="_blank" rel="noreferrer">
+        <button type="button" onClick={openWhatsAppLeadPopup} className={btnCta}>
           <WhatsAppIcon className={btnIco} size={18} />
           <span>AGENDE SUA AVALIAÇÃO</span>
-        </a>
+        </button>
       </div>
     </section>
   )

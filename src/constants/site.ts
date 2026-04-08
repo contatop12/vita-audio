@@ -20,7 +20,15 @@ export const ADDRESS_LINES = [
 export const MAP_EMBED_URL = `https://maps.google.com/maps?q=${encodeURIComponent(
   "R. Tuiuti, 460 - Cidade Nova I, Indaiatuba - SP, 13339-010",
 )}&output=embed&z=16&hl=pt`
-export const BUSINESS_HOURS = "Segunda a Sexta das 08:00 às 18:00"
+export const BUSINESS_HOURS = [
+  { day: "quarta-feira", hours: "08:30–18:00" },
+  { day: "quinta-feira", hours: "08:30–18:00" },
+  { day: "sexta-feira", hours: "08:30–18:00" },
+  { day: "sábado", hours: "08:00–12:00" },
+  { day: "domingo", hours: "Fechado" },
+  { day: "segunda-feira", hours: "08:30–18:00" },
+  { day: "terça-feira", hours: "08:30–18:00" },
+] as const
 
 export const INSTAGRAM_URL = "https://www.instagram.com/vitaaudiobrasil/"
 export const FACEBOOK_URL =

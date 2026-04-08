@@ -8,10 +8,10 @@ import {
   FACEBOOK_URL,
   INSTAGRAM_URL,
   MAP_EMBED_URL,
+  WHATSAPP_CHAT_URL,
   WHATSAPP_DISPLAY,
 } from "../constants/site"
 import { container } from "../vita-tw"
-import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
 const quickLinks = [
@@ -38,7 +38,7 @@ export function Section12Footer() {
             </p>
           </div>
 
-          <div className="rounded-xl bg-white/10 p-4">
+          <div className="border-t border-white/20 pt-4 md:border-t-0 md:pt-0 md:pl-5 lg:border-l lg:pl-6">
             <h3 className="mb-4 text-base font-semibold text-white">Links Rápidos</h3>
             <ul className="space-y-2 text-sm text-white/90">
               {quickLinks.map((item) => (
@@ -51,7 +51,7 @@ export function Section12Footer() {
             </ul>
           </div>
 
-          <div className="rounded-xl bg-white/10 p-5 lg:min-w-0">
+          <div className="border-t border-white/20 pt-4 md:pl-5 md:pt-0 lg:min-w-0 lg:border-l lg:border-t-0 lg:pl-6">
             <h3 className="mb-5 text-base font-semibold text-white">Contato</h3>
             <ul className="flex flex-col gap-4 text-sm leading-snug text-white/90">
               <li className="flex gap-3">
@@ -81,14 +81,15 @@ export function Section12Footer() {
                 <span className="flex w-5 shrink-0 justify-center pt-0.5">
                   <MessageCircle className="size-[18px] text-vita-orange" aria-hidden />
                 </span>
-                <button
-                  type="button"
-                  onClick={openWhatsAppLeadPopup}
+                <a
+                  href={WHATSAPP_CHAT_URL}
+                  target="_blank"
+                  rel="noreferrer"
                   className="min-w-0 flex-1 text-left transition-colors hover:text-vita-orange"
                 >
                   <span className="whitespace-nowrap">{WHATSAPP_DISPLAY}</span>
                   <span className="text-white/80"> (WhatsApp)</span>
-                </button>
+                </a>
               </li>
               <li className="flex gap-3">
                 <span className="flex w-5 shrink-0 justify-center pt-0.5">
@@ -104,11 +105,18 @@ export function Section12Footer() {
             </ul>
           </div>
 
-          <div className="rounded-xl bg-white/10 p-4">
-            <h3 className="mb-4 text-base font-semibold text-white">Horário de Atendimento</h3>
-            <div className="flex items-start gap-2.5 text-sm text-white/90">
+          <div className="border-t border-white/20 pt-4 md:border-t-0 md:pl-5 md:pt-0 lg:border-l lg:pl-6">
+            <h3 className="mb-3 text-base font-semibold text-white">Horário de funcionamento:</h3>
+            <div className="flex items-start gap-2.5">
               <Clock3 className="mt-0.5 size-4 shrink-0 text-vita-orange" aria-hidden />
-              <span>{BUSINESS_HOURS}</span>
+              <ul className="w-full space-y-1 text-sm text-white/90">
+                {BUSINESS_HOURS.map((item) => (
+                  <li key={item.day} className="flex items-center justify-between gap-3">
+                    <span className="capitalize">{item.day}</span>
+                    <span className="shrink-0 whitespace-nowrap">{item.hours}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
@@ -126,14 +134,15 @@ export function Section12Footer() {
 
         <div className="flex flex-col items-center justify-between gap-5 pt-6 text-center md:flex-row md:text-left">
           <div className="flex gap-3">
-            <button
-              type="button"
-              onClick={openWhatsAppLeadPopup}
+            <a
+              href={WHATSAPP_CHAT_URL}
+              target="_blank"
+              rel="noreferrer"
               className="flex size-10 items-center justify-center rounded-lg bg-[#25D366] text-white transition-opacity hover:opacity-[0.85]"
               title="WhatsApp"
             >
               <WhatsAppIcon size={20} />
-            </button>
+            </a>
             <a
               href={INSTAGRAM_URL}
               target="_blank"

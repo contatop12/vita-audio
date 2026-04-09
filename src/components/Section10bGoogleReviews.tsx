@@ -5,6 +5,7 @@ import {
   GOOGLE_REVIEWS_RATING,
 } from "../constants/site"
 import { btnCta, btnIco, container } from "../vita-tw"
+import { publicUrl } from "../utils/publicUrl"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
@@ -52,7 +53,7 @@ function Stars({ className }: { className?: string }) {
 
 function ReviewAvatar({ review }: { review: GoogleReview }) {
   if (review.photoFile) {
-    const src = `/images/${encodeURIComponent(review.photoFile)}`
+    const src = publicUrl(`images/${review.photoFile}`)
     return (
       <img
         src={src}

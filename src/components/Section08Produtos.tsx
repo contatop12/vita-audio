@@ -1,64 +1,65 @@
 import { btnCta, btnIco, container } from "../vita-tw"
+import { publicUrl } from "../utils/publicUrl"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
 const produtos: { src: string; alt: string; title: string; desc: string }[] = [
   {
-    src: "/images/img-22.png",
+    src: publicUrl("images/img-22.png"),
     alt: "Audição e monitoramento de atividades",
     title: "Audição e monitoramento de atividades",
     desc: "O primeiro aparelho auditivo do mundo com sensores e inteligência artificial.",
   },
   {
-    src: "/images/img-88.png",
+    src: publicUrl("images/img-88.png"),
     alt: "Compatível com Smartphone",
     title: "Compatível com Smartphone",
     desc: "Conecte-se diretamente ao seu iPhone®, iPad®, iPod touch®, Apple Watch® ou telefone Android™.",
   },
   {
-    src: "/images/img-11.png",
+    src: publicUrl("images/img-11.png"),
     alt: "Receptor no Canal",
     title: "Receptor no Canal",
     desc: "Pequeno, discreto e rápido de ajustar. Perfeito para a primeira experiência dos usuários de aparelho auditivo.",
   },
   {
-    src: "/images/product-bte.png",
+    src: publicUrl("images/product-bte.png"),
     alt: "Retroauricular",
     title: "Retroauricular",
     desc: "O modelo de aparelho auditivo mais utilizado do mundo. Disponível em padronizado, mini ou power.",
   },
   {
-    src: "/images/img-99.png",
+    src: publicUrl("images/img-99.png"),
     alt: "Zumbido",
     title: "Zumbido",
     desc: "Sistema projetado para oferecer alívio de zumbido nas orelhas.",
   },
   {
-    src: "/images/img-88.png",
+    src: publicUrl("images/img-88.png"),
     alt: "Audição-Unilateral",
     title: "Audição-Unilateral",
     desc: "Escute os sons em sua orelha menos favorecida pela sua orelha saudável.",
   },
   {
-    src: "/images/img-66.png",
+    src: publicUrl("images/img-66.png"),
     alt: "Soluções Invisíveis",
     title: "Soluções Invisíveis",
     desc: "Encaixa na segunda curva do canal auditivo onde ninguém consegue enxergá-los.",
   },
   {
-    src: "/images/img-33.png",
+    src: publicUrl("images/img-33.png"),
     alt: "Microcanal",
     title: "Microcanal",
     desc: "Apenas o minúsculo cabo removível do aparelho auditivo aparece fora do canal auditivo.",
   },
   {
-    src: "/images/img-44.png",
+    src: publicUrl("images/img-44.png"),
     alt: "Intracanal",
     title: "Intracanal",
     desc: "Aparelho auditivo personalizado que se ajusta ao canal auditivo. Pequena parte aparece por fora da orelha.",
   },
   {
-    src: "/images/img-77.png",
+    src: publicUrl("images/img-77.png"),
     alt: "Intra-Auricular",
     title: "Intra-Auricular",
     desc: "Aparelho auditivo personalizado que se ajusta na parte de fora da orelha.",

@@ -1,3 +1,4 @@
+import { publicUrl } from "../utils/publicUrl"
 import { btnCta, btnIco, container } from "../vita-tw"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
@@ -13,8 +14,8 @@ const heroGradient = `linear-gradient(
   rgba(239, 244, 249, 0.03) 100%
 )`
 
-const heroBackgroundMobile = `${heroGradient}, url("/images/hero-section-audi-mobile-v1.webp")`
-const heroBackgroundDesktop = `${heroGradient}, url("/images/hero-section-audi-v1.webp")`
+const heroBackgroundMobile = `${heroGradient}, url("${publicUrl("images/hero-section-audi-mobile-v1.webp")}")`
+const heroBackgroundDesktop = `${heroGradient}, url("${publicUrl("images/hero-section-audi-v1.webp")}")`
 
 export function Section02Hero() {
   return (

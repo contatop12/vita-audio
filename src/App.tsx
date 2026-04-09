@@ -16,12 +16,13 @@ import {
   Section13WhatsAppFloat,
 } from "./components"
 import { CheckCircle2, MessageCircle } from "lucide-react"
+import { OBRIGADO_PATH } from "./constants/paths"
 import { WHATSAPP_CHAT_URL } from "./constants/site"
 import { container } from "./vita-tw"
 
 export default function App() {
   const pathname = window.location.pathname.replace(/\/+$/, "") || "/"
-  const isObrigadoPage = pathname === "/obrigado"
+  const isObrigadoPage = pathname === OBRIGADO_PATH
 
   if (isObrigadoPage) {
     return (
@@ -47,7 +48,7 @@ export default function App() {
                 Falar no WhatsApp
               </a>
               <a
-                href="/"
+                href={import.meta.env.BASE_URL}
                 className="inline-flex items-center justify-center rounded-xl border border-vita-blue/25 px-5 py-3 text-sm font-semibold text-vita-blue transition hover:bg-vita-blue/5"
               >
                 Voltar para o site

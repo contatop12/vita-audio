@@ -14,6 +14,7 @@ import {
   WHATSAPP_DISPLAY,
 } from "../constants/site"
 import { container } from "../vita-tw"
+import { publicUrl } from "../utils/publicUrl"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
 const quickLinks = [
@@ -30,7 +31,7 @@ export function Section12Footer() {
         <div className="grid grid-cols-1 gap-5 border-b border-white/20 pb-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <img
-              src="/images/logo.png"
+              src={publicUrl("images/logo.png")}
               alt="Vita Audio"
               className="mb-4 h-11 w-auto brightness-0 invert"
             />
@@ -175,7 +176,7 @@ export function Section12Footer() {
           </div>
           <div>
             <img
-              src="/images/pagamentos.png"
+              src={publicUrl("images/pagamentos.png")}
               alt="Formas de pagamento aceitas"
               className="h-[42px] w-auto object-contain"
             />
@@ -194,7 +195,7 @@ export function Section12Footer() {
               aria-label="P12 Digital — abrir site"
             >
               <img
-                src="/images/logotipo_p12.png"
+                src={publicUrl("images/logotipo_p12.png")}
                 alt="P12 Digital"
                 className="h-7 w-auto object-contain sm:h-8"
               />

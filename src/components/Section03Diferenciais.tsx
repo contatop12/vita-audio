@@ -1,4 +1,5 @@
 import { btnCta, btnIco, container } from "../vita-tw"
+import { publicUrl } from "../utils/publicUrl"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
@@ -48,7 +49,7 @@ export function Section03Diferenciais() {
         </div>
         <div className="order-first flex justify-center md:order-none">
           <img
-            src="/images/f1.png"
+            src={publicUrl("images/f1.png")}
             alt="Casal feliz com aparelhos auditivos"
             className="w-[500px]"
           />

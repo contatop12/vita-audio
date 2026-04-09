@@ -1,41 +1,42 @@
 import { AlertTriangle } from "lucide-react"
 import { btnCta, btnIco, container } from "../vita-tw"
+import { publicUrl } from "../utils/publicUrl"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
 const cards: { src: string; alt: string; title: string; body: string }[] = [
   {
-    src: "/images/f4.png",
+    src: publicUrl("images/f4.png"),
     alt: "Dificuldade em Entender Conversas",
     title: "Dificuldade em Entender Conversas",
     body: "Se você consegue ouvir, mas sente dificuldade em entender as conversas no trabalho ou no seu ambiente familiar, é um sinal que você precisa dar atenção à sua saúde auditiva.",
   },
   {
-    src: "/images/f5.png",
+    src: publicUrl("images/f5.png"),
     alt: "Assiste TV com o Volume Muito Alto",
     title: "Assiste TV com o Volume Muito Alto",
     body: "Assim como a fala, se os seus familiares vivem reclamando que você assiste TV ou ouve rádio com o volume muito alto, é hora de ligar o alerta. Esses comportamentos podem ser sinais de problemas auditivos.",
   },
   {
-    src: "/images/f6.png",
+    src: publicUrl("images/f6.png"),
     alt: "Sofre com Zumbidos no Ouvido",
     title: "Sofre com Zumbidos no Ouvido",
     body: "A perda auditiva é uma das principais causas de zumbido no ouvido. Em aproximadamente 90% dos casos com este sintoma, o diagnóstico apresenta algum nível de perda auditiva.",
   },
   {
-    src: "/images/f7.png",
+    src: publicUrl("images/f7.png"),
     alt: "Intolerância a Ruídos Intensos",
     title: "Intolerância a Ruídos Intensos",
     body: "Sentir desconforto e intolerância com barulhos comuns do nosso dia a dia não é normal! Se você sofre com este sintoma e sente que isso te incomoda, procure ajuda profissional.",
   },
   {
-    src: "/images/f8.png",
+    src: publicUrl("images/f8.png"),
     alt: "Dificuldade em Ouvir em Ambientes Cheios",
     title: "Dificuldade em Ouvir em Ambientes Cheios",
     body: "Você sente dificuldade para ouvir em ambientes muito cheios, como restaurantes ou shoppings? Este também é um sintoma que você deve ficar atento! Procure um profissional.",
   },
   {
-    src: "/images/f9.png",
+    src: publicUrl("images/f9.png"),
     alt: "Tem Costume de Falar Muito Alto",
     title: "Tem Costume de Falar Muito Alto",
     body: "Se as pessoas com quem você convive sempre ficam reclamando que você fala alto demais, esse pode ser um sinal de perda auditiva. Procure um centro auditivo especializado.",

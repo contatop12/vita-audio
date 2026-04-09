@@ -1,4 +1,5 @@
 import { container } from "../vita-tw"
+import { publicUrl } from "../utils/publicUrl"
 
 export function Section09Conheca() {
   return (
@@ -26,7 +27,7 @@ export function Section09Conheca() {
         </div>
         <div className="order-first md:order-0">
           <img
-            src="/images/F.png"
+            src={publicUrl("images/F.png")}
             alt="Fachada da Vita Audio — aparelhos auditivos"
             className="block w-full rounded-xl shadow-[0_4px_24px_rgba(0,0,0,0.08)]"
           />

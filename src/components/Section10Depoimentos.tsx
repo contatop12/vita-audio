@@ -1,60 +1,61 @@
 import { container } from "../vita-tw"
+import { publicUrl } from "../utils/publicUrl"
 
 const depoimentos: { quote: string; name: string; img: string; alt: string }[] = [
   {
     quote:
       '"Estou extremamente satisfeita com o serviço da Vita Audio. Eles me ajudaram a encontrar o aparelho auditivo perfeito para minhas necessidades. Recomendo muito!"',
     name: "Maria Silva",
-    img: "/images/dep-1.jpg",
+    img: publicUrl("images/dep-1.jpg"),
     alt: "Maria Silva",
   },
   {
     quote:
       '"Excelente atendimento! Os profissionais da Vita Audio são muito atenciosos e competentes. Agora posso ouvir claramente graças aos aparelhos que adquiri aqui."',
     name: "Pedro Gonçalves",
-    img: "/images/dep-2.jpg",
+    img: publicUrl("images/dep-2.jpg"),
     alt: "Pedro Gonçalves",
   },
   {
     quote:
       '"A Vita Audio mudou minha vida! Eu estava sofrendo com zumbidos constantes, mas após o tratamento personalizado que recebi aqui, finalmente encontrei alívio. Muito obrigada!"',
     name: "Ana Oliveira",
-    img: "/images/dep-3.jpg",
+    img: publicUrl("images/dep-3.jpg"),
     alt: "Ana Oliveira",
   },
   {
     quote:
       '"Ótima variedade de aparelhos auditivos e acessórios. Encontrei tudo o que precisava na Vita Audio, e o serviço foi impecável. Recomendo!"',
     name: "João Santos",
-    img: "/images/dep-4.jpg",
+    img: publicUrl("images/dep-4.jpg"),
     alt: "João Santos",
   },
   {
     quote:
       '"Profissionais super competentes e atenciosos! Recebi um atendimento personalizado do início ao fim, e agora posso ouvir com clareza novamente. Muito obrigada, Vita Audio!"',
     name: "Carla Fernandes",
-    img: "/images/dep-5.jpg",
+    img: publicUrl("images/dep-5.jpg"),
     alt: "Carla Fernandes",
   },
   {
     quote:
       '"Estou muito feliz com meu novo aparelho auditivo da Vita Audio. A qualidade do som é incrível e o processo de adaptação foi muito tranquilo. Recomendo a todos!"',
     name: "Ricardo Carvalho",
-    img: "/images/dep-6.jpg",
+    img: publicUrl("images/dep-6.jpg"),
     alt: "Ricardo Carvalho",
   },
   {
     quote:
       '"Excelente clínica auditiva! Fui recebida com muita simpatia e profissionalismo. Os fonoaudiólogos da Vita Audio são verdadeiros especialistas no que fazem."',
     name: "Patrícia Almeida",
-    img: "/images/dep-7.jpg",
+    img: publicUrl("images/dep-7.jpg"),
     alt: "Patrícia Almeida",
   },
   {
     quote:
       '"Encontrei na Vita Audio a solução perfeita para meus problemas auditivos. Eles me guiaram na escolha do aparelho ideal e me proporcionaram um atendimento excepcional."',
     name: "Marcos Oliveira",
-    img: "/images/dep-8.jpg",
+    img: publicUrl("images/dep-8.jpg"),
     alt: "Marcos Oliveira",
   },
 ]

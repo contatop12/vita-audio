@@ -3,9 +3,38 @@
   "framework": "vite",
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/aparelhosauditivos/indaiatuba",
+      "permanent": true
+    },
+    {
+      "source": "/obrigado",
+      "destination": "/aparelhosauditivos/indaiatuba/obrigado",
+      "permanent": false
+    },
+    {
+      "source": "/aparelhosauditivos/indaiatuba/",
+      "destination": "/aparelhosauditivos/indaiatuba",
+      "permanent": true
+    }
+  ],
   "rewrites": [
     {
-      "source": "/(.*)",
+      "source": "/aparelhosauditivos/indaiatuba/assets/:path*",
+      "destination": "/assets/:path*"
+    },
+    {
+      "source": "/aparelhosauditivos/indaiatuba/images/:path*",
+      "destination": "/images/:path*"
+    },
+    {
+      "source": "/aparelhosauditivos/indaiatuba/obrigado",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/aparelhosauditivos/indaiatuba",
       "destination": "/index.html"
     }
   ]

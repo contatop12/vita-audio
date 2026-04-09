@@ -1,4 +1,5 @@
 import { btnCta, btnIco, container } from "../vita-tw"
+import { publicUrl } from "../utils/publicUrl"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
@@ -39,7 +40,7 @@ export function Section07NaoPercas() {
         </div>
         <div className="order-first md:order-none">
           <img
-            src="/images/f3.png"
+            src={publicUrl("images/f3.png")}
             alt="Família feliz reunida"
             className="max-h-[380px] w-full rounded-lg object-cover"
           />

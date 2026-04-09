@@ -8,25 +8,35 @@ import { btnCta, btnIco, container } from "../vita-tw"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
+type GoogleReview = {
+  quote: string
+  name: string
+  /** Caminho em /public/images/... (codificado na hora do render se tiver espaços). */
+  photoFile?: string
+  initial?: string
+  avatarClass?: string
+}
+
 /** Comentários reais do Google Meu Negócio — atualize quando quiser destacar outras avaliações. */
-const googleReviews: { quote: string; initial: string; avatarClass: string }[] = [
+const googleReviews: GoogleReview[] = [
   {
+    name: "Renate Hoffmann",
     quote:
-      "Tem várias opções de produtos e o lugar é bem confortável.",
-    initial: "V",
-    avatarClass: "bg-vita-blue text-white",
-  },
-  {
-    quote:
-      "Atendimento excelente desde a recepção até a Dra Tayla, profissional incrível.",
-    initial: "L",
-    avatarClass: "bg-vita-blue-dark text-white",
-  },
-  {
-    quote:
-      "Queria agradecer o atendimento, ótimo atendimento, ótimo produto recomendo.",
-    initial: "N",
+      "Adquirimos um aparelho auditivo da marca Rexton na Vita Audio para meu marido, com 2 anos de garantia e suporte vitalício da empresa, que devolveu a audição que ele tinha perdido há 4 anos e aprimorou demais sua qualidade de vida. O atendimento foi de excelência, desde a recepção (Natasha), até a Dra. Tayla, profissional extremamente competente, dedicada e atenciosa, que não mede esforços para a plena satisfação de seus clientes ! Parabéns e nosso muito obrigado à equipe, recomendamos a todos de olhos fechados, garantia de qualidade e satisfação !",
+    initial: "R",
     avatarClass: "bg-vita-orange text-vita-text",
+  },
+  {
+    name: "Andressa Santos de Jesus",
+    quote:
+      "Gostaria de registrar meu agradecimento à Tayla e à Raquel pelo excelente atendimento na clínica Vita Áudio. Fomos muito bem recebidos, com atenção, cuidado e profissionalismo em todos os momentos. A dedicação, a paciência e a forma clara como conduziram o atendimento fizeram toda a diferença. Parabéns pelo trabalho e muito obrigada pelo carinho e competência!",
+    photoFile: "Andressa Santos de Jesus.png",
+  },
+  {
+    name: "Drisana Vilalva",
+    quote:
+      "Atendimento excepcional, equipe sempre atenciosa e pronta pra atender em todos os momentos. Espaço confortável, o cappuccino é maravilhoso rsrs Obrigada equipe, melhor decisão da minha vida 💗 ...",
+    photoFile: "Drisana Vilalva.png",
   },
 ]
 
@@ -37,6 +47,27 @@ function Stars({ className }: { className?: string }) {
         <Star key={i} className="size-4 fill-current" strokeWidth={0} />
       ))}
     </div>
+  )
+}
+
+function ReviewAvatar({ review }: { review: GoogleReview }) {
+  if (review.photoFile) {
+    const src = `/images/${encodeURIComponent(review.photoFile)}`
+    return (
+      <img
+        src={src}
+        alt=""
+        className="size-9 shrink-0 rounded-full border border-vita-blue/15 object-cover"
+      />
+    )
+  }
+  return (
+    <span
+      className={`flex size-9 shrink-0 items-center justify-center rounded-full text-sm font-bold ${review.avatarClass ?? "bg-vita-blue text-white"}`}
+      aria-hidden
+    >
+      {review.initial}
+    </span>
   )
 }
 
@@ -67,10 +98,10 @@ export function Section10bGoogleReviews() {
           </a>
         </div>
 
-        <div className="mx-auto mt-12 grid max-w-[1100px] grid-cols-1 gap-4 md:grid-cols-3">
-          {googleReviews.map((r, i) => (
+        <div className="mx-auto mt-12 grid max-w-[1100px] grid-cols-1 gap-4 md:grid-cols-3 md:items-stretch">
+          {googleReviews.map((r) => (
             <article
-              key={i}
+              key={r.name}
               className="flex flex-col rounded-lg border-l-[3px] border-vita-orange bg-white p-5 shadow-[0_2px_16px_rgba(0,109,196,0.08)]"
             >
               <Stars className="mb-4" />
@@ -79,14 +110,9 @@ export function Section10bGoogleReviews() {
               </p>
               <div className="mt-5 flex items-center justify-between gap-3 border-t border-vita-blue/12 pt-4">
                 <div className="flex min-w-0 items-center gap-2.5">
-                  <span
-                    className={`flex size-9 shrink-0 items-center justify-center rounded-full text-sm font-bold ${r.avatarClass}`}
-                    aria-hidden
-                  >
-                    {r.initial}
-                  </span>
-                  <span className="text-[13px] font-semibold text-vita-text">
-                    Cliente verificado
+                  <ReviewAvatar review={r} />
+                  <span className="min-w-0 text-[13px] font-semibold leading-snug text-vita-text">
+                    {r.name}
                   </span>
                 </div>
                 <span className="shrink-0 text-xs text-vita-text-mid">Google</span>

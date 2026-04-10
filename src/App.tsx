@@ -66,6 +66,7 @@ export default function App() {
       <Section01TopBar />
       <Section02Hero />
       <Section03Diferenciais />
+      <Section10cCarrosselHistorias />
       <Section04Especialista />
       <Section05CtaAvaliacao />
       <Section06Sintomas />
@@ -74,7 +75,6 @@ export default function App() {
       <Section08Produtos />
       <Section09Conheca />
       <Section10Depoimentos />
-      <Section10cCarrosselHistorias />
       <Section10bGoogleReviews />
       <Section11Faq />
       <Section12Footer />

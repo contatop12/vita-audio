@@ -93,6 +93,17 @@ export function Section10cCarrosselHistorias() {
       aria-label="Casos e bastidores — Vita Audio"
     >
       <div className={container}>
+        <div className="mx-auto mb-10 max-w-[720px] text-center md:mb-12">
+          <p className="text-[15px] leading-relaxed text-vita-text md:text-base">
+            Cuidado de verdade, com acompanhamento do começo ao fim. Avaliação, teste e
+            adaptação com ajustes feitos para a sua rotina.
+          </p>
+          <p className="mt-4 text-[15px] leading-relaxed text-vita-text md:text-base">
+            Tudo com a orientação da nossa fonoaudióloga responsável, Tayla Wana, com
+            atendimento atencioso em cada etapa.
+          </p>
+        </div>
+
         <header className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
           <h2 className="text-[26px] font-semibold leading-snug text-vita-blue md:text-[30px]">
             Casos e bastidores

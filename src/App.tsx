@@ -10,6 +10,7 @@ import {
   Section08Produtos,
   Section09Conheca,
   Section10Depoimentos,
+  Section10cCarrosselHistorias,
   Section10bGoogleReviews,
   Section11Faq,
   Section12Footer,
@@ -73,6 +74,7 @@ export default function App() {
       <Section08Produtos />
       <Section09Conheca />
       <Section10Depoimentos />
+      <Section10cCarrosselHistorias />
       <Section10bGoogleReviews />
       <Section11Faq />
       <Section12Footer />

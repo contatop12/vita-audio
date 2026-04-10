@@ -94,7 +94,7 @@ export function Section10cCarrosselHistorias() {
     >
       <div className={container}>
         <header className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
-          <h2 className="font-vita-serif text-[26px] font-semibold tracking-tight text-vita-blue md:text-[30px]">
+          <h2 className="text-[26px] font-semibold leading-snug text-vita-blue md:text-[30px]">
             Casos e bastidores
           </h2>
           <p className="mt-2 text-sm leading-relaxed text-vita-text-mid md:text-[15px]">

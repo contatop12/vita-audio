@@ -90,30 +90,27 @@ export function Section10cCarrosselHistorias() {
     <section
       className="bg-[#f7f6f3] py-14 md:py-[72px]"
       aria-roledescription="carousel"
-      aria-label="Casos e bastidores — Vita Audio"
+      aria-labelledby="carrossel-titulo"
     >
       <div className={container}>
-        <div className="mx-auto mb-10 max-w-[720px] text-center md:mb-12">
-          <p className="text-[15px] leading-relaxed text-vita-text md:text-base">
+        <header className="mx-auto mb-10 max-w-[760px] text-center md:mb-14">
+          <h2
+            id="carrossel-titulo"
+            className="text-[26px] font-semibold leading-snug text-vita-blue md:text-[30px]"
+          >
             Cuidado de verdade, com acompanhamento do começo ao fim. Avaliação, teste e
             adaptação com ajustes feitos para a sua rotina.
-          </p>
-          <p className="mt-4 text-[15px] leading-relaxed text-vita-text md:text-base">
+          </h2>
+          <p className="mt-5 text-[15px] leading-relaxed text-vita-text-mid md:mt-6 md:text-base">
             Tudo com a orientação da nossa fonoaudióloga responsável, Tayla Wana, com
             atendimento atencioso em cada etapa.
           </p>
-        </div>
-
-        <header className="mx-auto mb-10 max-w-2xl text-center md:mb-12">
-          <h2 className="text-[26px] font-semibold leading-snug text-vita-blue md:text-[30px]">
-            Casos e bastidores
-          </h2>
-          <p className="mt-2 text-sm leading-relaxed text-vita-text-mid md:text-[15px]">
-            Confira alguns registros do dia a dia na Vita Audio.
-          </p>
         </header>
 
-        <div className="relative mx-auto max-w-[1100px] px-1 sm:px-0">
+        <div
+          className="relative mx-auto max-w-[1100px] px-1 sm:px-0"
+          aria-label="Registros do dia a dia na Vita Audio"
+        >
           <button
             type="button"
             onClick={goPrev}

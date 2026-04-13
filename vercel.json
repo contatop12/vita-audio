@@ -22,6 +22,14 @@
   ],
   "rewrites": [
     {
+      "source": "/aparelho-auditivo/favicon.png",
+      "destination": "/favicon.png"
+    },
+    {
+      "source": "/aparelho-auditivo/apple-touch-icon.png",
+      "destination": "/apple-touch-icon.png"
+    },
+    {
       "source": "/aparelho-auditivo/assets/:path*",
       "destination": "/assets/:path*"
     },

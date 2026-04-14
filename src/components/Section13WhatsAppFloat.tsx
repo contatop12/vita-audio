@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from "react"
 import { OBRIGADO_PATH } from "../constants/paths"
-import { LEAD_WEBHOOK_URL, WHATSAPP_CHAT_URL } from "../constants/site"
+import { LEAD_WEBHOOK_URL } from "../constants/site"
 import {
   WHATSAPP_LEAD_FORM_ID,
   WHATSAPP_LEAD_POPUP_EVENT,
@@ -53,14 +53,6 @@ export function Section13WhatsAppFloat() {
       // O fluxo principal (WhatsApp + obrigado) não deve quebrar se o webhook falhar.
     })
 
-    const mensagem = [
-      "Olá! Vim do site e quero atendimento.",
-      `Nome: ${nome}`,
-      `DDD + WhatsApp: ${digits || whats}`,
-    ].join("\n")
-
-    const url = `${WHATSAPP_CHAT_URL}?text=${encodeURIComponent(mensagem)}`
-    window.open(url, "_blank", "noopener,noreferrer")
     setIsOpen(false)
     window.location.href = OBRIGADO_PATH
   }
@@ -84,7 +76,7 @@ export function Section13WhatsAppFloat() {
               Fale com a Vita Audio
             </h3>
             <p className="mt-1 mb-6 text-sm leading-relaxed text-vita-text-mid">
-              Preencha os dados para continuar no WhatsApp.
+              Preencha os dados e nossa equipe entrará em contato.
             </p>
             <form
               id={WHATSAPP_LEAD_FORM_ID}
@@ -150,7 +142,7 @@ export function Section13WhatsAppFloat() {
                   className="w-1/2 rounded-xl bg-vita-blue px-3 py-2.5 text-sm font-semibold text-white transition hover:bg-vita-blue-dark disabled:cursor-not-allowed disabled:opacity-60"
                   disabled={!consent}
                 >
-                  Ir para WhatsApp
+                  Enviar contato
                 </button>
               </div>
             </form>

@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from "react"
 import { OBRIGADO_PATH } from "../constants/paths"
-import { WHATSAPP_CHAT_URL } from "../constants/site"
+import { LEAD_WEBHOOK_URL, WHATSAPP_CHAT_URL } from "../constants/site"
 import {
   WHATSAPP_LEAD_FORM_ID,
   WHATSAPP_LEAD_POPUP_EVENT,
@@ -35,6 +35,24 @@ export function Section13WhatsAppFloat() {
     if (!consent) return
 
     const digits = whats.replace(/\D/g, "")
+    const payload = {
+      nome: nome.trim(),
+      telefone: digits || whats,
+      consentimento: consent,
+      origem: WHATSAPP_LEAD_FORM_ID,
+      pagina: window.location.href,
+      enviadoEm: new Date().toISOString(),
+    }
+
+    void fetch(LEAD_WEBHOOK_URL, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+      keepalive: true,
+    }).catch(() => {
+      // O fluxo principal (WhatsApp + obrigado) não deve quebrar se o webhook falhar.
+    })
+
     const mensagem = [
       "Olá! Vim do site e quero atendimento.",
       `Nome: ${nome}`,

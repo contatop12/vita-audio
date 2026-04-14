@@ -1,6 +1,8 @@
 /** Links e contactos centralizados */
 export const WHATSAPP_URL = "https://wa.me/message/5V24WTVNCMCXE1"
 export const WHATSAPP_CHAT_URL = "https://wa.me/5519998806076"
+export const LEAD_WEBHOOK_URL =
+  "https://n8n-webhook.axmxa0.easypanel.host/webhook/vita-audio-lp"
 export const WHATSAPP_FOOTER_URL = `${WHATSAPP_CHAT_URL}?text=${encodeURIComponent(
   "Olá! Vim pelo site e gostaria de atendimento.",
 )}`

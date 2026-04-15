@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react"
 import {
   Section01TopBar,
   Section02Hero,
@@ -18,11 +19,32 @@ import {
 } from "./components"
 import { CheckCircle2 } from "lucide-react"
 import { OBRIGADO_PATH } from "./constants/paths"
+import { WHATSAPP_FOOTER_URL } from "./constants/site"
 import { container } from "./vita-tw"
 
 export default function App() {
   const pathname = window.location.pathname.replace(/\/+$/, "") || "/"
   const isObrigadoPage = pathname === OBRIGADO_PATH
+  const [secondsLeft, setSecondsLeft] = useState(2)
+
+  useEffect(() => {
+    if (!isObrigadoPage) return
+
+    setSecondsLeft(2)
+
+    const intervalId = window.setInterval(() => {
+      setSecondsLeft((prev) => Math.max(prev - 1, 0))
+    }, 1000)
+
+    const timeoutId = window.setTimeout(() => {
+      window.location.href = WHATSAPP_FOOTER_URL
+    }, 2000)
+
+    return () => {
+      window.clearInterval(intervalId)
+      window.clearTimeout(timeoutId)
+    }
+  }, [isObrigadoPage])
 
   if (isObrigadoPage) {
     return (
@@ -36,6 +58,9 @@ export default function App() {
             <p className="mt-3 text-sm leading-relaxed text-vita-text-mid sm:text-base">
               Recebemos suas informações com sucesso. Logo um atendente entrará em contato
               com você para continuar seu atendimento.
+            </p>
+            <p className="mt-3 text-sm font-medium text-vita-blue">
+              Redirecionando para o WhatsApp em {secondsLeft}s...
             </p>
             <div className="mt-7 flex justify-center">
               <a

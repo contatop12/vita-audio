@@ -36,6 +36,11 @@ export function Section02Hero() {
       />
       <div className={`relative z-10 ${container} grid w-full grid-cols-1 items-center`}>
         <div className="max-w-[560px] max-md:rounded-2xl max-md:bg-white/55 max-md:p-5 max-md:backdrop-blur-[2px]">
+          <img
+            src={publicUrl("images/logo.png")}
+            alt="Vita Audio"
+            className="mb-5 h-10 w-auto object-contain sm:h-11"
+          />
           <h1 className="mb-4 text-[28px] font-semibold leading-snug text-[#003060] max-[600px]:text-[28px] md:text-[32px] md:text-[#004080] ">
             Está com Dificuldade para Ouvir ou Zumbido no Ouvido?
           </h1>

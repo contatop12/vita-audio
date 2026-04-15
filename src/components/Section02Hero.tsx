@@ -37,7 +37,7 @@ export function Section02Hero() {
       <div className={`relative z-10 ${container} grid w-full grid-cols-1 items-center`}>
         <div className="max-w-[560px] max-md:rounded-2xl max-md:bg-white/55 max-md:p-5 max-md:backdrop-blur-[2px]">
           <img
-            src={publicUrl("apple-touch-icon.webp")}
+            src={publicUrl("apple-touch-icon.png")}
             alt="Vita Audio"
             className="mb-5 h-auto w-[165px] object-contain sm:w-[179px]"
           />

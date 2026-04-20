@@ -8,6 +8,8 @@ import {
 } from "../utils/whatsappLeadPopup"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
+const BR_DDI = "55"
+
 function formatPhone(value: string) {
   const digits = value.replace(/\D/g, "").slice(0, 11)
 
@@ -35,9 +37,10 @@ export function Section13WhatsAppFloat() {
     if (!consent) return
 
     const digits = whats.replace(/\D/g, "")
+    const telefoneComDdi = digits ? `${BR_DDI}${digits}` : whats
     const payload = {
       nome: nome.trim(),
-      telefone: digits || whats,
+      telefone: telefoneComDdi,
       consentimento: consent,
       origem: WHATSAPP_LEAD_FORM_ID,
       pagina: window.location.href,
@@ -100,19 +103,24 @@ export function Section13WhatsAppFloat() {
 
               <label className="block space-y-1.5">
                 <span className="text-xs font-semibold tracking-wide text-vita-blue/80">
-                  DDD + WhatsApp
+                  DDI + DDD + WhatsApp
                 </span>
-                <input
-                  type="tel"
-                  required
-                  value={whats}
-                  onChange={(e) => setWhats(formatPhone(e.target.value))}
-                  placeholder="(19) 99880-6076"
-                  inputMode="numeric"
-                  autoComplete="tel"
-                  maxLength={15}
-                  className="w-full rounded-xl border border-[#d3dfec] bg-[#fbfdff] px-3.5 py-2.5 text-sm text-vita-text outline-none transition placeholder:text-neutral-400 focus:border-vita-blue focus:bg-white"
-                />
+                <div className="flex items-center rounded-xl border border-[#d3dfec] bg-[#fbfdff] transition focus-within:border-vita-blue focus-within:bg-white">
+                  <span className="border-r border-[#d3dfec] px-3 text-sm font-medium text-vita-blue/90">
+                    +{BR_DDI}
+                  </span>
+                  <input
+                    type="tel"
+                    required
+                    value={whats}
+                    onChange={(e) => setWhats(formatPhone(e.target.value))}
+                    placeholder="(19) 99880-6076"
+                    inputMode="numeric"
+                    autoComplete="tel"
+                    maxLength={15}
+                    className="w-full bg-transparent px-3.5 py-2.5 text-sm text-vita-text outline-none placeholder:text-neutral-400"
+                  />
+                </div>
               </label>
 
               <label className="flex items-start gap-2.5 rounded-lg bg-[#f4f8fc] p-3 text-xs leading-relaxed text-vita-text-mid">

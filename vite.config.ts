@@ -4,6 +4,6 @@ import { defineConfig } from "vite"
 import { cloudflare } from "@cloudflare/vite-plugin"
 
 export default defineConfig({
-  base: "/aparelho-auditivo/",
+  base: "/",
   plugins: [react(), tailwindcss(), cloudflare()],
 })

@@ -1,4 +1,4 @@
-import { FormEvent, useEffect, useState } from "react"
+import { FormEvent, useEffect, useMemo, useState } from "react"
 import { OBRIGADO_PATH } from "../constants/paths"
 import { LEAD_WEBHOOK_URL, LEAD_WEBHOOK_URL_2 } from "../constants/site"
 import {
@@ -11,6 +11,24 @@ import {
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
 const BR_DDI = "55"
+const UTM_FIELDS = [
+  "utm_source",
+  "utm_medium",
+  "utm_campaign",
+  "utm_term",
+  "utm_content",
+] as const
+
+function getUtmParams(): Record<(typeof UTM_FIELDS)[number], string> {
+  const search = new URLSearchParams(window.location.search)
+  return {
+    utm_source: search.get("utm_source") ?? "",
+    utm_medium: search.get("utm_medium") ?? "",
+    utm_campaign: search.get("utm_campaign") ?? "",
+    utm_term: search.get("utm_term") ?? "",
+    utm_content: search.get("utm_content") ?? "",
+  }
+}
 
 function formatPhone(value: string) {
   const digits = value.replace(/\D/g, "").slice(0, 11)
@@ -27,6 +45,7 @@ export function Section13WhatsAppFloat() {
   const [nome, setNome] = useState("")
   const [whats, setWhats] = useState("")
   const [consent, setConsent] = useState(true)
+  const utmParams = useMemo(() => getUtmParams(), [])
 
   useEffect(() => {
     const handleOpen = () => setIsOpen(true)
@@ -46,6 +65,7 @@ export function Section13WhatsAppFloat() {
       nome: nome.trim(),
       telefone: telefoneComDdi,
       consentimento: consent,
+      ...utmParams,
       origem: WHATSAPP_LEAD_FORM_ID,
       pagina: window.location.href,
       enviadoEm: new Date().toISOString(),
@@ -94,6 +114,15 @@ export function Section13WhatsAppFloat() {
               className="space-y-4"
               onSubmit={handleSubmit}
             >
+              {UTM_FIELDS.map((field) => (
+                <input
+                  key={field}
+                  type="hidden"
+                  name={field}
+                  value={utmParams[field]}
+                  readOnly
+                />
+              ))}
               <label className="block space-y-1.5">
                 <span className="text-xs font-semibold tracking-wide text-vita-blue/80">
                   Nome

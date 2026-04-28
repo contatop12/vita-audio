@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useState } from "react"
 import { OBRIGADO_PATH } from "../constants/paths"
-import { LEAD_WEBHOOK_URL } from "../constants/site"
+import { LEAD_WEBHOOK_URL, LEAD_WEBHOOK_URL_2 } from "../constants/site"
 import {
   WHATSAPP_LEAD_CODI_ID,
   WHATSAPP_LEAD_FORM_ID,
@@ -51,14 +51,17 @@ export function Section13WhatsAppFloat() {
       enviadoEm: new Date().toISOString(),
     }
 
-    void fetch(LEAD_WEBHOOK_URL, {
+    const request = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(payload),
       keepalive: true,
-    }).catch(() => {
-      // O fluxo principal (WhatsApp + obrigado) não deve quebrar se o webhook falhar.
-    })
+    } as const
+
+    void Promise.allSettled([
+      fetch(LEAD_WEBHOOK_URL, request),
+      fetch(LEAD_WEBHOOK_URL_2, request),
+    ])
 
     setIsOpen(false)
     window.location.href = OBRIGADO_PATH

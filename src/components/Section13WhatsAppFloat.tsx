@@ -2,7 +2,9 @@ import { FormEvent, useEffect, useState } from "react"
 import { OBRIGADO_PATH } from "../constants/paths"
 import { LEAD_WEBHOOK_URL } from "../constants/site"
 import {
+  WHATSAPP_LEAD_CODI_ID,
   WHATSAPP_LEAD_FORM_ID,
+  WHATSAPP_LEAD_FORM_NAME,
   WHATSAPP_LEAD_POPUP_EVENT,
   openWhatsAppLeadPopup,
 } from "../utils/whatsappLeadPopup"
@@ -39,6 +41,8 @@ export function Section13WhatsAppFloat() {
     const digits = whats.replace(/\D/g, "")
     const telefoneComDdi = digits ? `${BR_DDI}${digits}` : whats
     const payload = {
+      form_id: WHATSAPP_LEAD_FORM_NAME,
+      codi_id: WHATSAPP_LEAD_CODI_ID,
       nome: nome.trim(),
       telefone: telefoneComDdi,
       consentimento: consent,

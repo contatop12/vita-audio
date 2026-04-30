@@ -4,7 +4,7 @@ export const WHATSAPP_CHAT_URL = "https://wa.me/5519998806076"
 export const LEAD_WEBHOOK_URL =
   "https://n8n-webhook.axmxa0.easypanel.host/webhook/vita-audio-lp"
 export const LEAD_WEBHOOK_URL_2 =
-  "https://python-auto-relatorio-trafego.axmxa0.easypanel.host/meta-new-lead"
+  "https://python-auto-relatorio-trafego.axmxa0.easypanel.host/site-new-lead"
 export const WHATSAPP_FOOTER_URL = WHATSAPP_CHAT_URL
 export const PHONE_HREF = "tel:+551999880-6076"
 export const PHONE_DISPLAY = "(19) 99017-7608 (19) 3894-6349"

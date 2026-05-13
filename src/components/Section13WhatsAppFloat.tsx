@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useMemo, useState } from "react"
 import { OBRIGADO_PATH } from "../constants/paths"
-import { LEAD_WEBHOOK_URL, LEAD_WEBHOOK_URL_2 } from "../constants/site"
+import { LEAD_WEBHOOK_URL } from "../constants/site"
 import {
   WHATSAPP_LEAD_CODI_ID,
   WHATSAPP_LEAD_FORM_ID,
@@ -71,20 +71,22 @@ export function Section13WhatsAppFloat() {
       enviadoEm: new Date().toISOString(),
     }
 
-    const request = {
+    const body = JSON.stringify(payload)
+    const n8nRequest = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload),
+      body,
       keepalive: true,
     } as const
 
-    void Promise.allSettled([
-      fetch(LEAD_WEBHOOK_URL, request),
-      fetch(LEAD_WEBHOOK_URL_2, request),
-    ])
-
-    setIsOpen(false)
-    window.location.href = OBRIGADO_PATH
+    void (async () => {
+      await Promise.allSettled([fetch(LEAD_WEBHOOK_URL, n8nRequest)])
+      setIsOpen(false)
+      window.location.href = OBRIGADO_PATH
+    })().catch(() => {
+      setIsOpen(false)
+      window.location.href = OBRIGADO_PATH
+    })
   }
 
   return (

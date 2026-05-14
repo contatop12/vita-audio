@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.vitaaudio.com.br/sitemap.xml
+Sitemap: https://audicao.vitaaudio.com.br/sitemap.xml

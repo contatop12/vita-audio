@@ -1,4 +1,5 @@
 /** Links e contactos centralizados */
+export const SITE_ORIGIN = "https://audicao.vitaaudio.com.br"
 export const WHATSAPP_URL = "https://wa.me/message/5V24WTVNCMCXE1"
 export const WHATSAPP_CHAT_URL = "https://wa.me/5519998806076"
 export const LEAD_WEBHOOK_URL =

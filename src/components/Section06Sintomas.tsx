@@ -1,8 +1,7 @@
 import { AlertTriangle } from "lucide-react"
-import { btnCta, btnIco, container } from "../vita-tw"
+import { btnForm, container } from "../vita-tw"
 import { publicUrl } from "../utils/publicUrl"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
-import { WhatsAppIcon } from "./WhatsAppIcon"
 
 const cards: { src: string; alt: string; title: string; body: string }[] = [
   {
@@ -27,7 +26,7 @@ const cards: { src: string; alt: string; title: string; body: string }[] = [
     src: publicUrl("images/f7.png"),
     alt: "Intolerância a Ruídos Intensos",
     title: "Intolerância a Ruídos Intensos",
-    body: "Sentir desconforto e intolerância com barulhos comuns do nosso dia a dia não é normal! Se você sofre com este sintoma e sente que isso te incomoda, procure ajuda profissional.",
+    body: "Sentir desconforto com sons do dia a dia que antes não incomodavam pode ser um sinal de alteração auditiva. Uma avaliação ajuda a entender o que está acontecendo.",
   },
   {
     src: publicUrl("images/f8.png"),
@@ -85,13 +84,8 @@ export function Section06Sintomas() {
               agende sua consulta agora mesmo
             </strong>
           </p>
-          <button
-            type="button"
-            onClick={openWhatsAppLeadPopup}
-            className={`${btnCta} shrink-0`}
-          >
-            <WhatsAppIcon className={btnIco} size={18} />
-            <span>AGENDAR CONSULTA PELO WHATSAPP</span>
+          <button type="button" onClick={openWhatsAppLeadPopup} className={`${btnForm} shrink-0`}>
+            Agendar Minha Avaliação
           </button>
         </div>
       </div>

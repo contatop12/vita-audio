@@ -18,6 +18,21 @@
       "source": "/aparelho-auditivo/",
       "destination": "/aparelho-auditivo",
       "permanent": true
+    },
+    {
+      "source": "/audiometria/",
+      "destination": "/audiometria",
+      "permanent": true
+    },
+    {
+      "source": "/zumbido-no-ouvido/",
+      "destination": "/zumbido-no-ouvido",
+      "permanent": true
+    },
+    {
+      "source": "/perda-auditiva/",
+      "destination": "/perda-auditiva",
+      "permanent": true
     }
   ],
   "rewrites": [
@@ -43,6 +58,30 @@
     },
     {
       "source": "/aparelho-auditivo",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/audiometria/obrigado",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/audiometria",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/zumbido-no-ouvido/obrigado",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/zumbido-no-ouvido",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/perda-auditiva/obrigado",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/perda-auditiva",
       "destination": "/index.html"
     }
   ]

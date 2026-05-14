@@ -1,6 +1,14 @@
-import { publicUrl } from "../utils/publicUrl"
-import { btnForm, container } from "../vita-tw"
-import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
+import { publicUrl } from "../../utils/publicUrl"
+import { container } from "../../vita-tw"
+import { CtaButton } from "./CtaButton"
+
+type HeroPageProps = {
+  title: string
+  subtitle: string
+  primaryLabel: string
+  secondaryLabel?: string
+  showLogo?: boolean
+}
 
 const heroGradient = `linear-gradient(
   to right,
@@ -16,7 +24,13 @@ const heroGradient = `linear-gradient(
 const heroBackgroundMobile = `${heroGradient}, url("${publicUrl("images/hero-section-audi-mobile-v1.webp")}")`
 const heroBackgroundDesktop = `${heroGradient}, url("${publicUrl("images/hero-section-audi-v1.webp")}")`
 
-export function Section02Hero() {
+export function HeroPage({
+  title,
+  subtitle,
+  primaryLabel,
+  secondaryLabel,
+  showLogo = true,
+}: HeroPageProps) {
   return (
     <section className="relative flex min-h-[620px] items-center overflow-hidden bg-[#eff4f9] py-12 pb-16">
       <div
@@ -35,21 +49,29 @@ export function Section02Hero() {
       />
       <div className={`relative z-10 ${container} grid w-full grid-cols-1 items-center`}>
         <div className="max-w-[560px] max-md:rounded-2xl max-md:bg-white/55 max-md:p-5 max-md:backdrop-blur-[2px]">
-          <img
-            src={publicUrl("apple-touch-icon.png")}
-            alt="Vita Audio"
-            className="mb-5 h-auto w-[165px] object-contain sm:w-[179px]"
-          />
-          <h1 className="mb-4 text-[28px] font-semibold leading-snug text-[#003060] max-[600px]:text-[28px] md:text-[32px] md:text-[#004080] ">
-            Aparelho Auditivo em Indaiatuba
+          {showLogo ? (
+            <img
+              src={publicUrl("apple-touch-icon.png")}
+              alt="Vita Audio"
+              className="mb-5 h-auto w-[165px] object-contain sm:w-[179px]"
+            />
+          ) : null}
+          <h1 className="mb-4 text-[28px] font-semibold leading-snug text-[#003060] max-[600px]:text-[28px] md:text-[32px] md:text-[#004080]">
+            {title}
           </h1>
           <p className="mb-7 text-[18px] font-medium leading-relaxed text-neutral-900 max-md:text-neutral-950 md:text-neutral-800">
-            Diagnóstico completo e adaptação de aparelho auditivo na mesma clínica.
-            Atendimento humanizado por fonoaudiólogos especializados em saúde auditiva.
+            {subtitle}
           </p>
-          <button type="button" onClick={openWhatsAppLeadPopup} className={btnForm}>
-            Agendar Minha Avaliação
-          </button>
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+            <CtaButton variant="formBrand" className="w-full sm:w-auto">
+              {primaryLabel}
+            </CtaButton>
+            {secondaryLabel ? (
+              <CtaButton variant="whatsapp" className="w-full sm:w-auto">
+                {secondaryLabel}
+              </CtaButton>
+            ) : null}
+          </div>
         </div>
       </div>
     </section>

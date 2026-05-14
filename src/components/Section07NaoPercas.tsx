@@ -1,7 +1,6 @@
-import { btnCta, btnIco, container } from "../vita-tw"
+import { btnForm, container } from "../vita-tw"
 import { publicUrl } from "../utils/publicUrl"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
-import { WhatsAppIcon } from "./WhatsAppIcon"
 
 export function Section07NaoPercas() {
   return (
@@ -29,13 +28,8 @@ export function Section07NaoPercas() {
               Quer conhecer a solução que te traz uma vida melhor? Fale conosco!
             </strong>
           </p>
-          <button
-            type="button"
-            onClick={openWhatsAppLeadPopup}
-            className={`${btnCta} mt-2.5 inline-flex`}
-          >
-            <WhatsAppIcon className={btnIco} size={18} />
-            <span>QUERO MAIS INFORMAÇÕES</span>
+          <button type="button" onClick={openWhatsAppLeadPopup} className={`${btnForm} mt-2.5 inline-flex`}>
+            Agendar Minha Avaliação
           </button>
         </div>
         <div className="order-first md:order-none">

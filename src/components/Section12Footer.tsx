@@ -13,15 +13,16 @@ import {
   WHATSAPP_FOOTER_URL,
   WHATSAPP_DISPLAY,
 } from "../constants/site"
+import { ROUTES } from "../constants/paths"
 import { container } from "../vita-tw"
 import { publicUrl } from "../utils/publicUrl"
 import { WhatsAppIcon } from "./WhatsAppIcon"
 
 const quickLinks = [
-  { label: "Diferenciais", href: "#diferenciais" },
-  { label: "Sintomas", href: "#sintomas" },
-  { label: "Produtos", href: "#produtos" },
-  { label: "Sobre nós", href: "#sobre-nos" },
+  { label: "Aparelho auditivo", href: ROUTES.aparelhoAuditivo },
+  { label: "Audiometria", href: ROUTES.audiometria },
+  { label: "Zumbido no ouvido", href: ROUTES.zumbido },
+  { label: "Perda auditiva", href: ROUTES.perdaAuditiva },
 ]
 
 export function Section12Footer() {

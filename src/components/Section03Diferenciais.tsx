@@ -1,24 +1,17 @@
-import { btnCta, btnIco, container } from "../vita-tw"
+import { btnForm, container } from "../vita-tw"
 import { publicUrl } from "../utils/publicUrl"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
-import { WhatsAppIcon } from "./WhatsAppIcon"
 
 const itens = [
-  <>
-    <strong>Condições imperdíveis</strong> – Aparelhos a partir de R$89,90 mensais
-    (financiamento com o Banco do Brasil) ou parcelamentos direto conosco em até 15x.
-  </>,
-  <>
-    <strong>Até 5 anos de garantia</strong> – A rede Vita Áudio oferece até 5 anos na
-    compra do seu aparelho auditivo.
-  </>,
-  <>
-    <strong>Teste Gratuito</strong> – Está com dúvida, faça um teste do aparelho
-    auditivo e surpreenda-se com o resultado.
-  </>,
-  <>Aparelhos discretos e modernos para todos os tipos de perda auditiva</>,
-  <>Conforto e qualidade em todas as adaptações.</>,
-  <>Tecnológico para todas as idades.</>,
+  "Fonoaudiólogos especializados em audiologia",
+  "Atendimento personalizado e humanizado para cada paciente",
+  "Marcas reconhecidas mundialmente",
+  "Aparelhos discretos e modernos para todos os graus de perda auditiva",
+  "Soluções para todas as idades — da infância à melhor idade",
+  "Até 5 anos de garantia",
+  "Avaliação auditiva gratuita para escolha do aparelho adequado",
+  "Condições de pagamento facilitadas — a partir de R$89,90/mês",
+  "Clínicas modernas e acolhedoras em Indaiatuba",
 ]
 
 export function Section03Diferenciais() {
@@ -32,9 +25,9 @@ export function Section03Diferenciais() {
             Nossos diferenciais
           </h2>
           <ul className="mb-8 list-none p-0">
-            {itens.map((texto, i) => (
+            {itens.map((texto) => (
               <li
-                key={i}
+                key={texto}
                 className="mb-3.5 flex gap-2.5 text-sm leading-normal text-white"
               >
                 <span className="shrink-0 text-base font-bold text-vita-orange">✔</span>
@@ -42,9 +35,8 @@ export function Section03Diferenciais() {
               </li>
             ))}
           </ul>
-          <button type="button" onClick={openWhatsAppLeadPopup} className={btnCta}>
-            <WhatsAppIcon className={btnIco} size={18} />
-            <span>FALE AGORA COM UM ESPECIALISTA</span>
+          <button type="button" onClick={openWhatsAppLeadPopup} className={btnForm}>
+            Agendar Minha Avaliação
           </button>
         </div>
         <div className="order-first flex justify-center md:order-none">

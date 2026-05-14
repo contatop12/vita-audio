@@ -17,3 +17,13 @@ export const btnCtaTopbar =
 
 export const btnIco =
   "shrink-0 pointer-events-none drop-shadow-[0_1px_1px_rgba(0,0,0,0.22)]"
+
+export const btnForm =
+  "inline-flex items-center justify-center rounded-[14px] border-0 px-[30px] py-4 text-sm font-semibold text-white cursor-pointer " +
+  "bg-vita-blue shadow-[0_8px_28px_rgba(0,109,196,0.28)] transition hover:bg-vita-blue-dark"
+
+export const btnOutline =
+  "inline-flex items-center justify-center rounded-[14px] border border-vita-blue/25 bg-white px-[30px] py-4 text-sm font-semibold text-vita-blue cursor-pointer transition hover:bg-vita-blue/5"
+
+export const btnFormInverse =
+  "inline-flex items-center justify-center rounded-[14px] border-0 px-[30px] py-4 text-sm font-semibold text-vita-blue cursor-pointer bg-white shadow-[0_8px_28px_rgba(0,0,0,0.12)] transition hover:bg-white/90"

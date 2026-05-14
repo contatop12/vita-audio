@@ -1,59 +1,25 @@
 import type { LucideIcon } from "lucide-react"
 import {
-  Ban,
-  BriefcaseMedical,
-  Folder,
   Headphones,
   HeartPulse,
-  Mic,
   Music,
   ShieldPlus,
   Users,
+  Volume2,
   Wifi,
+  Ban,
 } from "lucide-react"
 import { container } from "../vita-tw"
 
 const itens: { Icon: LucideIcon; text: string }[] = [
-  {
-    Icon: Headphones,
-    text: "Volte a ouvir (ou ouça pela primeira vez)",
-  },
-  {
-    Icon: Users,
-    text: "Melhore a sua vida e convivência social",
-  },
-  {
-    Icon: Folder,
-    text: "Melhore seu desempenho no trabalho",
-  },
-  {
-    Icon: HeartPulse,
-    text: "Previne doenças (depressão, demência, etc.)",
-  },
-  {
-    Icon: Mic,
-    text: "Melhora a comunicação oral",
-  },
-  {
-    Icon: Wifi,
-    text: "Conectividade com outros aparelhos digitais",
-  },
-  {
-    Icon: Ban,
-    text: "Redução de ruídos e zumbidos",
-  },
-  {
-    Icon: BriefcaseMedical,
-    text: "Diminuição da evolução da perda auditiva",
-  },
-  {
-    Icon: ShieldPlus,
-    text: "Diminui a chance de se envolver em acidentes",
-  },
-  {
-    Icon: Music,
-    text: "Mais prazer em curtir filmes, séries e músicas",
-  },
+  { Icon: Headphones, text: "Volte a ouvir com clareza no dia a dia" },
+  { Icon: Users, text: "Melhore a convivência com família e amigos" },
+  { Icon: Ban, text: "Reduza o zumbido no ouvido" },
+  { Icon: HeartPulse, text: "Previna o isolamento social e o cansaço mental" },
+  { Icon: Wifi, text: "Conectividade com celular, TV e outros dispositivos" },
+  { Icon: Volume2, text: "Diminuição da progressão da perda auditiva" },
+  { Icon: Music, text: "Mais prazer em curtir filmes, séries e músicas" },
+  { Icon: ShieldPlus, text: "Mais segurança no dia a dia" },
 ]
 
 export function Section06bQualidadeVida() {
@@ -67,10 +33,10 @@ export function Section06bQualidadeVida() {
           Veja os benefícios de voltar a ouvir
         </p>
         <ul className="mx-auto grid max-w-[1100px] grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {itens.map(({ Icon, text }, i) => (
+          {itens.map(({ Icon, text }) => (
             <li
               key={text}
-              className={`flex flex-col items-center gap-3 text-[15px] font-medium leading-snug text-vita-blue md:text-[16px] ${i === 8 ? "lg:col-start-2" : ""} ${i === 9 ? "lg:col-start-3" : ""}`}
+              className="flex flex-col items-center gap-3 text-[15px] font-medium leading-snug text-vita-blue md:text-[16px]"
             >
               <span className="flex size-[52px] items-center justify-center rounded-full bg-neutral-200/90 text-neutral-600">
                 <Icon className="size-7 shrink-0" strokeWidth={1.75} aria-hidden />

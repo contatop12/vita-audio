@@ -1,99 +1,81 @@
-import { useEffect, useState } from "react"
+import { useMemo } from "react"
 import {
   Section01TopBar,
-  Section02Hero,
-  Section03Diferenciais,
-  Section04Especialista,
-  Section05CtaAvaliacao,
-  Section06Sintomas,
-  Section06bQualidadeVida,
-  Section07NaoPercas,
-  Section08Produtos,
-  Section09Conheca,
-  Section10Depoimentos,
-  Section10cCarrosselHistorias,
-  Section10bGoogleReviews,
-  Section11Faq,
   Section12Footer,
   Section13WhatsAppFloat,
 } from "./components"
-import { CheckCircle2 } from "lucide-react"
-import { OBRIGADO_PATH } from "./constants/paths"
-import { WHATSAPP_FOOTER_URL } from "./constants/site"
-import { container } from "./vita-tw"
+import { PAGE_SEO } from "./constants/seo"
+import {
+  ROUTES,
+  isObrigadoPath,
+  normalizePathname,
+  resolveRoutePath,
+} from "./constants/paths"
+import { usePageMeta } from "./hooks/usePageMeta"
+import { AparelhoAuditivoPage } from "./pages/AparelhoAuditivoPage"
+import { AudiometriaPage } from "./pages/AudiometriaPage"
+import { ObrigadoPage } from "./pages/ObrigadoPage"
+import { PerdaAuditivaPage } from "./pages/PerdaAuditivaPage"
+import { ZumbidoPage } from "./pages/ZumbidoPage"
+
+function UnknownRoutePage() {
+  usePageMeta(PAGE_SEO.aparelhoAuditivo)
+  return <AparelhoAuditivoPage />
+}
 
 export default function App() {
-  const pathname = window.location.pathname.replace(/\/+$/, "") || "/"
-  const isObrigadoPage = pathname === OBRIGADO_PATH
-  const [secondsLeft, setSecondsLeft] = useState(2)
+  const pathname = useMemo(() => normalizePathname(window.location.pathname), [])
 
-  useEffect(() => {
-    if (!isObrigadoPage) return
-
-    setSecondsLeft(2)
-
-    const intervalId = window.setInterval(() => {
-      setSecondsLeft((prev) => Math.max(prev - 1, 0))
-    }, 1000)
-
-    const timeoutId = window.setTimeout(() => {
-      window.location.href = WHATSAPP_FOOTER_URL
-    }, 2000)
-
-    return () => {
-      window.clearInterval(intervalId)
-      window.clearTimeout(timeoutId)
-    }
-  }, [isObrigadoPage])
-
-  if (isObrigadoPage) {
-    return (
-      <main className="flex min-h-screen items-center bg-vita-gray-bg py-10">
-        <section className={container}>
-          <div className="mx-auto max-w-xl rounded-2xl border border-vita-blue/12 bg-white p-7 text-center shadow-[0_10px_36px_rgba(0,109,196,0.12)] sm:p-10">
-            <CheckCircle2 className="mx-auto mb-4 size-11 text-vita-blue" aria-hidden />
-            <h1 className="text-3xl font-semibold text-vita-blue">
-              Obrigado pelo seu contato!
-            </h1>
-            <p className="mt-3 text-sm leading-relaxed text-vita-text-mid sm:text-base">
-              Recebemos suas informações com sucesso. Logo um atendente entrará em contato
-              com você para continuar seu atendimento.
-            </p>
-            <p className="mt-3 text-sm font-medium text-vita-blue">
-              Redirecionando para o WhatsApp em {secondsLeft}s...
-            </p>
-            <div className="mt-7 flex justify-center">
-              <a
-                href={import.meta.env.BASE_URL}
-                className="inline-flex items-center justify-center rounded-xl border border-vita-blue/25 px-5 py-3 text-sm font-semibold text-vita-blue transition hover:bg-vita-blue/5"
-              >
-                Voltar para o site
-              </a>
-            </div>
-          </div>
-        </section>
-      </main>
-    )
+  if (isObrigadoPath(pathname)) {
+    const backHref = resolveRoutePath(pathname) ?? ROUTES.aparelhoAuditivo
+    return <ObrigadoPage backHref={backHref} />
   }
 
-  return (
-    <>
-      <Section01TopBar />
-      <Section02Hero />
-      <Section03Diferenciais />
-      <Section10cCarrosselHistorias />
-      <Section04Especialista />
-      <Section05CtaAvaliacao />
-      <Section06Sintomas />
-      <Section06bQualidadeVida />
-      <Section07NaoPercas />
-      <Section08Produtos />
-      <Section09Conheca />
-      <Section10Depoimentos />
-      <Section10bGoogleReviews />
-      <Section11Faq />
-      <Section12Footer />
-      <Section13WhatsAppFloat />
-    </>
-  )
+  switch (pathname) {
+    case ROUTES.aparelhoAuditivo:
+      return (
+        <>
+          <Section01TopBar />
+          <AparelhoAuditivoPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+        </>
+      )
+    case ROUTES.audiometria:
+      return (
+        <>
+          <Section01TopBar />
+          <AudiometriaPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+        </>
+      )
+    case ROUTES.zumbido:
+      return (
+        <>
+          <Section01TopBar />
+          <ZumbidoPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+        </>
+      )
+    case ROUTES.perdaAuditiva:
+      return (
+        <>
+          <Section01TopBar />
+          <PerdaAuditivaPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+        </>
+      )
+    default:
+      return (
+        <>
+          <Section01TopBar />
+          <UnknownRoutePage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+        </>
+      )
+  }
 }

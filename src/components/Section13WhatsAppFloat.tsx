@@ -1,5 +1,5 @@
 import { FormEvent, useEffect, useMemo, useState } from "react"
-import { OBRIGADO_PATH } from "../constants/paths"
+import { isObrigadoPath, normalizePathname, obrigadoPathForRoute, resolveRoutePath } from "../constants/paths"
 import { LEAD_WEBHOOK_URL } from "../constants/site"
 import {
   WHATSAPP_LEAD_CODI_ID,
@@ -79,13 +79,18 @@ export function Section13WhatsAppFloat() {
       keepalive: true,
     } as const
 
+    const routePath = resolveRoutePath(window.location.pathname) ?? normalizePathname(window.location.pathname)
+    const obrigadoPath = isObrigadoPath(window.location.pathname)
+      ? window.location.pathname
+      : obrigadoPathForRoute(routePath)
+
     void (async () => {
       await Promise.allSettled([fetch(LEAD_WEBHOOK_URL, n8nRequest)])
       setIsOpen(false)
-      window.location.href = OBRIGADO_PATH
+      window.location.href = obrigadoPath
     })().catch(() => {
       setIsOpen(false)
-      window.location.href = OBRIGADO_PATH
+      window.location.href = obrigadoPath
     })
   }
 
@@ -104,11 +109,10 @@ export function Section13WhatsAppFloat() {
       {isOpen ? (
         <div className="fixed inset-0 z-1001 flex items-center justify-center bg-[#001f3d]/45 p-4 backdrop-blur-[1px]">
           <div className="w-full max-w-md rounded-2xl border border-[#d9e4f2] bg-white p-6 shadow-[0_18px_60px_rgba(0,40,80,0.2)]">
-            <h3 className="text-[22px] font-semibold text-vita-blue">
-              Fale com a Vita Audio
-            </h3>
+            <h3 className="text-[22px] font-semibold text-vita-blue">Agende sua avaliação</h3>
             <p className="mt-1 mb-6 text-sm leading-relaxed text-vita-text-mid">
-              Preencha os dados e nossa equipe entrará em contato.
+              Preencha seus dados e nossa equipe entrará em contato imediatamente pelo
+              WhatsApp.
             </p>
             <form
               id={WHATSAPP_LEAD_FORM_ID}
@@ -141,7 +145,7 @@ export function Section13WhatsAppFloat() {
 
               <label className="block space-y-1.5">
                 <span className="text-xs font-semibold tracking-wide text-vita-blue/80">
-                  DDI + DDD + WhatsApp
+                  WhatsApp com DDD
                 </span>
                 <div className="flex items-center rounded-xl border border-[#d3dfec] bg-[#fbfdff] transition focus-within:border-vita-blue focus-within:bg-white">
                   <span className="border-r border-[#d3dfec] px-3 text-sm font-medium text-vita-blue/90">
@@ -152,7 +156,7 @@ export function Section13WhatsAppFloat() {
                     required
                     value={whats}
                     onChange={(e) => setWhats(formatPhone(e.target.value))}
-                    placeholder="(19) 99880-6076"
+                    placeholder="(19) 99999-9999"
                     inputMode="numeric"
                     autoComplete="tel"
                     maxLength={15}
@@ -185,10 +189,11 @@ export function Section13WhatsAppFloat() {
                 </button>
                 <button
                   type="submit"
-                  className="w-1/2 rounded-xl bg-vita-blue px-3 py-2.5 text-sm font-semibold text-white transition hover:bg-vita-blue-dark disabled:cursor-not-allowed disabled:opacity-60"
+                  className="flex w-1/2 items-center justify-center gap-2 rounded-xl bg-vita-blue px-3 py-2.5 text-sm font-semibold text-white transition hover:bg-vita-blue-dark disabled:cursor-not-allowed disabled:opacity-60"
                   disabled={!consent}
                 >
-                  Enviar contato
+                  <WhatsAppIcon className="size-5 text-white" size={20} />
+                  <span className="text-left leading-tight">Iniciar atendimento pelo WhatsApp</span>
                 </button>
               </div>
             </form>

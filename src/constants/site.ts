@@ -40,9 +40,9 @@ export const FACEBOOK_URL =
 /** Crédito no rodapé — agência / desenvolvimento. */
 export const P12_DIGITAL_SITE_URL = "https://sites.p12digital.com.br/"
 
-/** Página de busca / ficha Google — use para “Ver todas as avaliações”. Atualize com o link direto do Maps se preferir. */
+/** Página de busca / ficha Google — use para “Ver todas as avaliações”. */
 export const GOOGLE_BUSINESS_REVIEWS_URL =
-  "https://www.google.com/search?q=vita+audio&oq=vita+au&gs_lcrp=EgZjaHJvbWUqDAgAECMYJxiABBiKBTIMCAAQIxgnGIAEGIoFMg0IARAuGK8BGMcBGIAEMgYIAhBFGDkyCAgDEEUYJxg7MgkIBBBFGDsYgAQyBwgFEAAYgAQyBggGEEUYPDIGCAcQRRg90gEIMTE3NmowajeoAgCwAgA&sourceid=chrome&ie=UTF-8"
+  "https://www.google.com/maps?cid=2260851949204657781"
 
 /** Resumo exibido no bloco — ajuste conforme o Google Meu Negócio. */
 export const GOOGLE_REVIEWS_RATING = "5.0"

@@ -4,10 +4,8 @@ import {
   GOOGLE_REVIEWS_COUNT_LABEL,
   GOOGLE_REVIEWS_RATING,
 } from "../constants/site"
-import { btnCta, btnIco, container } from "../vita-tw"
+import { container } from "../vita-tw"
 import { publicUrl } from "../utils/publicUrl"
-import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
-import { WhatsAppIcon } from "./WhatsAppIcon"
 
 type GoogleReview = {
   quote: string
@@ -120,13 +118,6 @@ export function Section10bGoogleReviews() {
               </div>
             </article>
           ))}
-        </div>
-
-        <div className="mt-12 flex justify-center">
-          <button type="button" onClick={openWhatsAppLeadPopup} className={btnCta}>
-            <WhatsAppIcon className={btnIco} size={18} />
-            <span>AGENDE AGORA!</span>
-          </button>
         </div>
       </div>
     </section>

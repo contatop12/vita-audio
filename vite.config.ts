@@ -2,9 +2,8 @@ import tailwindcss from "@tailwindcss/vite"
 import react from "@vitejs/plugin-react"
 import { defineConfig } from "vite"
 import { cloudflare } from "@cloudflare/vite-plugin"
-import { seoStaticFilesPlugin } from "./scripts/seo-static-files"
 
 export default defineConfig({
   base: "/",
-  plugins: [react(), tailwindcss(), cloudflare(), seoStaticFilesPlugin()],
+  plugins: [react(), tailwindcss(), cloudflare()],
 })

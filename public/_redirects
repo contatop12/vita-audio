@@ -1,2 +1,12 @@
-# Redireciona raiz para a landing page de aparelhos auditivos
-/  /aparelho-auditivo  301
+# Cloudflare Workers Static Assets — redirecionamentos e proxy de caminhos.
+/aparelho-auditivo/favicon.png /favicon.png 200
+/aparelho-auditivo/apple-touch-icon.png /apple-touch-icon.png 200
+/aparelho-auditivo/apple-touch-icon.webp /apple-touch-icon.webp 200
+/aparelho-auditivo/assets/* /assets/:splat 200
+/aparelho-auditivo/images/* /images/:splat 200
+/aparelho-auditivo/ /aparelho-auditivo 301
+/audiometria/ /audiometria 301
+/zumbido-no-ouvido/ /zumbido-no-ouvido 301
+/perda-auditiva/ /perda-auditiva 301
+/obrigado /aparelho-auditivo/obrigado 302
+/ /aparelho-auditivo 301

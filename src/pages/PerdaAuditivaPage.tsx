@@ -262,7 +262,7 @@ export function PerdaAuditivaPage() {
           <div className="flex flex-col items-center gap-10 lg:flex-row">
             <div className="flex w-full items-center justify-center lg:w-1/2">
               <img
-                src="/images/hero-hand-device.jpg"
+                src="/images/f2.png"
                 alt="Aparelho auditivo moderno"
                 className="w-full max-w-md rounded-2xl object-cover"
               />

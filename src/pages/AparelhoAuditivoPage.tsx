@@ -52,8 +52,8 @@ export function AparelhoAuditivoPage() {
   return (
     <>
       <Section02Hero />
-      <Section03Diferenciais />
       <Section10cCarrosselHistorias />
+      <Section03Diferenciais />
       <Section04Especialista />
       <Section06Sintomas />
       <ComoFunciona

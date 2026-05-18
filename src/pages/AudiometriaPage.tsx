@@ -172,16 +172,27 @@ export function AudiometriaPage() {
       />
       <section className="bg-white py-[70px]">
         <div className={container}>
-          <h2 className="text-center text-[26px] font-semibold text-vita-blue md:text-[30px]">
-            O que é a Audiometria?
-          </h2>
-          <div className="mx-auto mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-vita-text-mid md:text-base">
-            <p>
-              A audiometria é o principal exame para avaliar a capacidade auditiva. Ela mede com
-              precisão o quanto você consegue ouvir em diferentes frequências e volumes,
-              identificando se há perda auditiva, qual o seu grau e qual o tipo.
-            </p>
-            <p>Na Vita Audio, realizamos dois tipos de audiometria:</p>
+          <div className="flex flex-col items-center gap-10 lg:flex-row">
+            <div className="w-full lg:w-1/2">
+              <img
+                src="/images/vita-audio-teste-audicao.webp"
+                alt="Audiometria Vita Audio"
+                className="w-full rounded-2xl object-cover"
+              />
+            </div>
+            <div className="w-full lg:w-1/2">
+              <h2 className="text-[26px] font-semibold text-vita-blue md:text-[30px]">
+                O que é a Audiometria?
+              </h2>
+              <div className="mt-6 space-y-4 text-sm leading-relaxed text-vita-text-mid md:text-base">
+                <p>
+                  A audiometria é o principal exame para avaliar a capacidade auditiva. Ela mede com
+                  precisão o quanto você consegue ouvir em diferentes frequências e volumes,
+                  identificando se há perda auditiva, qual o seu grau e qual o tipo.
+                </p>
+                <p>Na Vita Audio, realizamos dois tipos de audiometria:</p>
+              </div>
+            </div>
           </div>
           <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2">
             <article className="rounded-2xl border border-vita-blue/10 bg-vita-gray-bg p-5">

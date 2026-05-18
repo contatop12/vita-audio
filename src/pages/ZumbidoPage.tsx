@@ -203,27 +203,38 @@ export function ZumbidoPage() {
         items={MANIFESTACOES}
       />
       <section className="bg-white py-[70px]">
-        <div className={`${container} mx-auto max-w-3xl`}>
-          <h2 className="text-center text-[26px] font-semibold text-vita-blue md:text-[30px]">
-            Zumbido e perda auditiva: uma conexão muito comum
-          </h2>
-          <div className="mt-6 space-y-4 text-sm leading-relaxed text-vita-text-mid md:text-base">
-            <p>
-              Em grande parte dos casos, o zumbido no ouvido está diretamente ligado à perda
-              auditiva. Quando o sistema auditivo deixa de receber determinados sons do ambiente,
-              o cérebro começa a &quot;preencher&quot; esse silêncio com sons que não existem. É
-              assim que o zumbido surge.
-            </p>
-            <p>
-              Por isso, o primeiro passo para tratar o zumbido é entender o que está acontecendo
-              com a sua audição. Sem esse diagnóstico, qualquer tentativa de tratamento é apenas
-              um chute.
-            </p>
-          </div>
-          <div className="mt-8 rounded-2xl border-l-4 border-vita-blue bg-vita-gray-bg p-5 text-sm leading-relaxed text-vita-text-mid md:text-base">
-            Na Vita Audio, realizamos a avaliação auditiva completa para identificar se há perda
-            auditiva associada ao seu zumbido. Com esse diagnóstico em mãos, o tratamento certo
-            fica muito mais claro.
+        <div className={container}>
+          <div className="flex flex-col items-center gap-10 lg:flex-row">
+            <div className="w-full lg:w-1/2">
+              <img
+                src="/images/vita-audio-teste-audicao.webp"
+                alt="Avaliação auditiva Vita Audio"
+                className="w-full rounded-2xl object-cover"
+              />
+            </div>
+            <div className="w-full lg:w-1/2">
+              <h2 className="text-[26px] font-semibold text-vita-blue md:text-[30px]">
+                Zumbido e perda auditiva: uma conexão muito comum
+              </h2>
+              <div className="mt-6 space-y-4 text-sm leading-relaxed text-vita-text-mid md:text-base">
+                <p>
+                  Em grande parte dos casos, o zumbido no ouvido está diretamente ligado à perda
+                  auditiva. Quando o sistema auditivo deixa de receber determinados sons do ambiente,
+                  o cérebro começa a &quot;preencher&quot; esse silêncio com sons que não existem. É
+                  assim que o zumbido surge.
+                </p>
+                <p>
+                  Por isso, o primeiro passo para tratar o zumbido é entender o que está acontecendo
+                  com a sua audição. Sem esse diagnóstico, qualquer tentativa de tratamento é apenas
+                  um chute.
+                </p>
+              </div>
+              <div className="mt-8 rounded-2xl border-l-4 border-vita-blue bg-vita-gray-bg p-5 text-sm leading-relaxed text-vita-text-mid md:text-base">
+                Na Vita Audio, realizamos a avaliação auditiva completa para identificar se há perda
+                auditiva associada ao seu zumbido. Com esse diagnóstico em mãos, o tratamento certo
+                fica muito mais claro.
+              </div>
+            </div>
           </div>
         </div>
       </section>

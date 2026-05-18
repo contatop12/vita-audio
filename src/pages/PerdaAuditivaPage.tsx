@@ -216,19 +216,30 @@ export function PerdaAuditivaPage() {
       />
       <Section10cCarrosselHistorias />
       <section className="bg-vita-gray-bg py-[70px]">
-        <div className={`${container} mx-auto max-w-3xl text-center`}>
-          <p className="text-base leading-relaxed text-vita-text-mid md:text-lg">
-            Você já pediu para alguém repetir o que disse e ficou com vergonha. Já perdeu partes
-            de uma conversa e fingiu que entendeu. Já deixou de participar de reuniões, jantares ou
-            ligações porque ouvir ficou cansativo.
-          </p>
-          <p className="mt-4 text-base leading-relaxed text-vita-text-mid md:text-lg">
-            A perda auditiva afeta muito mais do que a audição. Ela afeta a confiança, os
-            relacionamentos e a qualidade de vida de quem convive com ela.
-          </p>
-          <p className="mt-4 text-base font-semibold text-vita-blue md:text-lg">
-            Existe tratamento. E ele começa com uma avaliação.
-          </p>
+        <div className={container}>
+          <div className="flex flex-col items-center gap-10 lg:flex-row">
+            <div className="w-full lg:w-1/2">
+              <img
+                src="/images/vita-audio-teste-audicao.webp"
+                alt="Atendimento auditivo Vita Audio"
+                className="w-full rounded-2xl object-cover"
+              />
+            </div>
+            <div className="w-full lg:w-1/2">
+              <p className="text-base leading-relaxed text-vita-text-mid md:text-lg">
+                Você já pediu para alguém repetir o que disse e ficou com vergonha. Já perdeu partes
+                de uma conversa e fingiu que entendeu. Já deixou de participar de reuniões, jantares ou
+                ligações porque ouvir ficou cansativo.
+              </p>
+              <p className="mt-4 text-base leading-relaxed text-vita-text-mid md:text-lg">
+                A perda auditiva afeta muito mais do que a audição. Ela afeta a confiança, os
+                relacionamentos e a qualidade de vida de quem convive com ela.
+              </p>
+              <p className="mt-4 text-base font-semibold text-vita-blue md:text-lg">
+                Existe tratamento. E ele começa com uma avaliação.
+              </p>
+            </div>
+          </div>
         </div>
       </section>
       <FeatureCardGrid

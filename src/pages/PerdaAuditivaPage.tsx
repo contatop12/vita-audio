@@ -1,5 +1,5 @@
 import { Bluetooth, Eye, Phone, Radio, Shield, Tv, Users, Volume2 } from "lucide-react"
-import { Section10bGoogleReviews } from "../components"
+import { Section10bGoogleReviews, Section10cCarrosselHistorias } from "../components"
 import { BlocoFamiliares } from "../components/shared/BlocoFamiliares"
 import { ComoFunciona } from "../components/shared/ComoFunciona"
 import { DiferenciaisList } from "../components/shared/DiferenciaisList"
@@ -214,6 +214,7 @@ export function PerdaAuditivaPage() {
         primaryLabel="Agendar Minha Avaliação"
         secondaryLabel="Falar no WhatsApp"
       />
+      <Section10cCarrosselHistorias />
       <section className="bg-vita-gray-bg py-[70px]">
         <div className={`${container} mx-auto max-w-3xl text-center`}>
           <p className="text-base leading-relaxed text-vita-text-mid md:text-lg">

@@ -1,5 +1,5 @@
 import { Bell, Brain, Ear, Moon, Volume2, Waves, Wind } from "lucide-react"
-import { Section10bGoogleReviews } from "../components"
+import { Section10bGoogleReviews, Section10cCarrosselHistorias } from "../components"
 import { ComoFunciona } from "../components/shared/ComoFunciona"
 import { DiferenciaisList } from "../components/shared/DiferenciaisList"
 import { FaqAccordion } from "../components/shared/FaqAccordion"
@@ -181,6 +181,7 @@ export function ZumbidoPage() {
         primaryLabel="Quero Tratar Meu Zumbido"
         secondaryLabel="Falar no WhatsApp"
       />
+      <Section10cCarrosselHistorias />
       <section className="bg-vita-gray-bg py-[70px]">
         <div className={`${container} mx-auto max-w-3xl text-center`}>
           <p className="text-base leading-relaxed text-vita-text-mid md:text-lg">

@@ -6,7 +6,7 @@ import {
   Users,
   Volume2,
 } from "lucide-react"
-import { Section10bGoogleReviews } from "../components"
+import { Section10bGoogleReviews, Section10cCarrosselHistorias } from "../components"
 import { ComoFunciona } from "../components/shared/ComoFunciona"
 import { DiferenciaisList } from "../components/shared/DiferenciaisList"
 import { FaqAccordion } from "../components/shared/FaqAccordion"
@@ -163,6 +163,7 @@ export function AudiometriaPage() {
         primaryLabel="Agendar Meu Exame"
         secondaryLabel="Falar no WhatsApp"
       />
+      <Section10cCarrosselHistorias />
       <FeatureCardGrid
         title="Esses sintomas indicam que sua audição precisa de atenção"
         subtitle="Se você sente qualquer um desses sinais, a audiometria pode identificar a causa"

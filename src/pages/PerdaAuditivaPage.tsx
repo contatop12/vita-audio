@@ -259,21 +259,32 @@ export function PerdaAuditivaPage() {
       />
       <section className="bg-vita-gray-bg py-[70px]">
         <div className={container}>
-          <h2 className="text-center text-[26px] font-semibold text-vita-blue md:text-[30px]">
-            O aparelho auditivo de hoje não é o de antigamente
-          </h2>
-          <div className="mx-auto mt-6 max-w-3xl space-y-4 text-sm leading-relaxed text-vita-text-mid md:text-base">
-            <p>
-              Uma das maiores barreiras para o tratamento da perda auditiva é a imagem que as
-              pessoas têm do aparelho auditivo: grande, aparente e desconfortável.
-            </p>
-            <p>
-              Os aparelhos modernos são discretos, leves e tecnologicamente avançados. Muitos
-              modelos são quase invisíveis e se adaptam ao perfil auditivo de cada paciente com
-              precisão.
-            </p>
+          <div className="flex flex-col items-center gap-10 lg:flex-row">
+            <div className="flex w-full items-center justify-center lg:w-1/2">
+              <img
+                src="/images/hero-hand-device.jpg"
+                alt="Aparelho auditivo moderno"
+                className="w-full max-w-md rounded-2xl object-cover"
+              />
+            </div>
+            <div className="w-full lg:w-1/2">
+              <h2 className="text-[26px] font-semibold text-vita-blue md:text-[30px]">
+                O aparelho auditivo de hoje não é o de antigamente
+              </h2>
+              <div className="mt-6 space-y-4 text-sm leading-relaxed text-vita-text-mid md:text-base">
+                <p>
+                  Uma das maiores barreiras para o tratamento da perda auditiva é a imagem que as
+                  pessoas têm do aparelho auditivo: grande, aparente e desconfortável.
+                </p>
+                <p>
+                  Os aparelhos modernos são discretos, leves e tecnologicamente avançados. Muitos
+                  modelos são quase invisíveis e se adaptam ao perfil auditivo de cada paciente com
+                  precisão.
+                </p>
+              </div>
+            </div>
           </div>
-          <div className="mt-8 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
+          <div className="mt-10 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-4">
             {APARELHO_CARDS.map(({ Icon, title, description }) => (
               <article
                 key={title}

@@ -212,7 +212,6 @@ export function PerdaAuditivaPage() {
         title="Perda Auditiva em Indaiatuba: Diagnóstico e Tratamento"
         subtitle="Está com dificuldade para ouvir? Pedindo para repetir com frequência ou aumentando o volume da TV sem perceber? Na Vita Audio, identificamos o grau da sua perda auditiva e oferecemos o tratamento adequado, tudo em um só lugar."
         primaryLabel="Agendar Minha Avaliação"
-        secondaryLabel="Falar no WhatsApp"
       />
       <Section10cCarrosselHistorias />
       <section className="bg-vita-gray-bg py-[70px]">
@@ -336,7 +335,6 @@ export function PerdaAuditivaPage() {
         title="Ouvir melhor começa com uma avaliação"
         subtitle="Agende na Vita Audio e descubra qual é o melhor tratamento para o seu caso."
         primaryLabel="Agendar Minha Avaliação"
-        secondaryLabel="Falar no WhatsApp"
       />
     </>
   )

@@ -161,7 +161,6 @@ export function AudiometriaPage() {
         title="Audiometria em Indaiatuba"
         subtitle="Está com dificuldade para ouvir ou zumbido no ouvido? A audiometria é o exame que identifica o que está acontecendo com a sua audição, realizada por fonoaudiólogos especializados aqui na Vita Audio."
         primaryLabel="Agendar Meu Exame"
-        secondaryLabel="Falar no WhatsApp"
       />
       <Section10cCarrosselHistorias />
       <FeatureCardGrid
@@ -271,7 +270,6 @@ export function AudiometriaPage() {
         title="Cuide da sua audição agora"
         subtitle="Agende sua audiometria na Vita Audio. Atendimento humanizado, resultado explicado na hora."
         primaryLabel="Agendar Meu Exame"
-        secondaryLabel="Falar no WhatsApp"
       />
     </>
   )

@@ -179,7 +179,6 @@ export function ZumbidoPage() {
         title="Tratamento para Zumbido no Ouvido em Indaiatuba"
         subtitle="Aquele apito, chiado ou barulho constante no ouvido tem solução. Na Vita Audio, identificamos a causa do seu zumbido e oferecemos o tratamento adequado, tudo em um só lugar."
         primaryLabel="Quero Tratar Meu Zumbido"
-        secondaryLabel="Falar no WhatsApp"
       />
       <Section10cCarrosselHistorias />
       <section className="bg-vita-gray-bg py-[70px]">
@@ -298,7 +297,6 @@ export function ZumbidoPage() {
         title="Chega de conviver com o zumbido"
         subtitle="Agende sua avaliação na Vita Audio e descubra qual é o melhor tratamento para o seu caso."
         primaryLabel="Agendar Minha Avaliação"
-        secondaryLabel="Falar no WhatsApp"
       />
     </>
   )

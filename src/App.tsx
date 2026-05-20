@@ -51,7 +51,6 @@ export default function App() {
     case ROUTES.audiometria:
       return (
         <>
-          <Section01TopBar />
           <AudiometriaPage />
           <Section12Footer />
           <Section13WhatsAppFloat />

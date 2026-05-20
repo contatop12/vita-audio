@@ -17,6 +17,7 @@ import { AudiometriaPage } from "./pages/AudiometriaPage"
 import { ObrigadoPage } from "./pages/ObrigadoPage"
 import { PerdaAuditivaPage } from "./pages/PerdaAuditivaPage"
 import { ZumbidoPage } from "./pages/ZumbidoPage"
+import { CookieBanner } from "./components/CookieBanner"
 
 function UnknownRoutePage() {
   usePageMeta(PAGE_SEO.aparelhoAuditivo)
@@ -28,7 +29,12 @@ export default function App() {
 
   if (isObrigadoPath(pathname)) {
     const backHref = resolveRoutePath(pathname) ?? ROUTES.aparelhoAuditivo
-    return <ObrigadoPage backHref={backHref} />
+    return (
+      <>
+        <ObrigadoPage backHref={backHref} />
+        <CookieBanner />
+      </>
+    )
   }
 
   switch (pathname) {
@@ -39,6 +45,7 @@ export default function App() {
           <AparelhoAuditivoPage />
           <Section12Footer />
           <Section13WhatsAppFloat />
+          <CookieBanner />
         </>
       )
     case ROUTES.audiometria:
@@ -48,6 +55,7 @@ export default function App() {
           <AudiometriaPage />
           <Section12Footer />
           <Section13WhatsAppFloat />
+          <CookieBanner />
         </>
       )
     case ROUTES.zumbido:
@@ -57,6 +65,7 @@ export default function App() {
           <ZumbidoPage />
           <Section12Footer />
           <Section13WhatsAppFloat />
+          <CookieBanner />
         </>
       )
     case ROUTES.perdaAuditiva:
@@ -66,6 +75,7 @@ export default function App() {
           <PerdaAuditivaPage />
           <Section12Footer />
           <Section13WhatsAppFloat />
+          <CookieBanner />
         </>
       )
     default:
@@ -75,6 +85,7 @@ export default function App() {
           <UnknownRoutePage />
           <Section12Footer />
           <Section13WhatsAppFloat />
+          <CookieBanner />
         </>
       )
   }

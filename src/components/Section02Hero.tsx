@@ -1,3 +1,4 @@
+import { WHATSAPP_CHAT_URL } from "../constants/site"
 import { publicUrl } from "../utils/publicUrl"
 import { btnForm, container } from "../vita-tw"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
@@ -16,7 +17,9 @@ const heroGradient = `linear-gradient(
 const heroBackgroundMobile = `${heroGradient}, url("${publicUrl("images/hero-section-audi-mobile-v1.webp")}")`
 const heroBackgroundDesktop = `${heroGradient}, url("${publicUrl("images/hero-section-audi-v1.webp")}")`
 
-export function Section02Hero() {
+type Props = { ctaMode?: "form" | "whatsapp" }
+
+export function Section02Hero({ ctaMode = "form" }: Props) {
   return (
     <section className="relative flex min-h-[620px] items-center overflow-hidden bg-[#eff4f9] py-12 pb-16">
       <div
@@ -47,9 +50,15 @@ export function Section02Hero() {
             Diagnóstico completo e adaptação de aparelho auditivo na mesma clínica.
             Atendimento humanizado por fonoaudiólogos especializados em saúde auditiva.
           </p>
-          <button type="button" onClick={openWhatsAppLeadPopup} className={btnForm}>
-            Agendar Minha Avaliação
-          </button>
+          {ctaMode === "whatsapp" ? (
+            <a href={WHATSAPP_CHAT_URL} target="_blank" rel="noreferrer" className={btnForm}>
+              Agendar Minha Avaliação
+            </a>
+          ) : (
+            <button type="button" onClick={openWhatsAppLeadPopup} className={btnForm}>
+              Agendar Minha Avaliação
+            </button>
+          )}
         </div>
       </div>
     </section>

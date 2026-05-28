@@ -1,3 +1,4 @@
+import { WHATSAPP_CHAT_URL } from "../constants/site"
 import { container } from "../vita-tw"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 
@@ -23,7 +24,9 @@ function getTomorrowDateInSaoPaulo() {
   return `${tomorrowDay}/${tomorrowMonth}`
 }
 
-export function Section01TopBar() {
+type Props = { ctaMode?: "form" | "whatsapp" }
+
+export function Section01TopBar({ ctaMode = "form" }: Props) {
   const tomorrowDate = getTomorrowDateInSaoPaulo()
 
   return (
@@ -31,13 +34,24 @@ export function Section01TopBar() {
       <div className={`${container} text-center`}>
         <p className="text-sm font-semibold leading-snug text-white md:text-base">
           {`⏰ SÓ ATÉ AMANHÃ (${tomorrowDate}): Ganhe consulta gratuita e até 45% de desconto nos aparelhos auditivos. `}
-          <button
-            type="button"
-            onClick={openWhatsAppLeadPopup}
-            className="underline decoration-white/75 underline-offset-2 transition hover:text-vita-orange"
-          >
-            Agende agora!
-          </button>
+          {ctaMode === "whatsapp" ? (
+            <a
+              href={WHATSAPP_CHAT_URL}
+              target="_blank"
+              rel="noreferrer"
+              className="underline decoration-white/75 underline-offset-2 transition hover:text-vita-orange"
+            >
+              Agende agora!
+            </a>
+          ) : (
+            <button
+              type="button"
+              onClick={openWhatsAppLeadPopup}
+              className="underline decoration-white/75 underline-offset-2 transition hover:text-vita-orange"
+            >
+              Agende agora!
+            </button>
+          )}
         </p>
       </div>
     </div>

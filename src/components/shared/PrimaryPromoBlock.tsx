@@ -7,6 +7,7 @@ type PrimaryPromoBlockProps = {
   buttonLabel: string
   linkHref?: string
   linkLabel?: string
+  ctaMode?: "form" | "whatsapp"
 }
 
 export function PrimaryPromoBlock({
@@ -15,6 +16,7 @@ export function PrimaryPromoBlock({
   buttonLabel,
   linkHref,
   linkLabel,
+  ctaMode = "form",
 }: PrimaryPromoBlockProps) {
   return (
     <section className="bg-vita-blue py-[70px] text-white">
@@ -29,7 +31,7 @@ export function PrimaryPromoBlock({
           </p>
         ) : null}
         <div className="mt-7">
-          <CtaButton variant="formInverse">{buttonLabel}</CtaButton>
+          <CtaButton variant={ctaMode === "whatsapp" ? "whatsapp" : "formInverse"}>{buttonLabel}</CtaButton>
         </div>
       </div>
     </section>

@@ -6,9 +6,10 @@ type FinalCtaProps = {
   subtitle: string
   primaryLabel: string
   secondaryLabel?: string
+  ctaMode?: "form" | "whatsapp"
 }
 
-export function FinalCta({ title, subtitle, primaryLabel, secondaryLabel }: FinalCtaProps) {
+export function FinalCta({ title, subtitle, primaryLabel, secondaryLabel, ctaMode = "form" }: FinalCtaProps) {
   return (
     <section className="bg-vita-blue py-[60px] text-center">
       <div className={container}>
@@ -17,7 +18,7 @@ export function FinalCta({ title, subtitle, primaryLabel, secondaryLabel }: Fina
           {subtitle}
         </p>
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row">
-          <CtaButton variant="formInverse">{primaryLabel}</CtaButton>
+          <CtaButton variant={ctaMode === "whatsapp" ? "whatsapp" : "formInverse"}>{primaryLabel}</CtaButton>
           {secondaryLabel ? (
             <CtaButton variant="whatsapp">{secondaryLabel}</CtaButton>
           ) : null}

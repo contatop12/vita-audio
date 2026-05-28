@@ -8,6 +8,13 @@ export const ROUTES = {
   perdaAuditiva: "/perda-auditiva",
 } as const
 
+export const WHATSAPP_ROUTES = {
+  aparelhoAuditivo: "/aparelho-auditivo/whatsapp",
+  audiometria: "/audiometria/whatsapp",
+  zumbido: "/zumbido-no-ouvido/whatsapp",
+  perdaAuditiva: "/perda-auditiva/whatsapp",
+} as const
+
 export type RouteKey = keyof typeof ROUTES
 
 export const OBRIGADO_PATH = `${SITE_BASE_PATH}/obrigado`

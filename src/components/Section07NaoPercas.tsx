@@ -1,8 +1,11 @@
+import { WHATSAPP_CHAT_URL } from "../constants/site"
 import { btnForm, container } from "../vita-tw"
 import { publicUrl } from "../utils/publicUrl"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 
-export function Section07NaoPercas() {
+type Props = { ctaMode?: "form" | "whatsapp" }
+
+export function Section07NaoPercas({ ctaMode = "form" }: Props) {
   return (
     <section className="bg-white py-[70px]">
       <div
@@ -28,9 +31,15 @@ export function Section07NaoPercas() {
               Quer conhecer a solução que te traz uma vida melhor? Fale conosco!
             </strong>
           </p>
-          <button type="button" onClick={openWhatsAppLeadPopup} className={`${btnForm} mt-2.5 inline-flex`}>
-            Agendar Minha Avaliação
-          </button>
+          {ctaMode === "whatsapp" ? (
+            <a href={WHATSAPP_CHAT_URL} target="_blank" rel="noreferrer" className={`${btnForm} mt-2.5 inline-flex`}>
+              Agendar Minha Avaliação
+            </a>
+          ) : (
+            <button type="button" onClick={openWhatsAppLeadPopup} className={`${btnForm} mt-2.5 inline-flex`}>
+              Agendar Minha Avaliação
+            </button>
+          )}
         </div>
         <div className="order-first md:order-none">
           <img

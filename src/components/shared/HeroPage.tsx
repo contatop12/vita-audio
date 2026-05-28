@@ -8,6 +8,7 @@ type HeroPageProps = {
   primaryLabel: string
   secondaryLabel?: string
   showLogo?: boolean
+  ctaMode?: "form" | "whatsapp"
 }
 
 const heroGradient = `linear-gradient(
@@ -30,6 +31,7 @@ export function HeroPage({
   primaryLabel,
   secondaryLabel,
   showLogo = true,
+  ctaMode = "form",
 }: HeroPageProps) {
   return (
     <section className="relative flex min-h-[620px] items-center overflow-hidden bg-[#eff4f9] py-12 pb-16">
@@ -63,7 +65,7 @@ export function HeroPage({
             {subtitle}
           </p>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
-            <CtaButton variant="formBrand" className="w-full sm:w-auto">
+            <CtaButton variant={ctaMode === "whatsapp" ? "whatsapp" : "formBrand"} className="w-full sm:w-auto">
               {primaryLabel}
             </CtaButton>
             {secondaryLabel ? (

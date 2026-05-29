@@ -17,6 +17,8 @@ const UTM_FIELDS = [
   "utm_campaign",
   "utm_term",
   "utm_content",
+  "gclid",
+  "fbclid",
 ] as const
 
 function getUtmParams(): Record<(typeof UTM_FIELDS)[number], string> {
@@ -27,6 +29,8 @@ function getUtmParams(): Record<(typeof UTM_FIELDS)[number], string> {
     utm_campaign: search.get("utm_campaign") ?? "",
     utm_term: search.get("utm_term") ?? "",
     utm_content: search.get("utm_content") ?? "",
+    gclid: search.get("gclid") ?? "",
+    fbclid: search.get("fbclid") ?? "",
   }
 }
 

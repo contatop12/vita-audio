@@ -46,7 +46,9 @@
       "Bash(curl -s -H 'Authorization: Bearer 9N5fXW0kDtwq3Y8xU18NnwDJdxwNxQN6Aqp3fgVFcSw.NvUl1Xv4-1f8bvQHCG1yJiNAEN7Vgvk1u4xzal84vA0' 'https://api.cloudflare.com/client/v4/accounts/0976ee0adac0062c726747d29549308e/workers/services/vita-audio/builds/history?per_page=5')",
       "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=2\\)[:3000]\\)\")",
       "Bash(curl -s -H 'Authorization: Bearer 9N5fXW0kDtwq3Y8xU18NnwDJdxwNxQN6Aqp3fgVFcSw.NvUl1Xv4-1f8bvQHCG1yJiNAEN7Vgvk1u4xzal84vA0' 'https://api.cloudflare.com/client/v4/accounts/0976ee0adac0062c726747d29549308e/builds/builds?build_resource_id=0976ee0adac0062c726747d29549308e-vita-audio&per_page=5')",
-      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=2\\)[:5000]\\)\")"
+      "Bash(python -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(json.dumps\\(d, indent=2\\)[:5000]\\)\")",
+      "Bash(Get-ChildItem -Path \"C:\\\\IA\\\\P12\\\\01 - CLIENTES\\\\ATIVOS\\\\vita-audio\" -Force)",
+      "Bash(Select-Object Name, FullName)"
     ]
   }
 }

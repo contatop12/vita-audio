@@ -49,6 +49,7 @@ export function Section13WhatsAppFloat() {
   const [nome, setNome] = useState("")
   const [whats, setWhats] = useState("")
   const [consent, setConsent] = useState(true)
+  const [isSubmitting, setIsSubmitting] = useState(false)
   const utmParams = useMemo(() => getUtmParams(), [])
 
   useEffect(() => {
@@ -59,7 +60,8 @@ export function Section13WhatsAppFloat() {
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    if (!consent) return
+    if (!consent || isSubmitting) return
+    setIsSubmitting(true)
 
     const digits = whats.replace(/\D/g, "")
     const telefoneComDdi = digits ? `${BR_DDI}${digits}` : whats
@@ -194,10 +196,12 @@ export function Section13WhatsAppFloat() {
                 <button
                   type="submit"
                   className="flex w-1/2 items-center justify-center gap-2 rounded-xl bg-vita-blue px-3 py-2.5 text-sm font-semibold text-white transition hover:bg-vita-blue-dark disabled:cursor-not-allowed disabled:opacity-60"
-                  disabled={!consent}
+                  disabled={!consent || isSubmitting}
                 >
                   <WhatsAppIcon className="size-5 text-white" size={20} />
-                  <span className="text-left leading-tight">Iniciar atendimento pelo WhatsApp</span>
+                  <span className="text-left leading-tight">
+                    {isSubmitting ? "Enviando..." : "Iniciar atendimento pelo WhatsApp"}
+                  </span>
                 </button>
               </div>
             </form>

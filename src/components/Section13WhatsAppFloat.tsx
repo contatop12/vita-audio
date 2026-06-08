@@ -1,6 +1,6 @@
 import { FormEvent, useEffect, useMemo, useState } from "react"
 import { isObrigadoPath, normalizePathname, obrigadoPathForRoute, resolveRoutePath } from "../constants/paths"
-import { LEAD_WEBHOOK_URL } from "../constants/site"
+import { LEAD_WEBHOOK_URL, WHATSAPP_LANDING_URL } from "../constants/site"
 import {
   WHATSAPP_LEAD_CODI_ID,
   WHATSAPP_LEAD_FORM_ID,
@@ -44,7 +44,9 @@ function formatPhone(value: string) {
   return `(${digits.slice(0, 2)}) ${digits.slice(2, 7)}-${digits.slice(7)}`
 }
 
-export function Section13WhatsAppFloat() {
+type Props = { ctaMode?: "form" | "whatsapp" }
+
+export function Section13WhatsAppFloat({ ctaMode = "form" }: Props) {
   const [isOpen, setIsOpen] = useState(false)
   const [nome, setNome] = useState("")
   const [whats, setWhats] = useState("")
@@ -98,6 +100,21 @@ export function Section13WhatsAppFloat() {
       setIsOpen(false)
       window.location.href = obrigadoPath
     })
+  }
+
+  if (ctaMode === "whatsapp") {
+    return (
+      <a
+        href={WHATSAPP_LANDING_URL}
+        target="_blank"
+        rel="noreferrer"
+        className="animate-vita-wa-pulse fixed bottom-7 right-7 z-999 flex size-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg transition-transform hover:scale-110"
+        title="Fale pelo WhatsApp"
+        aria-label="Abrir conversa no WhatsApp"
+      >
+        <WhatsAppIcon size={28} />
+      </a>
+    )
   }
 
   return (

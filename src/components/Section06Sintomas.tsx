@@ -1,7 +1,10 @@
 import { AlertTriangle } from "lucide-react"
+import { WHATSAPP_LANDING_URL } from "../constants/site"
 import { btnForm, container } from "../vita-tw"
 import { publicUrl } from "../utils/publicUrl"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
+
+type Props = { ctaMode?: "form" | "whatsapp" }
 
 const cards: { src: string; alt: string; title: string; body: string }[] = [
   {
@@ -42,7 +45,7 @@ const cards: { src: string; alt: string; title: string; body: string }[] = [
   },
 ]
 
-export function Section06Sintomas() {
+export function Section06Sintomas({ ctaMode = "form" }: Props) {
   return (
     <section id="sintomas" className="bg-vita-gray-bg py-[70px] text-center">
       <div className={container}>
@@ -84,9 +87,15 @@ export function Section06Sintomas() {
               agende sua consulta agora mesmo
             </strong>
           </p>
-          <button type="button" onClick={openWhatsAppLeadPopup} className={`${btnForm} shrink-0`}>
-            Agendar Minha Avaliação
-          </button>
+          {ctaMode === "whatsapp" ? (
+            <a href={WHATSAPP_LANDING_URL} target="_blank" rel="noreferrer" className={`${btnForm} shrink-0`}>
+              Agendar Minha Avaliação
+            </a>
+          ) : (
+            <button type="button" onClick={openWhatsAppLeadPopup} className={`${btnForm} shrink-0`}>
+              Agendar Minha Avaliação
+            </button>
+          )}
         </div>
       </div>
     </section>

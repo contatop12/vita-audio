@@ -1,4 +1,4 @@
-import { WHATSAPP_CHAT_URL } from "../constants/site"
+import { WHATSAPP_LANDING_URL } from "../constants/site"
 import { publicUrl } from "../utils/publicUrl"
 import { btnForm, container } from "../vita-tw"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
@@ -51,7 +51,7 @@ export function Section02Hero({ ctaMode = "form" }: Props) {
             Atendimento humanizado por fonoaudiólogos especializados em saúde auditiva.
           </p>
           {ctaMode === "whatsapp" ? (
-            <a href={WHATSAPP_CHAT_URL} target="_blank" rel="noreferrer" className={btnForm}>
+            <a href={WHATSAPP_LANDING_URL} target="_blank" rel="noreferrer" className={btnForm}>
               Agendar Minha Avaliação
             </a>
           ) : (

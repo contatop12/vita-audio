@@ -1,4 +1,4 @@
-import { WHATSAPP_CHAT_URL } from "../constants/site"
+import { WHATSAPP_LANDING_URL } from "../constants/site"
 import { btnForm, container } from "../vita-tw"
 import { publicUrl } from "../utils/publicUrl"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
@@ -32,7 +32,7 @@ export function Section07NaoPercas({ ctaMode = "form" }: Props) {
             </strong>
           </p>
           {ctaMode === "whatsapp" ? (
-            <a href={WHATSAPP_CHAT_URL} target="_blank" rel="noreferrer" className={`${btnForm} mt-2.5 inline-flex`}>
+            <a href={WHATSAPP_LANDING_URL} target="_blank" rel="noreferrer" className={`${btnForm} mt-2.5 inline-flex`}>
               Agendar Minha Avaliação
             </a>
           ) : (

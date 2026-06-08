@@ -6,6 +6,7 @@ type BlocoFamiliaresProps = {
   includeFilho?: boolean
   familiarDetail?: string
   closingLine?: string
+  ctaMode?: "form" | "whatsapp"
 }
 
 export function BlocoFamiliares({
@@ -13,6 +14,7 @@ export function BlocoFamiliares({
   includeFilho = true,
   familiarDetail = "está com dificuldade de ouvir",
   closingLine = "Preencha o formulário. Nós cuidamos do resto.",
+  ctaMode = "form",
 }: BlocoFamiliaresProps) {
   const familiarList = includeFilho
     ? "um pai, mãe, avô, cônjuge ou filho"
@@ -38,7 +40,7 @@ export function BlocoFamiliares({
             <p>{closingLine}</p>
           </div>
           <div className="mt-7">
-            <CtaButton variant="formBrand">{buttonLabel}</CtaButton>
+            <CtaButton variant={ctaMode === "whatsapp" ? "whatsapp" : "formBrand"}>{buttonLabel}</CtaButton>
           </div>
         </div>
       </div>

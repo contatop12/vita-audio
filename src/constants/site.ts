@@ -2,6 +2,9 @@
 export const SITE_ORIGIN = "https://audicao.vitaaudio.com.br"
 export const WHATSAPP_URL = "https://wa.me/message/5V24WTVNCMCXE1"
 export const WHATSAPP_CHAT_URL = "https://wa.me/5519998806076"
+export const WHATSAPP_GOOGLE_MESSAGE =
+  "Olá, vim pelo google e gostaria de mais informações"
+export const WHATSAPP_LANDING_URL = `${WHATSAPP_CHAT_URL}?text=${encodeURIComponent(WHATSAPP_GOOGLE_MESSAGE)}`
 export const LEAD_WEBHOOK_URL =
   "https://n8n.sitespdoze.com.br/webhook/vita-audio-lp"
 export const WHATSAPP_FOOTER_URL = WHATSAPP_CHAT_URL

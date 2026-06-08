@@ -251,6 +251,7 @@ export function PerdaAuditivaPageWA() {
         includeFilho={false}
         familiarDetail="está com dificuldade de ouvir e ainda não buscou ajuda"
         closingLine="Agende a avaliação. Nós cuidamos do resto."
+        ctaMode="whatsapp"
       />
       <ComoFunciona
         title="Do diagnóstico ao tratamento, tudo na Vita Audio"

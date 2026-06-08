@@ -1,4 +1,4 @@
-import { WHATSAPP_CHAT_URL } from "../constants/site"
+import { WHATSAPP_LANDING_URL } from "../constants/site"
 import { container } from "../vita-tw"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 
@@ -36,7 +36,7 @@ export function Section01TopBar({ ctaMode = "form" }: Props) {
           {`⏰ SÓ ATÉ AMANHÃ (${tomorrowDate}): Ganhe consulta gratuita e até 45% de desconto nos aparelhos auditivos. `}
           {ctaMode === "whatsapp" ? (
             <a
-              href={WHATSAPP_CHAT_URL}
+              href={WHATSAPP_LANDING_URL}
               target="_blank"
               rel="noreferrer"
               className="underline decoration-white/75 underline-offset-2 transition hover:text-vita-orange"

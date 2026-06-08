@@ -53,9 +53,9 @@ export function AparelhoAuditivoPageWA() {
     <>
       <Section02Hero ctaMode="whatsapp" />
       <Section10cCarrosselHistorias />
-      <Section03Diferenciais />
+      <Section03Diferenciais ctaMode="whatsapp" />
       <Section04Especialista />
-      <Section06Sintomas />
+      <Section06Sintomas ctaMode="whatsapp" />
       <ComoFunciona
         title="Do diagnóstico ao aparelho, tudo na Vita Audio"
         subtitle="Você não precisa ir a vários lugares. Aqui, cuidamos de tudo."
@@ -64,7 +64,7 @@ export function AparelhoAuditivoPageWA() {
       <Section06bQualidadeVida />
       <Section07NaoPercas ctaMode="whatsapp" />
       <Section08Produtos />
-      <BlocoFamiliares />
+      <BlocoFamiliares ctaMode="whatsapp" />
       <Section10bGoogleReviews />
       <Section09Conheca />
       <Section11Faq />

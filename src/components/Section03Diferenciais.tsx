@@ -1,6 +1,9 @@
+import { WHATSAPP_LANDING_URL } from "../constants/site"
 import { btnForm, container } from "../vita-tw"
 import { publicUrl } from "../utils/publicUrl"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
+
+type Props = { ctaMode?: "form" | "whatsapp" }
 
 const itens = [
   "Fonoaudiólogos especializados em audiologia",
@@ -14,7 +17,7 @@ const itens = [
   "Clínicas modernas e acolhedoras em Indaiatuba",
 ]
 
-export function Section03Diferenciais() {
+export function Section03Diferenciais({ ctaMode = "form" }: Props) {
   return (
     <section id="diferenciais" className="bg-vita-blue py-[60px]">
       <div
@@ -35,9 +38,15 @@ export function Section03Diferenciais() {
               </li>
             ))}
           </ul>
-          <button type="button" onClick={openWhatsAppLeadPopup} className={btnForm}>
-            Agendar Minha Avaliação
-          </button>
+          {ctaMode === "whatsapp" ? (
+            <a href={WHATSAPP_LANDING_URL} target="_blank" rel="noreferrer" className={btnForm}>
+              Agendar Minha Avaliação
+            </a>
+          ) : (
+            <button type="button" onClick={openWhatsAppLeadPopup} className={btnForm}>
+              Agendar Minha Avaliação
+            </button>
+          )}
         </div>
         <div className="order-first flex justify-center md:order-none">
           <img

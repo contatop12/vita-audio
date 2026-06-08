@@ -23,6 +23,7 @@ import { PerdaAuditivaPageWA } from "./pages/PerdaAuditivaPageWA"
 import { ZumbidoPage } from "./pages/ZumbidoPage"
 import { ZumbidoPageWA } from "./pages/ZumbidoPageWA"
 import { CookieBanner } from "./components/CookieBanner"
+import { WHATSAPP_LANDING_URL } from "./constants/site"
 
 function UnknownRoutePage() {
   usePageMeta(PAGE_SEO.aparelhoAuditivo)
@@ -87,8 +88,8 @@ export default function App() {
         <>
           <Section01TopBar ctaMode="whatsapp" />
           <AparelhoAuditivoPageWA />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
           <CookieBanner />
         </>
       )
@@ -96,8 +97,8 @@ export default function App() {
       return (
         <>
           <AudiometriaPageWA />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
           <CookieBanner />
         </>
       )
@@ -106,8 +107,8 @@ export default function App() {
         <>
           <Section01TopBar ctaMode="whatsapp" />
           <ZumbidoPageWA />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
           <CookieBanner />
         </>
       )
@@ -116,8 +117,8 @@ export default function App() {
         <>
           <Section01TopBar ctaMode="whatsapp" />
           <PerdaAuditivaPageWA />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
           <CookieBanner />
         </>
       )

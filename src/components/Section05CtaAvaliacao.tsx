@@ -1,4 +1,4 @@
-import { WHATSAPP_CHAT_URL } from "../constants/site"
+import { WHATSAPP_LANDING_URL } from "../constants/site"
 import { btnForm, container } from "../vita-tw"
 import { openWhatsAppLeadPopup } from "../utils/whatsappLeadPopup"
 
@@ -17,7 +17,7 @@ export function Section05CtaAvaliacao({ ctaMode = "form" }: Props) {
             : "Preencha o formulário e nossa equipe entra em contato imediatamente pelo WhatsApp."}
         </p>
         {ctaMode === "whatsapp" ? (
-          <a href={WHATSAPP_CHAT_URL} target="_blank" rel="noreferrer" className={btnForm}>
+          <a href={WHATSAPP_LANDING_URL} target="_blank" rel="noreferrer" className={btnForm}>
             Agendar Minha Avaliação
           </a>
         ) : (

@@ -1,18 +1,18 @@
 /** Links e contactos centralizados */
 export const SITE_ORIGIN = "https://audicao.vitaaudio.com.br"
-export const WHATSAPP_URL = "https://wa.me/message/5V24WTVNCMCXE1"
-export const WHATSAPP_CHAT_URL = "https://wa.me/5519998806076"
+export const WHATSAPP_URL = "https://wa.me/5519991460270"
+export const WHATSAPP_CHAT_URL = "https://wa.me/5519991460270"
 export const WHATSAPP_GOOGLE_MESSAGE =
   "Olá, vim pelo google e gostaria de mais informações"
 export const WHATSAPP_LANDING_URL = `${WHATSAPP_CHAT_URL}?text=${encodeURIComponent(WHATSAPP_GOOGLE_MESSAGE)}`
 export const LEAD_WEBHOOK_URL =
   "https://n8n.sitespdoze.com.br/webhook/vita-audio-lp"
 export const WHATSAPP_FOOTER_URL = WHATSAPP_CHAT_URL
-export const PHONE_HREF = "tel:+551999880-6076"
-export const PHONE_DISPLAY = "(19) 99017-7608 (19) 3894-6349"
-export const CALL_PHONE_DISPLAY = "(19) 3894-6349"
-export const CALL_PHONE_HREF = "tel:+551938946349"
-export const WHATSAPP_DISPLAY = "(19) 99017-7608"
+export const PHONE_HREF = "tel:+5519991460270"
+export const PHONE_DISPLAY = "(19) 99146-0270"
+export const CALL_PHONE_DISPLAY = "(19) 99146-0270"
+export const CALL_PHONE_HREF = "tel:+5519991460270"
+export const WHATSAPP_DISPLAY = "(19) 99146-0270"
 export const CONTACT_EMAIL = "contato@vitaaudio.com.br"
 export const ADDRESS_LINE =
   "R. Tuiuti, 460 - Cidade Nova I, Indaiatuba - SP, 13339-010"

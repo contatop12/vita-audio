@@ -24,6 +24,8 @@ const quickLinks = [
   { label: "Audiometria", href: ROUTES.audiometria },
   { label: "Zumbido no ouvido", href: ROUTES.zumbido },
   { label: "Perda auditiva", href: ROUTES.perdaAuditiva },
+  { label: "Manutenção de aparelho auditivo", href: ROUTES.manutencao },
+  { label: "Assistência técnica", href: ROUTES.assistenciaTecnica },
 ]
 
 type Props = { whatsappHref?: string }

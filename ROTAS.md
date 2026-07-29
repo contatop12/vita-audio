@@ -1,4 +1,4 @@
-# Rotas — Vita Audio
+ # Rotas — Vita Audio
 
 Site: `https://audicao.vitaaudio.com.br`
 
@@ -15,6 +15,8 @@ Definições em `src/constants/paths.ts` (`ROUTES`, `WHATSAPP_ROUTES`).
 | `/audiometria` | `AudiometriaPage` | Exames de audiometria |
 | `/zumbido-no-ouvido` | `ZumbidoPage` | Tratamento de zumbido |
 | `/perda-auditiva` | `PerdaAuditivaPage` | Perda auditiva — diagnóstico e tratamento |
+| `/manutencao-de-aparelho-auditivo` | `ManutencaoPage` | Manutenção de aparelho auditivo — limpeza, troca de peças e reajuste |
+| `/assistencia-tecnica-aparelho-auditivo` | `AssistenciaTecnicaPage` | Assistência técnica — diagnóstico e reparo |
 
 ### Subrotas
 
@@ -37,6 +39,8 @@ Indicadas para campanhas de tráfego pago onde o usuário já está no mobile/Wh
 | `/audiometria/whatsapp` | `AudiometriaPageWA` | Audiometria |
 | `/zumbido-no-ouvido/whatsapp` | `ZumbidoPageWA` | Zumbido |
 | `/perda-auditiva/whatsapp` | `PerdaAuditivaPageWA` | Perda auditiva |
+| `/manutencao-de-aparelho-auditivo/whatsapp` | `ManutencaoPageWA` | Manutenção de aparelho auditivo |
+| `/assistencia-tecnica-aparelho-auditivo/whatsapp` | `AssistenciaTecnicaPageWA` | Assistência técnica |
 
 **Diferença das rotas `/whatsapp`:**
 - Sem popup de formulário de captação
@@ -63,6 +67,10 @@ src/
     ├── ZumbidoPageWA.tsx           ← Variante WhatsApp
     ├── PerdaAuditivaPage.tsx
     ├── PerdaAuditivaPageWA.tsx     ← Variante WhatsApp
+    ├── ManutencaoPage.tsx
+    ├── ManutencaoPageWA.tsx        ← Variante WhatsApp
+    ├── AssistenciaTecnicaPage.tsx
+    ├── AssistenciaTecnicaPageWA.tsx ← Variante WhatsApp
     └── ObrigadoPage.tsx
 ```
 

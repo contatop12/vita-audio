@@ -15,8 +15,12 @@ import {
 import { usePageMeta } from "./hooks/usePageMeta"
 import { AparelhoAuditivoPage } from "./pages/AparelhoAuditivoPage"
 import { AparelhoAuditivoPageWA } from "./pages/AparelhoAuditivoPageWA"
+import { AssistenciaTecnicaPage } from "./pages/AssistenciaTecnicaPage"
+import { AssistenciaTecnicaPageWA } from "./pages/AssistenciaTecnicaPageWA"
 import { AudiometriaPage } from "./pages/AudiometriaPage"
 import { AudiometriaPageWA } from "./pages/AudiometriaPageWA"
+import { ManutencaoPage } from "./pages/ManutencaoPage"
+import { ManutencaoPageWA } from "./pages/ManutencaoPageWA"
 import { ObrigadoPage } from "./pages/ObrigadoPage"
 import { PerdaAuditivaPage } from "./pages/PerdaAuditivaPage"
 import { PerdaAuditivaPageWA } from "./pages/PerdaAuditivaPageWA"
@@ -83,6 +87,26 @@ export default function App() {
           <CookieBanner />
         </>
       )
+    case ROUTES.manutencao:
+      return (
+        <>
+          <Section01TopBar />
+          <ManutencaoPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+          <CookieBanner />
+        </>
+      )
+    case ROUTES.assistenciaTecnica:
+      return (
+        <>
+          <Section01TopBar />
+          <AssistenciaTecnicaPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+          <CookieBanner />
+        </>
+      )
     case WHATSAPP_ROUTES.aparelhoAuditivo:
       return (
         <>
@@ -117,6 +141,26 @@ export default function App() {
         <>
           <Section01TopBar ctaMode="whatsapp" />
           <PerdaAuditivaPageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
+          <CookieBanner />
+        </>
+      )
+    case WHATSAPP_ROUTES.manutencao:
+      return (
+        <>
+          <Section01TopBar ctaMode="whatsapp" />
+          <ManutencaoPageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
+          <CookieBanner />
+        </>
+      )
+    case WHATSAPP_ROUTES.assistenciaTecnica:
+      return (
+        <>
+          <Section01TopBar ctaMode="whatsapp" />
+          <AssistenciaTecnicaPageWA />
           <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
           <Section13WhatsAppFloat ctaMode="whatsapp" />
           <CookieBanner />

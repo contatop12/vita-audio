@@ -21,6 +21,14 @@ const SERVICE_LINKS: Record<
     label: "Perda auditiva",
     description: "Diagnóstico e tratamento para dificuldade de ouvir no dia a dia.",
   },
+  manutencao: {
+    label: "Manutenção de aparelho auditivo",
+    description: "Limpeza técnica, troca de peças de desgaste e reajuste do seu aparelho.",
+  },
+  assistenciaTecnica: {
+    label: "Assistência técnica",
+    description: "Diagnóstico e reparo de aparelho auditivo de todas as marcas.",
+  },
 }
 
 type OutrosServicosProps = {

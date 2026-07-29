@@ -6,6 +6,8 @@ export const ROUTES = {
   audiometria: "/audiometria",
   zumbido: "/zumbido-no-ouvido",
   perdaAuditiva: "/perda-auditiva",
+  manutencao: "/manutencao-de-aparelho-auditivo",
+  assistenciaTecnica: "/assistencia-tecnica-aparelho-auditivo",
 } as const
 
 export const WHATSAPP_ROUTES = {
@@ -13,6 +15,8 @@ export const WHATSAPP_ROUTES = {
   audiometria: "/audiometria/whatsapp",
   zumbido: "/zumbido-no-ouvido/whatsapp",
   perdaAuditiva: "/perda-auditiva/whatsapp",
+  manutencao: "/manutencao-de-aparelho-auditivo/whatsapp",
+  assistenciaTecnica: "/assistencia-tecnica-aparelho-auditivo/whatsapp",
 } as const
 
 export type RouteKey = keyof typeof ROUTES

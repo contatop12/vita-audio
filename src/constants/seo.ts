@@ -26,6 +26,16 @@ export const PAGE_SEO: Record<RouteKey, PageSeo> = {
     description:
       "Com dificuldade para ouvir? A Vita Audio oferece diagnóstico completo e adaptação de aparelho auditivo em Indaiatuba. Agende sua avaliação!",
   },
+  manutencao: {
+    title: "Manutenção de Aparelho Auditivo em Indaiatuba | Vita Audio",
+    description:
+      "Manutenção de aparelho auditivo em Indaiatuba: limpeza técnica, troca de filtros e tubos, reajuste e revisão completa. Atendemos todas as marcas. Agende!",
+  },
+  assistenciaTecnica: {
+    title: "Assistência Técnica para Aparelho Auditivo em Indaiatuba | Vita Audio",
+    description:
+      "Assistência técnica para aparelho auditivo em Indaiatuba. Diagnóstico, reparo e troca de peças de todas as marcas, com orçamento aprovado antes. Agende!",
+  },
 }
 
 export function getSeoForPath(pathname: string): PageSeo {

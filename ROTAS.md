@@ -18,6 +18,18 @@ Definições em `src/constants/paths.ts` (`ROUTES`, `WHATSAPP_ROUTES`).
 | `/manutencao-de-aparelho-auditivo` | `ManutencaoPage` | Manutenção de aparelho auditivo — limpeza, troca de peças e reajuste |
 | `/assistencia-tecnica-aparelho-auditivo` | `AssistenciaTecnicaPage` | Assistência técnica — diagnóstico e reparo |
 
+### Cluster comercial de aparelhos auditivos
+
+| Rota | Componente | Descrição |
+|------|-----------|-----------|
+| `/aparelho-auditivo-preco` | `PrecoPage` | Preço e valores — por que o preço varia, tipos e faixas de tecnologia |
+| `/aparelho-auditivo-discreto` | `DiscretoPage` | Modelos discretos, intracanais e retroauriculares compactos |
+| `/aparelho-auditivo-recarregavel` | `RecarregavelPage` | Recarregáveis e Bluetooth — concentra também a intenção de conectividade |
+| `/melhor-aparelho-auditivo` | `MelhorAparelhoPage` | Como escolher — página central de comparação do cluster |
+| `/aparelho-auditivo-para-idosos` | `IdososPage` | Aparelho para idosos — também voltada a filhos e familiares |
+| `/aparelho-auditivo-starkey` | `StarkeyPage` | Marca Starkey — linhas Genesis AI e Evolv AI |
+| `/aparelho-auditivo-argosy` | `ArgosyPage` | Marca Argosy — linhas Vista V e Vista B |
+
 ### Subrotas
 
 | Rota | Componente | Descrição |
@@ -41,6 +53,13 @@ Indicadas para campanhas de tráfego pago onde o usuário já está no mobile/Wh
 | `/perda-auditiva/whatsapp` | `PerdaAuditivaPageWA` | Perda auditiva |
 | `/manutencao-de-aparelho-auditivo/whatsapp` | `ManutencaoPageWA` | Manutenção de aparelho auditivo |
 | `/assistencia-tecnica-aparelho-auditivo/whatsapp` | `AssistenciaTecnicaPageWA` | Assistência técnica |
+| `/aparelho-auditivo-preco/whatsapp` | `PrecoPageWA` | Preço de aparelho auditivo |
+| `/aparelho-auditivo-discreto/whatsapp` | `DiscretoPageWA` | Aparelho auditivo discreto |
+| `/aparelho-auditivo-recarregavel/whatsapp` | `RecarregavelPageWA` | Recarregável e Bluetooth |
+| `/melhor-aparelho-auditivo/whatsapp` | `MelhorAparelhoPageWA` | Melhor aparelho auditivo |
+| `/aparelho-auditivo-para-idosos/whatsapp` | `IdososPageWA` | Aparelho auditivo para idosos |
+| `/aparelho-auditivo-starkey/whatsapp` | `StarkeyPageWA` | Aparelhos auditivos Starkey |
+| `/aparelho-auditivo-argosy/whatsapp` | `ArgosyPageWA` | Aparelhos auditivos Argosy |
 
 **Diferença das rotas `/whatsapp`:**
 - Sem popup de formulário de captação
@@ -71,8 +90,29 @@ src/
     ├── ManutencaoPageWA.tsx        ← Variante WhatsApp
     ├── AssistenciaTecnicaPage.tsx
     ├── AssistenciaTecnicaPageWA.tsx ← Variante WhatsApp
+    ├── PrecoPage.tsx                ← Exporta PrecoPage e PrecoPageWA
+    ├── DiscretoPage.tsx             ← Exporta DiscretoPage e DiscretoPageWA
+    ├── RecarregavelPage.tsx         ← Exporta RecarregavelPage e RecarregavelPageWA
+    ├── MelhorAparelhoPage.tsx       ← Exporta MelhorAparelhoPage e MelhorAparelhoPageWA
+    ├── IdososPage.tsx               ← Exporta IdososPage e IdososPageWA
+    ├── StarkeyPage.tsx              ← Exporta StarkeyPage e StarkeyPageWA
+    ├── ArgosyPage.tsx               ← Exporta ArgosyPage e ArgosyPageWA
     └── ObrigadoPage.tsx
 ```
+
+> As páginas do cluster comercial mantêm um único arquivo por tema: o conteúdo
+> fica em um componente interno que recebe `ctaMode` (`"form"` ou `"whatsapp"`),
+> e o arquivo exporta as duas variantes. Isso evita manter duas cópias da copy.
+
+### Componentes compartilhados adicionados para o cluster
+
+| Componente | Uso |
+|-----------|-----|
+| `shared/BlocoConteudo` | Seção de texto com bullets, frase de fecho e CTA opcional |
+| `shared/TabelaComparativa` | Tabela comparativa responsiva (tabela no desktop, cards no mobile) |
+| `shared/CardsLinhas` | Dois blocos de linha de produto (Genesis/Evolv, Vista V/Vista B) |
+| `shared/SeletorIntencao` | Microsseletor de intenção com mensagem pré-preenchida no WhatsApp |
+| `shared/PaginasRelacionadas` | Links internos entre as páginas do cluster |
 
 ---
 

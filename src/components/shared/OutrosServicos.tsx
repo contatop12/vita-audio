@@ -1,8 +1,12 @@
-import { ROUTES, type RouteKey } from "../../constants/paths"
+import {
+  ROUTES,
+  SERVICE_ROUTE_KEYS,
+  type ServiceRouteKey,
+} from "../../constants/paths"
 import { container } from "../../vita-tw"
 
 const SERVICE_LINKS: Record<
-  RouteKey,
+  ServiceRouteKey,
   { label: string; description: string }
 > = {
   aparelhoAuditivo: {
@@ -32,11 +36,12 @@ const SERVICE_LINKS: Record<
 }
 
 type OutrosServicosProps = {
-  currentRoute: RouteKey
+  /** Rota atual — omitida da lista. Rotas fora dos 6 serviços exibem a lista completa. */
+  currentRoute?: ServiceRouteKey
 }
 
 export function OutrosServicos({ currentRoute }: OutrosServicosProps) {
-  const links = (Object.keys(ROUTES) as RouteKey[]).filter((key) => key !== currentRoute)
+  const links = SERVICE_ROUTE_KEYS.filter((key) => key !== currentRoute)
 
   return (
     <section className="bg-white py-[70px]">

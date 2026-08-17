@@ -26,6 +26,13 @@ import { PerdaAuditivaPage } from "./pages/PerdaAuditivaPage"
 import { PerdaAuditivaPageWA } from "./pages/PerdaAuditivaPageWA"
 import { ZumbidoPage } from "./pages/ZumbidoPage"
 import { ZumbidoPageWA } from "./pages/ZumbidoPageWA"
+import { PrecoPage, PrecoPageWA } from "./pages/PrecoPage"
+import { DiscretoPage, DiscretoPageWA } from "./pages/DiscretoPage"
+import { RecarregavelPage, RecarregavelPageWA } from "./pages/RecarregavelPage"
+import { MelhorAparelhoPage, MelhorAparelhoPageWA } from "./pages/MelhorAparelhoPage"
+import { IdososPage, IdososPageWA } from "./pages/IdososPage"
+import { StarkeyPage, StarkeyPageWA } from "./pages/StarkeyPage"
+import { ArgosyPage, ArgosyPageWA } from "./pages/ArgosyPage"
 import { CookieBanner } from "./components/CookieBanner"
 import { WHATSAPP_LANDING_URL } from "./constants/site"
 
@@ -107,6 +114,76 @@ export default function App() {
           <CookieBanner />
         </>
       )
+    case ROUTES.preco:
+      return (
+        <>
+          <Section01TopBar />
+          <PrecoPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+          <CookieBanner />
+        </>
+      )
+    case ROUTES.discreto:
+      return (
+        <>
+          <Section01TopBar />
+          <DiscretoPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+          <CookieBanner />
+        </>
+      )
+    case ROUTES.recarregavel:
+      return (
+        <>
+          <Section01TopBar />
+          <RecarregavelPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+          <CookieBanner />
+        </>
+      )
+    case ROUTES.melhorAparelho:
+      return (
+        <>
+          <Section01TopBar />
+          <MelhorAparelhoPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+          <CookieBanner />
+        </>
+      )
+    case ROUTES.idosos:
+      return (
+        <>
+          <Section01TopBar />
+          <IdososPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+          <CookieBanner />
+        </>
+      )
+    case ROUTES.starkey:
+      return (
+        <>
+          <Section01TopBar />
+          <StarkeyPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+          <CookieBanner />
+        </>
+      )
+    case ROUTES.argosy:
+      return (
+        <>
+          <Section01TopBar />
+          <ArgosyPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+          <CookieBanner />
+        </>
+      )
     case WHATSAPP_ROUTES.aparelhoAuditivo:
       return (
         <>
@@ -161,6 +238,76 @@ export default function App() {
         <>
           <Section01TopBar ctaMode="whatsapp" />
           <AssistenciaTecnicaPageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
+          <CookieBanner />
+        </>
+      )
+    case WHATSAPP_ROUTES.preco:
+      return (
+        <>
+          <Section01TopBar ctaMode="whatsapp" />
+          <PrecoPageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
+          <CookieBanner />
+        </>
+      )
+    case WHATSAPP_ROUTES.discreto:
+      return (
+        <>
+          <Section01TopBar ctaMode="whatsapp" />
+          <DiscretoPageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
+          <CookieBanner />
+        </>
+      )
+    case WHATSAPP_ROUTES.recarregavel:
+      return (
+        <>
+          <Section01TopBar ctaMode="whatsapp" />
+          <RecarregavelPageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
+          <CookieBanner />
+        </>
+      )
+    case WHATSAPP_ROUTES.melhorAparelho:
+      return (
+        <>
+          <Section01TopBar ctaMode="whatsapp" />
+          <MelhorAparelhoPageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
+          <CookieBanner />
+        </>
+      )
+    case WHATSAPP_ROUTES.idosos:
+      return (
+        <>
+          <Section01TopBar ctaMode="whatsapp" />
+          <IdososPageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
+          <CookieBanner />
+        </>
+      )
+    case WHATSAPP_ROUTES.starkey:
+      return (
+        <>
+          <Section01TopBar ctaMode="whatsapp" />
+          <StarkeyPageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
+          <CookieBanner />
+        </>
+      )
+    case WHATSAPP_ROUTES.argosy:
+      return (
+        <>
+          <Section01TopBar ctaMode="whatsapp" />
+          <ArgosyPageWA />
           <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
           <Section13WhatsAppFloat ctaMode="whatsapp" />
           <CookieBanner />

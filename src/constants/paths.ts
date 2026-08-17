@@ -8,6 +8,13 @@ export const ROUTES = {
   perdaAuditiva: "/perda-auditiva",
   manutencao: "/manutencao-de-aparelho-auditivo",
   assistenciaTecnica: "/assistencia-tecnica-aparelho-auditivo",
+  preco: "/aparelho-auditivo-preco",
+  discreto: "/aparelho-auditivo-discreto",
+  recarregavel: "/aparelho-auditivo-recarregavel",
+  melhorAparelho: "/melhor-aparelho-auditivo",
+  idosos: "/aparelho-auditivo-para-idosos",
+  starkey: "/aparelho-auditivo-starkey",
+  argosy: "/aparelho-auditivo-argosy",
 } as const
 
 export const WHATSAPP_ROUTES = {
@@ -17,9 +24,32 @@ export const WHATSAPP_ROUTES = {
   perdaAuditiva: "/perda-auditiva/whatsapp",
   manutencao: "/manutencao-de-aparelho-auditivo/whatsapp",
   assistenciaTecnica: "/assistencia-tecnica-aparelho-auditivo/whatsapp",
+  preco: "/aparelho-auditivo-preco/whatsapp",
+  discreto: "/aparelho-auditivo-discreto/whatsapp",
+  recarregavel: "/aparelho-auditivo-recarregavel/whatsapp",
+  melhorAparelho: "/melhor-aparelho-auditivo/whatsapp",
+  idosos: "/aparelho-auditivo-para-idosos/whatsapp",
+  starkey: "/aparelho-auditivo-starkey/whatsapp",
+  argosy: "/aparelho-auditivo-argosy/whatsapp",
 } as const
 
 export type RouteKey = keyof typeof ROUTES
+
+/**
+ * Serviços exibidos no bloco “Outros serviços da Vita Audio”.
+ * As rotas do cluster comercial de aparelhos ficam de fora — elas são
+ * interligadas pelo bloco `PaginasRelacionadas`.
+ */
+export const SERVICE_ROUTE_KEYS = [
+  "aparelhoAuditivo",
+  "audiometria",
+  "zumbido",
+  "perdaAuditiva",
+  "manutencao",
+  "assistenciaTecnica",
+] as const
+
+export type ServiceRouteKey = (typeof SERVICE_ROUTE_KEYS)[number]
 
 export const OBRIGADO_PATH = `${SITE_BASE_PATH}/obrigado`
 

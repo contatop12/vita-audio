@@ -33,6 +33,10 @@ import { MelhorAparelhoPage, MelhorAparelhoPageWA } from "./pages/MelhorAparelho
 import { IdososPage, IdososPageWA } from "./pages/IdososPage"
 import { StarkeyPage, StarkeyPageWA } from "./pages/StarkeyPage"
 import { ArgosyPage, ArgosyPageWA } from "./pages/ArgosyPage"
+import { RextonPage, RextonPageWA } from "./pages/RextonPage"
+import { BeltonePage, BeltonePageWA } from "./pages/BeltonePage"
+import { CoselgiPage, CoselgiPageWA } from "./pages/CoselgiPage"
+import { IntertonPage, IntertonPageWA } from "./pages/IntertonPage"
 import { CookieBanner } from "./components/CookieBanner"
 import { WHATSAPP_LANDING_URL } from "./constants/site"
 
@@ -184,6 +188,46 @@ export default function App() {
           <CookieBanner />
         </>
       )
+    case ROUTES.rexton:
+      return (
+        <>
+          <Section01TopBar />
+          <RextonPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+          <CookieBanner />
+        </>
+      )
+    case ROUTES.beltone:
+      return (
+        <>
+          <Section01TopBar />
+          <BeltonePage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+          <CookieBanner />
+        </>
+      )
+    case ROUTES.coselgi:
+      return (
+        <>
+          <Section01TopBar />
+          <CoselgiPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+          <CookieBanner />
+        </>
+      )
+    case ROUTES.interton:
+      return (
+        <>
+          <Section01TopBar />
+          <IntertonPage />
+          <Section12Footer />
+          <Section13WhatsAppFloat />
+          <CookieBanner />
+        </>
+      )
     case WHATSAPP_ROUTES.aparelhoAuditivo:
       return (
         <>
@@ -308,6 +352,46 @@ export default function App() {
         <>
           <Section01TopBar ctaMode="whatsapp" />
           <ArgosyPageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
+          <CookieBanner />
+        </>
+      )
+    case WHATSAPP_ROUTES.rexton:
+      return (
+        <>
+          <Section01TopBar ctaMode="whatsapp" />
+          <RextonPageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
+          <CookieBanner />
+        </>
+      )
+    case WHATSAPP_ROUTES.beltone:
+      return (
+        <>
+          <Section01TopBar ctaMode="whatsapp" />
+          <BeltonePageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
+          <CookieBanner />
+        </>
+      )
+    case WHATSAPP_ROUTES.coselgi:
+      return (
+        <>
+          <Section01TopBar ctaMode="whatsapp" />
+          <CoselgiPageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
+          <CookieBanner />
+        </>
+      )
+    case WHATSAPP_ROUTES.interton:
+      return (
+        <>
+          <Section01TopBar ctaMode="whatsapp" />
+          <IntertonPageWA />
           <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
           <Section13WhatsAppFloat ctaMode="whatsapp" />
           <CookieBanner />

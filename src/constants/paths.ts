@@ -15,6 +15,10 @@ export const ROUTES = {
   idosos: "/aparelho-auditivo-para-idosos",
   starkey: "/aparelho-auditivo-starkey",
   argosy: "/aparelho-auditivo-argosy",
+  rexton: "/aparelho-auditivo-rexton",
+  beltone: "/aparelho-auditivo-beltone",
+  coselgi: "/aparelho-auditivo-coselgi",
+  interton: "/aparelho-auditivo-interton",
 } as const
 
 export const WHATSAPP_ROUTES = {
@@ -31,6 +35,10 @@ export const WHATSAPP_ROUTES = {
   idosos: "/aparelho-auditivo-para-idosos/whatsapp",
   starkey: "/aparelho-auditivo-starkey/whatsapp",
   argosy: "/aparelho-auditivo-argosy/whatsapp",
+  rexton: "/aparelho-auditivo-rexton/whatsapp",
+  beltone: "/aparelho-auditivo-beltone/whatsapp",
+  coselgi: "/aparelho-auditivo-coselgi/whatsapp",
+  interton: "/aparelho-auditivo-interton/whatsapp",
 } as const
 
 export type RouteKey = keyof typeof ROUTES

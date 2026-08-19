@@ -71,6 +71,26 @@ export const PAGE_SEO: Record<RouteKey, PageSeo> = {
     description:
       "Conheça aparelhos auditivos Argosy Vista V e Vista B, modelos, tecnologias e preços. Atendimento especializado na Vita Audio em Indaiatuba.",
   },
+  rexton: {
+    title: "Aparelhos Auditivos Rexton: Modelos e Preços | Vita Audio",
+    description:
+      "Conheça aparelhos auditivos Rexton, modelos BiCore, MotionCore e Reach, tecnologias, opções recarregáveis e valores. Vita Audio em Indaiatuba.",
+  },
+  beltone: {
+    title: "Aparelhos Auditivos Beltone: Modelos e Preços | Vita Audio",
+    description:
+      "Conheça aparelhos auditivos Beltone, linhas Serene, Boost Ultra e Achieve, tecnologias e valores. Atendimento especializado na Vita Audio em Indaiatuba.",
+  },
+  coselgi: {
+    title: "Aparelhos Auditivos Coselgi em Indaiatuba | Vita Audio",
+    description:
+      "Conheça os aparelhos auditivos Coselgi, a linha Mojo, modelos e valores. Atendimento com fonoaudiólogas especializadas na Vita Audio em Indaiatuba.",
+  },
+  interton: {
+    title: "Aparelhos Auditivos Interton em Indaiatuba | Vita Audio",
+    description:
+      "Conheça os aparelhos auditivos Interton, linhas Move e Presto, modelos e valores. Atendimento especializado na Vita Audio em Indaiatuba.",
+  },
 }
 
 export function getSeoForPath(pathname: string): PageSeo {

@@ -29,6 +29,10 @@ Definições em `src/constants/paths.ts` (`ROUTES`, `WHATSAPP_ROUTES`).
 | `/aparelho-auditivo-para-idosos` | `IdososPage` | Aparelho para idosos — também voltada a filhos e familiares |
 | `/aparelho-auditivo-starkey` | `StarkeyPage` | Marca Starkey — linhas Genesis AI e Evolv AI |
 | `/aparelho-auditivo-argosy` | `ArgosyPage` | Marca Argosy — linhas Vista V e Vista B |
+| `/aparelho-auditivo-rexton` | `RextonPage` | Marca Rexton — linhas BiCore, MotionCore e Reach |
+| `/aparelho-auditivo-beltone` | `BeltonePage` | Marca Beltone — linhas Serene, Boost Ultra e Achieve |
+| `/aparelho-auditivo-coselgi` | `CoselgiPage` | Marca Coselgi — linha Mojo |
+| `/aparelho-auditivo-interton` | `IntertonPage` | Marca Interton — linhas Move e Presto |
 
 ### Subrotas
 
@@ -60,6 +64,10 @@ Indicadas para campanhas de tráfego pago onde o usuário já está no mobile/Wh
 | `/aparelho-auditivo-para-idosos/whatsapp` | `IdososPageWA` | Aparelho auditivo para idosos |
 | `/aparelho-auditivo-starkey/whatsapp` | `StarkeyPageWA` | Aparelhos auditivos Starkey |
 | `/aparelho-auditivo-argosy/whatsapp` | `ArgosyPageWA` | Aparelhos auditivos Argosy |
+| `/aparelho-auditivo-rexton/whatsapp` | `RextonPageWA` | Aparelhos auditivos Rexton |
+| `/aparelho-auditivo-beltone/whatsapp` | `BeltonePageWA` | Aparelhos auditivos Beltone |
+| `/aparelho-auditivo-coselgi/whatsapp` | `CoselgiPageWA` | Aparelhos auditivos Coselgi |
+| `/aparelho-auditivo-interton/whatsapp` | `IntertonPageWA` | Aparelhos auditivos Interton |
 
 **Diferença das rotas `/whatsapp`:**
 - Sem popup de formulário de captação
@@ -97,6 +105,10 @@ src/
     ├── IdososPage.tsx               ← Exporta IdososPage e IdososPageWA
     ├── StarkeyPage.tsx              ← Exporta StarkeyPage e StarkeyPageWA
     ├── ArgosyPage.tsx               ← Exporta ArgosyPage e ArgosyPageWA
+    ├── RextonPage.tsx               ← Exporta RextonPage e RextonPageWA
+    ├── BeltonePage.tsx              ← Exporta BeltonePage e BeltonePageWA
+    ├── CoselgiPage.tsx              ← Exporta CoselgiPage e CoselgiPageWA
+    ├── IntertonPage.tsx             ← Exporta IntertonPage e IntertonPageWA
     └── ObrigadoPage.tsx
 ```
 
@@ -110,7 +122,7 @@ src/
 |-----------|-----|
 | `shared/BlocoConteudo` | Seção de texto com bullets, frase de fecho e CTA opcional |
 | `shared/TabelaComparativa` | Tabela comparativa responsiva (tabela no desktop, cards no mobile) |
-| `shared/CardsLinhas` | Dois blocos de linha de produto (Genesis/Evolv, Vista V/Vista B) |
+| `shared/CardsLinhas` | Blocos de linha de produto (Genesis/Evolv, Vista V/B, BiCore/MotionCore/Reach) |
 | `shared/SeletorIntencao` | Microsseletor de intenção com mensagem pré-preenchida no WhatsApp |
 | `shared/PaginasRelacionadas` | Links internos entre as páginas do cluster |
 

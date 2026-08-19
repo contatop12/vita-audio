@@ -29,6 +29,8 @@ export function CardsLinhas({
 }: CardsLinhasProps) {
   const bg = background === "gray" ? "bg-vita-gray-bg" : "bg-white"
   const cardBg = background === "gray" ? "bg-white" : "bg-vita-gray-bg"
+  const gridCols =
+    linhas.length >= 3 ? "sm:grid-cols-2 lg:grid-cols-3" : "md:grid-cols-2"
 
   return (
     <section className={`${bg} py-[70px]`}>
@@ -43,7 +45,7 @@ export function CardsLinhas({
             </p>
           ) : null}
         </div>
-        <div className="mt-10 grid grid-cols-1 gap-5 md:grid-cols-2">
+        <div className={`mt-10 grid grid-cols-1 gap-5 ${gridCols}`}>
           {linhas.map((linha) => (
             <article
               key={linha.name}

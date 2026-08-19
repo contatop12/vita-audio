@@ -11,6 +11,10 @@ export const CLUSTER_ROUTE_KEYS = [
   "idosos",
   "starkey",
   "argosy",
+  "rexton",
+  "beltone",
+  "coselgi",
+  "interton",
 ] as const
 
 export type ClusterRouteKey = (typeof CLUSTER_ROUTE_KEYS)[number]
@@ -47,6 +51,22 @@ const CLUSTER_LINKS: Record<ClusterRouteKey, { label: string; description: strin
   argosy: {
     label: "Aparelhos auditivos Argosy",
     description: "Linhas Vista V e Vista B com orientação especializada.",
+  },
+  rexton: {
+    label: "Aparelhos auditivos Rexton",
+    description: "Linhas BiCore, MotionCore e Reach com orientação especializada.",
+  },
+  beltone: {
+    label: "Aparelhos auditivos Beltone",
+    description: "Linhas Serene, Boost Ultra e Achieve com orientação especializada.",
+  },
+  coselgi: {
+    label: "Aparelhos auditivos Coselgi",
+    description: "Linha Mojo com orientação de fonoaudiólogas especializadas.",
+  },
+  interton: {
+    label: "Aparelhos auditivos Interton",
+    description: "Linhas Move e Presto com orientação especializada.",
   },
 }
 

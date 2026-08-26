@@ -1,6 +1,9 @@
 {
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "vita-audio",
+  // Fixo: sem isto o wrangler escolhe outra conta e o deploy morre
+  // com "Authentication error [code: 10000]", que parece falta de permissao.
+  "account_id": "0976ee0adac0062c726747d29549308e",
   "compatibility_date": "2026-04-24",
   "observability": {
     "enabled": true

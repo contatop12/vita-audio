@@ -44,6 +44,22 @@ export const WHATSAPP_ROUTES = {
 export type RouteKey = keyof typeof ROUTES
 
 /**
+ * Rotas `/whatsapp` aposentadas: o comportamento delas passou para a rota base,
+ * então elas apenas redirecionam. `/aparelho-auditivo/whatsapp` fica de fora
+ * — essa dupla ainda usa o fluxo antigo (base com formulário).
+ */
+const RETIRED_WHATSAPP_ROUTES: Record<string, string> = Object.fromEntries(
+  Object.entries(WHATSAPP_ROUTES)
+    .filter(([key]) => key !== "aparelhoAuditivo")
+    .map(([key, whatsappPath]) => [whatsappPath, ROUTES[key as RouteKey]]),
+)
+
+/** Rota base correspondente quando `pathname` é uma `/whatsapp` aposentada; senão, `null`. */
+export function retiredWhatsappTarget(pathname: string): string | null {
+  return RETIRED_WHATSAPP_ROUTES[normalizePathname(pathname)] ?? null
+}
+
+/**
  * Serviços exibidos no bloco “Outros serviços da Vita Audio”.
  * As rotas do cluster comercial de aparelhos ficam de fora — elas são
  * interligadas pelo bloco `PaginasRelacionadas`.

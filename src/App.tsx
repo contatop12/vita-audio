@@ -1,4 +1,4 @@
-import { useMemo } from "react"
+import { useEffect, useMemo } from "react"
 import {
   Section01TopBar,
   Section12Footer,
@@ -11,34 +11,37 @@ import {
   isObrigadoPath,
   normalizePathname,
   resolveRoutePath,
+  retiredWhatsappTarget,
 } from "./constants/paths"
 import { usePageMeta } from "./hooks/usePageMeta"
 import { AparelhoAuditivoPage } from "./pages/AparelhoAuditivoPage"
 import { AparelhoAuditivoPageWA } from "./pages/AparelhoAuditivoPageWA"
-import { AssistenciaTecnicaPage } from "./pages/AssistenciaTecnicaPage"
 import { AssistenciaTecnicaPageWA } from "./pages/AssistenciaTecnicaPageWA"
-import { AudiometriaPage } from "./pages/AudiometriaPage"
 import { AudiometriaPageWA } from "./pages/AudiometriaPageWA"
-import { ManutencaoPage } from "./pages/ManutencaoPage"
 import { ManutencaoPageWA } from "./pages/ManutencaoPageWA"
 import { ObrigadoPage } from "./pages/ObrigadoPage"
-import { PerdaAuditivaPage } from "./pages/PerdaAuditivaPage"
 import { PerdaAuditivaPageWA } from "./pages/PerdaAuditivaPageWA"
-import { ZumbidoPage } from "./pages/ZumbidoPage"
 import { ZumbidoPageWA } from "./pages/ZumbidoPageWA"
-import { PrecoPage, PrecoPageWA } from "./pages/PrecoPage"
-import { DiscretoPage, DiscretoPageWA } from "./pages/DiscretoPage"
-import { RecarregavelPage, RecarregavelPageWA } from "./pages/RecarregavelPage"
-import { MelhorAparelhoPage, MelhorAparelhoPageWA } from "./pages/MelhorAparelhoPage"
-import { IdososPage, IdososPageWA } from "./pages/IdososPage"
-import { StarkeyPage, StarkeyPageWA } from "./pages/StarkeyPage"
-import { ArgosyPage, ArgosyPageWA } from "./pages/ArgosyPage"
-import { RextonPage, RextonPageWA } from "./pages/RextonPage"
-import { BeltonePage, BeltonePageWA } from "./pages/BeltonePage"
-import { CoselgiPage, CoselgiPageWA } from "./pages/CoselgiPage"
-import { IntertonPage, IntertonPageWA } from "./pages/IntertonPage"
+import { PrecoPageWA } from "./pages/PrecoPage"
+import { DiscretoPageWA } from "./pages/DiscretoPage"
+import { RecarregavelPageWA } from "./pages/RecarregavelPage"
+import { MelhorAparelhoPageWA } from "./pages/MelhorAparelhoPage"
+import { IdososPageWA } from "./pages/IdososPage"
+import { StarkeyPageWA } from "./pages/StarkeyPage"
+import { ArgosyPageWA } from "./pages/ArgosyPage"
+import { RextonPageWA } from "./pages/RextonPage"
+import { BeltonePageWA } from "./pages/BeltonePage"
+import { CoselgiPageWA } from "./pages/CoselgiPage"
+import { IntertonPageWA } from "./pages/IntertonPage"
 import { CookieBanner } from "./components/CookieBanner"
 import { WHATSAPP_LANDING_URL } from "./constants/site"
+
+function RedirectTo({ to }: { to: string }) {
+  useEffect(() => {
+    window.location.replace(to)
+  }, [to])
+  return null
+}
 
 function UnknownRoutePage() {
   usePageMeta(PAGE_SEO.aparelhoAuditivo)
@@ -47,6 +50,11 @@ function UnknownRoutePage() {
 
 export default function App() {
   const pathname = useMemo(() => normalizePathname(window.location.pathname), [])
+
+  const retiredWhatsapp = retiredWhatsappTarget(pathname)
+  if (retiredWhatsapp) {
+    return <RedirectTo to={retiredWhatsapp} />
+  }
 
   if (isObrigadoPath(pathname)) {
     const backHref = resolveRoutePath(pathname) ?? ROUTES.aparelhoAuditivo
@@ -72,182 +80,13 @@ export default function App() {
     case ROUTES.audiometria:
       return (
         <>
-          <AudiometriaPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.zumbido:
-      return (
-        <>
-          <Section01TopBar />
-          <ZumbidoPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.perdaAuditiva:
-      return (
-        <>
-          <Section01TopBar />
-          <PerdaAuditivaPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.manutencao:
-      return (
-        <>
-          <Section01TopBar />
-          <ManutencaoPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.assistenciaTecnica:
-      return (
-        <>
-          <Section01TopBar />
-          <AssistenciaTecnicaPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.preco:
-      return (
-        <>
-          <Section01TopBar />
-          <PrecoPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.discreto:
-      return (
-        <>
-          <Section01TopBar />
-          <DiscretoPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.recarregavel:
-      return (
-        <>
-          <Section01TopBar />
-          <RecarregavelPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.melhorAparelho:
-      return (
-        <>
-          <Section01TopBar />
-          <MelhorAparelhoPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.idosos:
-      return (
-        <>
-          <Section01TopBar />
-          <IdososPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.starkey:
-      return (
-        <>
-          <Section01TopBar />
-          <StarkeyPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.argosy:
-      return (
-        <>
-          <Section01TopBar />
-          <ArgosyPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.rexton:
-      return (
-        <>
-          <Section01TopBar />
-          <RextonPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.beltone:
-      return (
-        <>
-          <Section01TopBar />
-          <BeltonePage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.coselgi:
-      return (
-        <>
-          <Section01TopBar />
-          <CoselgiPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.interton:
-      return (
-        <>
-          <Section01TopBar />
-          <IntertonPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
-          <CookieBanner />
-        </>
-      )
-    case WHATSAPP_ROUTES.aparelhoAuditivo:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <AparelhoAuditivoPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case WHATSAPP_ROUTES.audiometria:
-      return (
-        <>
           <AudiometriaPageWA />
           <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
           <Section13WhatsAppFloat ctaMode="whatsapp" />
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.zumbido:
+    case ROUTES.zumbido:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
@@ -257,7 +96,7 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.perdaAuditiva:
+    case ROUTES.perdaAuditiva:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
@@ -267,7 +106,7 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.manutencao:
+    case ROUTES.manutencao:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
@@ -277,7 +116,7 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.assistenciaTecnica:
+    case ROUTES.assistenciaTecnica:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
@@ -287,7 +126,7 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.preco:
+    case ROUTES.preco:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
@@ -297,7 +136,7 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.discreto:
+    case ROUTES.discreto:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
@@ -307,7 +146,7 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.recarregavel:
+    case ROUTES.recarregavel:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
@@ -317,7 +156,7 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.melhorAparelho:
+    case ROUTES.melhorAparelho:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
@@ -327,7 +166,7 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.idosos:
+    case ROUTES.idosos:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
@@ -337,7 +176,7 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.starkey:
+    case ROUTES.starkey:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
@@ -347,7 +186,7 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.argosy:
+    case ROUTES.argosy:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
@@ -357,7 +196,7 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.rexton:
+    case ROUTES.rexton:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
@@ -367,7 +206,7 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.beltone:
+    case ROUTES.beltone:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
@@ -377,7 +216,7 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.coselgi:
+    case ROUTES.coselgi:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
@@ -387,11 +226,21 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.interton:
+    case ROUTES.interton:
       return (
         <>
           <Section01TopBar ctaMode="whatsapp" />
           <IntertonPageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
+          <CookieBanner />
+        </>
+      )
+    case WHATSAPP_ROUTES.aparelhoAuditivo:
+      return (
+        <>
+          <Section01TopBar ctaMode="whatsapp" />
+          <AparelhoAuditivoPageWA />
           <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
           <Section13WhatsAppFloat ctaMode="whatsapp" />
           <CookieBanner />

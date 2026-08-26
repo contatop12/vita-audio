@@ -38,42 +38,71 @@ Definições em `src/constants/paths.ts` (`ROUTES`, `WHATSAPP_ROUTES`).
 
 | Rota | Componente | Descrição |
 |------|-----------|-----------|
-| `/{rota}/obrigado` | `ObrigadoPage` | Confirmação após envio de formulário |
+| `/{rota}/obrigado` | `ObrigadoPage` | Confirmação após envio de formulário — na prática só `/aparelho-auditivo/obrigado`, a única rota que ainda tem formulário |
 
 > Qualquer caminho não reconhecido redireciona para `/aparelho-auditivo`.
 
 ---
 
-## Rotas WhatsApp (`/whatsapp`)
+## CTA das páginas: WhatsApp direto
 
-Versões sem formulário — todos os CTAs direcionam diretamente ao WhatsApp.  
-Indicadas para campanhas de tráfego pago onde o usuário já está no mobile/WhatsApp.
+Salvo `/aparelho-auditivo`, todas as rotas base renderizam a variante `…PageWA`:
+CTAs são links diretos para `https://wa.me/5519991460270`, sem popup de formulário
+e sem o fluxo `/obrigado`.
 
-| Rota | Componente | Página base |
-|------|-----------|------------|
-| `/aparelho-auditivo/whatsapp` | `AparelhoAuditivoPageWA` | Aparelho auditivo |
-| `/audiometria/whatsapp` | `AudiometriaPageWA` | Audiometria |
-| `/zumbido-no-ouvido/whatsapp` | `ZumbidoPageWA` | Zumbido |
-| `/perda-auditiva/whatsapp` | `PerdaAuditivaPageWA` | Perda auditiva |
-| `/manutencao-de-aparelho-auditivo/whatsapp` | `ManutencaoPageWA` | Manutenção de aparelho auditivo |
-| `/assistencia-tecnica-aparelho-auditivo/whatsapp` | `AssistenciaTecnicaPageWA` | Assistência técnica |
-| `/aparelho-auditivo-preco/whatsapp` | `PrecoPageWA` | Preço de aparelho auditivo |
-| `/aparelho-auditivo-discreto/whatsapp` | `DiscretoPageWA` | Aparelho auditivo discreto |
-| `/aparelho-auditivo-recarregavel/whatsapp` | `RecarregavelPageWA` | Recarregável e Bluetooth |
-| `/melhor-aparelho-auditivo/whatsapp` | `MelhorAparelhoPageWA` | Melhor aparelho auditivo |
-| `/aparelho-auditivo-para-idosos/whatsapp` | `IdososPageWA` | Aparelho auditivo para idosos |
-| `/aparelho-auditivo-starkey/whatsapp` | `StarkeyPageWA` | Aparelhos auditivos Starkey |
-| `/aparelho-auditivo-argosy/whatsapp` | `ArgosyPageWA` | Aparelhos auditivos Argosy |
-| `/aparelho-auditivo-rexton/whatsapp` | `RextonPageWA` | Aparelhos auditivos Rexton |
-| `/aparelho-auditivo-beltone/whatsapp` | `BeltonePageWA` | Aparelhos auditivos Beltone |
-| `/aparelho-auditivo-coselgi/whatsapp` | `CoselgiPageWA` | Aparelhos auditivos Coselgi |
-| `/aparelho-auditivo-interton/whatsapp` | `IntertonPageWA` | Aparelhos auditivos Interton |
+| Rota base | Componente renderizado | CTA |
+|-----------|------------------------|-----|
+| `/aparelho-auditivo` | `AparelhoAuditivoPage` | **Formulário** (popup → `/obrigado`) |
+| `/audiometria` | `AudiometriaPageWA` | WhatsApp direto |
+| `/zumbido-no-ouvido` | `ZumbidoPageWA` | WhatsApp direto |
+| `/perda-auditiva` | `PerdaAuditivaPageWA` | WhatsApp direto |
+| `/manutencao-de-aparelho-auditivo` | `ManutencaoPageWA` | WhatsApp direto |
+| `/assistencia-tecnica-aparelho-auditivo` | `AssistenciaTecnicaPageWA` | WhatsApp direto |
+| `/aparelho-auditivo-preco` | `PrecoPageWA` | WhatsApp direto |
+| `/aparelho-auditivo-discreto` | `DiscretoPageWA` | WhatsApp direto |
+| `/aparelho-auditivo-recarregavel` | `RecarregavelPageWA` | WhatsApp direto |
+| `/melhor-aparelho-auditivo` | `MelhorAparelhoPageWA` | WhatsApp direto |
+| `/aparelho-auditivo-para-idosos` | `IdososPageWA` | WhatsApp direto |
+| `/aparelho-auditivo-starkey` | `StarkeyPageWA` | WhatsApp direto |
+| `/aparelho-auditivo-argosy` | `ArgosyPageWA` | WhatsApp direto |
+| `/aparelho-auditivo-rexton` | `RextonPageWA` | WhatsApp direto |
+| `/aparelho-auditivo-beltone` | `BeltonePageWA` | WhatsApp direto |
+| `/aparelho-auditivo-coselgi` | `CoselgiPageWA` | WhatsApp direto |
+| `/aparelho-auditivo-interton` | `IntertonPageWA` | WhatsApp direto |
 
-**Diferença das rotas `/whatsapp`:**
-- Sem popup de formulário de captação
-- Todos os botões CTA são links diretos para `https://wa.me/5519998806076`
-- A barra de topo (`Section01TopBar`) também linka direto ao WhatsApp
-- Conteúdo idêntico à página base; apenas o comportamento dos CTAs muda
+As exportações com formulário (`PrecoPage`, `AudiometriaPage`, …) continuam nos
+arquivos, sem uso no roteamento — é o que permite reverter trocando uma linha
+por rota no `App.tsx`.
+
+---
+
+## Rotas `/whatsapp` aposentadas
+
+O comportamento delas passou para a rota base, então **redirecionam** (via
+`retiredWhatsappTarget` em `paths.ts` + `window.location.replace`). Ficam de pé só
+para não quebrar anúncio, link ou QR que ainda aponte para lá.
+
+| Rota | Redireciona para |
+|------|------------------|
+| `/audiometria/whatsapp` | `/audiometria` |
+| `/zumbido-no-ouvido/whatsapp` | `/zumbido-no-ouvido` |
+| `/perda-auditiva/whatsapp` | `/perda-auditiva` |
+| `/manutencao-de-aparelho-auditivo/whatsapp` | `/manutencao-de-aparelho-auditivo` |
+| `/assistencia-tecnica-aparelho-auditivo/whatsapp` | `/assistencia-tecnica-aparelho-auditivo` |
+| `/aparelho-auditivo-preco/whatsapp` | `/aparelho-auditivo-preco` |
+| `/aparelho-auditivo-discreto/whatsapp` | `/aparelho-auditivo-discreto` |
+| `/aparelho-auditivo-recarregavel/whatsapp` | `/aparelho-auditivo-recarregavel` |
+| `/melhor-aparelho-auditivo/whatsapp` | `/melhor-aparelho-auditivo` |
+| `/aparelho-auditivo-para-idosos/whatsapp` | `/aparelho-auditivo-para-idosos` |
+| `/aparelho-auditivo-starkey/whatsapp` | `/aparelho-auditivo-starkey` |
+| `/aparelho-auditivo-argosy/whatsapp` | `/aparelho-auditivo-argosy` |
+| `/aparelho-auditivo-rexton/whatsapp` | `/aparelho-auditivo-rexton` |
+| `/aparelho-auditivo-beltone/whatsapp` | `/aparelho-auditivo-beltone` |
+| `/aparelho-auditivo-coselgi/whatsapp` | `/aparelho-auditivo-coselgi` |
+| `/aparelho-auditivo-interton/whatsapp` | `/aparelho-auditivo-interton` |
+
+`/aparelho-auditivo/whatsapp` **não** redireciona — essa dupla ainda usa o modelo
+antigo (base com formulário, `/whatsapp` com CTA direto).
 
 ---
 

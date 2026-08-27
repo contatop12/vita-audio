@@ -7,14 +7,12 @@ import {
 import { PAGE_SEO } from "./constants/seo"
 import {
   ROUTES,
-  WHATSAPP_ROUTES,
   isObrigadoPath,
   normalizePathname,
   resolveRoutePath,
   retiredWhatsappTarget,
 } from "./constants/paths"
 import { usePageMeta } from "./hooks/usePageMeta"
-import { AparelhoAuditivoPage } from "./pages/AparelhoAuditivoPage"
 import { AparelhoAuditivoPageWA } from "./pages/AparelhoAuditivoPageWA"
 import { AssistenciaTecnicaPageWA } from "./pages/AssistenciaTecnicaPageWA"
 import { AudiometriaPageWA } from "./pages/AudiometriaPageWA"
@@ -45,7 +43,7 @@ function RedirectTo({ to }: { to: string }) {
 
 function UnknownRoutePage() {
   usePageMeta(PAGE_SEO.aparelhoAuditivo)
-  return <AparelhoAuditivoPage />
+  return <AparelhoAuditivoPageWA />
 }
 
 export default function App() {
@@ -70,10 +68,10 @@ export default function App() {
     case ROUTES.aparelhoAuditivo:
       return (
         <>
-          <Section01TopBar />
-          <AparelhoAuditivoPage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
+          <Section01TopBar ctaMode="whatsapp" />
+          <AparelhoAuditivoPageWA />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
           <CookieBanner />
         </>
       )
@@ -236,23 +234,13 @@ export default function App() {
           <CookieBanner />
         </>
       )
-    case WHATSAPP_ROUTES.aparelhoAuditivo:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <AparelhoAuditivoPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
     default:
       return (
         <>
-          <Section01TopBar />
+          <Section01TopBar ctaMode="whatsapp" />
           <UnknownRoutePage />
-          <Section12Footer />
-          <Section13WhatsAppFloat />
+          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+          <Section13WhatsAppFloat ctaMode="whatsapp" />
           <CookieBanner />
         </>
       )

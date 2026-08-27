@@ -45,13 +45,13 @@ export type RouteKey = keyof typeof ROUTES
 
 /**
  * Rotas `/whatsapp` aposentadas: o comportamento delas passou para a rota base,
- * então elas apenas redirecionam. `/aparelho-auditivo/whatsapp` fica de fora
- * — essa dupla ainda usa o fluxo antigo (base com formulário).
+ * então elas apenas redirecionam. Nenhuma rota do site usa mais formulário.
  */
 const RETIRED_WHATSAPP_ROUTES: Record<string, string> = Object.fromEntries(
-  Object.entries(WHATSAPP_ROUTES)
-    .filter(([key]) => key !== "aparelhoAuditivo")
-    .map(([key, whatsappPath]) => [whatsappPath, ROUTES[key as RouteKey]]),
+  Object.entries(WHATSAPP_ROUTES).map(([key, whatsappPath]) => [
+    whatsappPath,
+    ROUTES[key as RouteKey],
+  ]),
 )
 
 /** Rota base correspondente quando `pathname` é uma `/whatsapp` aposentada; senão, `null`. */

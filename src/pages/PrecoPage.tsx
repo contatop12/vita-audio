@@ -8,6 +8,9 @@ import {
   Sparkles,
   Users,
   BatteryCharging,
+  CreditCard,
+  Headphones,
+  Wallet,
 } from "lucide-react"
 import { Section09Conheca, Section10bGoogleReviews, Section10cCarrosselHistorias } from "../components"
 import { BlocoConteudo } from "../components/shared/BlocoConteudo"
@@ -92,6 +95,27 @@ const TIPOS = [
   },
 ]
 
+const CONDICOES = [
+  {
+    Icon: Wallet,
+    title: "A partir de R$ 89 por mês",
+    description:
+      "Existem opções de aparelho auditivo com mensalidade a partir de R$ 89. O valor final depende do modelo, do nível de tecnologia e da indicação para o seu caso.",
+  },
+  {
+    Icon: CreditCard,
+    title: "Parcelamento em até 21x",
+    description:
+      "O investimento pode ser dividido em até 21 vezes, o que permite escolher a tecnologia adequada sem comprometer o orçamento de uma só vez.",
+  },
+  {
+    Icon: Headphones,
+    title: "Teste antes de comprar",
+    description:
+      "Você pode experimentar o aparelho auditivo antes de fechar a compra e sentir na prática a diferença no seu dia a dia, na sua rotina e nos seus ambientes.",
+  },
+]
+
 const DIFERENCIAIS = [
   {
     title: "Fonoaudiólogas especializadas em aparelhos auditivos",
@@ -129,7 +153,17 @@ const FAQ_ITEMS = [
   {
     question: "Quanto custa um aparelho auditivo?",
     answer:
-      "Não existe um preço único. O valor varia conforme o modelo, o nível de tecnologia, os recursos disponíveis e a necessidade auditiva de cada paciente. Por isso, o caminho mais rápido é conversar com nossa equipe e consultar as opções adequadas ao seu caso.",
+      "Na Vita Audio existem opções a partir de R$ 89 por mês, com parcelamento em até 21 vezes. O valor final varia conforme o modelo, o nível de tecnologia, os recursos disponíveis e a necessidade auditiva de cada paciente — por isso o caminho mais rápido é conversar com nossa equipe e consultar as condições completas para o seu caso.",
+  },
+  {
+    question: "Em quantas vezes posso parcelar o aparelho auditivo?",
+    answer:
+      "O investimento pode ser parcelado em até 21 vezes. As condições variam conforme o modelo escolhido e a forma de pagamento — nossa equipe informa os valores completos antes de qualquer decisão.",
+  },
+  {
+    question: "Posso testar o aparelho auditivo antes de comprar?",
+    answer:
+      "Sim. Você pode experimentar o aparelho antes de fechar a compra e perceber na prática como ele se comporta na sua rotina, em casa, no trabalho e nos ambientes em que você tem mais dificuldade para ouvir. Assim a decisão é tomada com base na sua experiência, e não apenas na explicação técnica.",
   },
   {
     question: "Por que existem aparelhos auditivos com preços tão diferentes?",
@@ -199,9 +233,15 @@ function PrecoContent({ ctaMode }: PrecoContentProps) {
     <>
       <HeroPage
         title="Quanto Custa um Aparelho Auditivo? Conheça Modelos e Valores"
-        subtitle="O valor de um aparelho auditivo varia conforme a tecnologia, o modelo, os recursos e as necessidades auditivas de cada pessoa. Na Vita Audio, em Indaiatuba, nossas fonoaudiólogas especializadas ajudam você a encontrar a opção mais adequada para sua rotina e seu orçamento."
+        subtitle="Na Vita Audio, em Indaiatuba, existem opções a partir de R$ 89 por mês, com parcelamento em até 21x — e você pode testar o aparelho antes de comprar. Nossas fonoaudiólogas especializadas ajudam você a encontrar a opção mais adequada para sua audição, sua rotina e seu orçamento."
         primaryLabel={wa ? "Consultar Modelos e Valores no WhatsApp" : "Consultar Modelos e Valores"}
         ctaMode={ctaMode}
+      />
+      <FeatureCardGrid
+        title="Condições para começar a ouvir melhor"
+        subtitle="Você não precisa escolher entre a tecnologia adequada e o que cabe no seu orçamento."
+        items={CONDICOES}
+        closingText="As condições variam conforme o modelo escolhido e a forma de pagamento. Nossa equipe informa os valores completos antes de qualquer decisão."
       />
       <Section10cCarrosselHistorias />
       <FeatureCardGrid
@@ -212,7 +252,7 @@ function PrecoContent({ ctaMode }: PrecoContentProps) {
       />
       <PrimaryPromoBlock
         title="Quer saber quais aparelhos e valores estão disponíveis?"
-        description="Converse com a equipe da Vita Audio e conheça as opções de aparelhos auditivos de acordo com suas necessidades e preferências. Não trabalhamos com tabela fixa justamente porque a indicação muda de pessoa para pessoa."
+        description="Há opções a partir de R$ 89 por mês, em até 21x, e você pode testar o aparelho antes de comprar. Converse com a equipe da Vita Audio para conhecer os modelos disponíveis de acordo com suas necessidades e receber os valores completos para o seu caso."
         buttonLabel={wa ? "Consultar Modelos e Valores no WhatsApp" : "Quero Conhecer as Opções para Mim"}
         ctaMode={ctaMode}
       />
@@ -230,6 +270,22 @@ function PrecoContent({ ctaMode }: PrecoContentProps) {
         ctaLabel={wa ? "Falar com uma Fonoaudióloga pelo WhatsApp" : "Falar com uma Fonoaudióloga Especializada"}
         ctaMode={ctaMode}
         background="gray"
+      />
+      <BlocoConteudo
+        title="Experimente antes de decidir"
+        paragraphs={[
+          "Ler sobre um aparelho auditivo é uma coisa. Ouvir com ele é outra. Por isso você pode testar o aparelho antes de fechar a compra.",
+          "Durante o teste, o que importa não é a ficha técnica: é perceber se você acompanha melhor as conversas em casa, se entende o que é dito em ambientes com mais ruído e se o aparelho é confortável ao longo do dia.",
+        ]}
+        bullets={[
+          "Sinta a diferença na sua própria rotina",
+          "Avalie o conforto no uso prolongado",
+          "Teste em casa, no trabalho e nos ambientes mais difíceis",
+          "Decida com base na sua experiência, não só na explicação técnica",
+        ]}
+        closingText="A decisão fica muito mais tranquila quando você já sentiu o resultado antes de investir."
+        ctaLabel={wa ? "Quero Testar um Aparelho Auditivo" : "Quero Testar um Aparelho Auditivo"}
+        ctaMode={ctaMode}
       />
       <DiferenciaisList
         title="Mais do que escolher um aparelho, tenha acompanhamento especializado"
@@ -255,7 +311,7 @@ function PrecoContent({ ctaMode }: PrecoContentProps) {
       <OutrosServicos />
       <FinalCta
         title="Quer saber qual aparelho auditivo faz sentido para você e quanto ele custa?"
-        subtitle="Converse com a equipe da Vita Audio, tire suas dúvidas sobre modelos, tecnologias e valores e receba orientação especializada. Atendimento em Indaiatuba/SP."
+        subtitle="Opções a partir de R$ 89 por mês, parcelamento em até 21x e a possibilidade de testar antes de comprar. Converse com a equipe da Vita Audio, tire suas dúvidas sobre modelos, tecnologias e valores e receba orientação especializada. Atendimento em Indaiatuba/SP."
         primaryLabel={wa ? "Consultar Modelos e Valores no WhatsApp" : "Consultar Modelos e Valores"}
         ctaMode={ctaMode}
       />

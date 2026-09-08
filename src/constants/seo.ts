@@ -39,7 +39,7 @@ export const PAGE_SEO: Record<RouteKey, PageSeo> = {
   preco: {
     title: "Aparelho Auditivo: Preços e Valores | Vita Audio Indaiatuba",
     description:
-      "Quer saber quanto custa um aparelho auditivo? Conheça os fatores que influenciam o preço, modelos disponíveis e encontre a opção ideal com a Vita Audio em Indaiatuba.",
+      "Aparelho auditivo a partir de R$ 89 por mês, em até 21x, com teste antes de comprar. Conheça modelos, valores e condições na Vita Audio em Indaiatuba.",
   },
   discreto: {
     title: "Aparelho Auditivo Discreto e Pequeno | Vita Audio Indaiatuba",

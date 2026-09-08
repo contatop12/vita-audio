@@ -29,13 +29,13 @@ const googleReviews: GoogleReview[] = [
     name: "Andressa Santos de Jesus",
     quote:
       "Gostaria de registrar meu agradecimento à Tayla e à Raquel pelo excelente atendimento na clínica Vita Áudio. Fomos muito bem recebidos, com atenção, cuidado e profissionalismo em todos os momentos. A dedicação, a paciência e a forma clara como conduziram o atendimento fizeram toda a diferença. Parabéns pelo trabalho e muito obrigada pelo carinho e competência!",
-    photoFile: "Andressa Santos de Jesus.png",
+    photoFile: "Andressa Santos de Jesus.webp",
   },
   {
     name: "Drisana Vilalva",
     quote:
       "Atendimento excepcional, equipe sempre atenciosa e pronta pra atender em todos os momentos. Espaço confortável, o cappuccino é maravilhoso rsrs Obrigada equipe, melhor decisão da minha vida 💗 ...",
-    photoFile: "Drisana Vilalva.png",
+    photoFile: "Drisana Vilalva.webp",
   },
 ]
 
@@ -57,6 +57,8 @@ function ReviewAvatar({ review }: { review: GoogleReview }) {
         src={src}
         alt=""
         className="size-9 shrink-0 rounded-full border border-vita-blue/15 object-cover"
+        loading="lazy"
+        decoding="async"
       />
     )
   }

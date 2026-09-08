@@ -39,9 +39,11 @@ export function Section12Footer({ whatsappHref = WHATSAPP_FOOTER_URL }: Props) {
         <div className="grid grid-cols-1 gap-5 border-b border-white/20 pb-8 md:grid-cols-2 lg:grid-cols-4">
           <div>
             <img
-              src={publicUrl("images/logo.png")}
+              src={publicUrl("images/logo.webp")}
               alt="Vita Audio"
               className="mb-4 h-11 w-auto brightness-0 invert"
+              loading="lazy"
+              decoding="async"
             />
             <p className="max-w-[280px] text-sm leading-relaxed text-white/90">
               Soluções completas em reabilitação auditiva para você ouvir melhor em
@@ -186,9 +188,11 @@ export function Section12Footer({ whatsappHref = WHATSAPP_FOOTER_URL }: Props) {
           </div>
           <div>
             <img
-              src={publicUrl("images/pagamentos.png")}
+              src={publicUrl("images/pagamentos.webp")}
               alt="Formas de pagamento aceitas"
               className="h-[42px] w-auto object-contain"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
@@ -205,9 +209,11 @@ export function Section12Footer({ whatsappHref = WHATSAPP_FOOTER_URL }: Props) {
               aria-label="P12 Digital — abrir site"
             >
               <img
-                src={publicUrl("images/logotipo_p12.png")}
+                src={publicUrl("images/logotipo_p12.webp")}
                 alt="P12 Digital"
                 className="h-7 w-auto object-contain sm:h-8"
+                loading="lazy"
+                decoding="async"
               />
             </a>
           </div>

@@ -39,8 +39,12 @@ export function Section02Hero({ ctaMode = "form" }: Props) {
       <div className={`relative z-10 ${container} grid w-full grid-cols-1 items-center`}>
         <div className="max-w-[560px] max-md:rounded-2xl max-md:bg-white/55 max-md:p-5 max-md:backdrop-blur-[2px]">
           <img
-            src={publicUrl("apple-touch-icon.png")}
+            src={publicUrl("images/vita-logo.webp")}
             alt="Vita Audio"
+              width={360}
+              height={102}
+              fetchPriority="high"
+              decoding="async"
             className="mb-5 h-auto w-[165px] object-contain sm:w-[179px]"
           />
           <h1 className="mb-4 text-[28px] font-semibold leading-snug text-[#003060] max-[600px]:text-[28px] md:text-[32px] md:text-[#004080] ">

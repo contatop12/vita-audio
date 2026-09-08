@@ -178,6 +178,8 @@ export function AudiometriaPageWA() {
                 src="/images/vita-audio-teste-audicao.webp"
                 alt="Audiometria Vita Audio"
                 className="w-full rounded-2xl object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="w-full lg:w-1/2">

@@ -50,9 +50,11 @@ export function Section03Diferenciais({ ctaMode = "form" }: Props) {
         </div>
         <div className="order-first flex justify-center md:order-none">
           <img
-            src={publicUrl("images/f1.png")}
+            src={publicUrl("images/f1.webp")}
             alt="Casal feliz com aparelhos auditivos"
             className="w-[500px]"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>

@@ -1,10 +1,9 @@
-import { useEffect, useMemo } from "react"
+import { Suspense, lazy, useEffect, type ComponentType, type LazyExoticComponent } from "react"
 import {
   Section01TopBar,
   Section12Footer,
   Section13WhatsAppFloat,
 } from "./components"
-import { PAGE_SEO } from "./constants/seo"
 import {
   ROUTES,
   isObrigadoPath,
@@ -12,27 +11,100 @@ import {
   resolveRoutePath,
   retiredWhatsappTarget,
 } from "./constants/paths"
-import { usePageMeta } from "./hooks/usePageMeta"
-import { AparelhoAuditivoPageWA } from "./pages/AparelhoAuditivoPageWA"
-import { AssistenciaTecnicaPageWA } from "./pages/AssistenciaTecnicaPageWA"
-import { AudiometriaPageWA } from "./pages/AudiometriaPageWA"
-import { ManutencaoPageWA } from "./pages/ManutencaoPageWA"
 import { ObrigadoPage } from "./pages/ObrigadoPage"
-import { PerdaAuditivaPageWA } from "./pages/PerdaAuditivaPageWA"
-import { ZumbidoPageWA } from "./pages/ZumbidoPageWA"
-import { PrecoPageWA } from "./pages/PrecoPage"
-import { DiscretoPageWA } from "./pages/DiscretoPage"
-import { RecarregavelPageWA } from "./pages/RecarregavelPage"
-import { MelhorAparelhoPageWA } from "./pages/MelhorAparelhoPage"
-import { IdososPageWA } from "./pages/IdososPage"
-import { StarkeyPageWA } from "./pages/StarkeyPage"
-import { ArgosyPageWA } from "./pages/ArgosyPage"
-import { RextonPageWA } from "./pages/RextonPage"
-import { BeltonePageWA } from "./pages/BeltonePage"
-import { CoselgiPageWA } from "./pages/CoselgiPage"
-import { IntertonPageWA } from "./pages/IntertonPage"
 import { CookieBanner } from "./components/CookieBanner"
 import { WHATSAPP_LANDING_URL } from "./constants/site"
+
+/**
+ * O conteúdo de cada rota vira um chunk próprio: quem cai numa landing page
+ * baixa apenas o texto dela, e não o das outras dezessete.
+ *
+ * O `import()` é disparado no escopo do módulo (ver `routeLoader` abaixo), então
+ * o chunk da rota desce em paralelo com o bootstrap do React em vez de esperar
+ * o primeiro render — que é o custo habitual de `React.lazy`.
+ */
+type PageLoader = () => Promise<{ default: ComponentType }>
+
+const named = <K extends string>(
+  load: () => Promise<Record<K, ComponentType>>,
+  key: K,
+): PageLoader => () => load().then((m) => ({ default: m[key] }))
+
+type RouteEntry = {
+  load: PageLoader
+  /** A audiometria é a única rota sem a barra de topo. */
+  topBar?: boolean
+}
+
+const ROUTE_PAGES: Record<string, RouteEntry> = {
+  [ROUTES.aparelhoAuditivo]: {
+    load: named(() => import("./pages/AparelhoAuditivoPageWA"), "AparelhoAuditivoPageWA"),
+  },
+  [ROUTES.audiometria]: {
+    load: named(() => import("./pages/AudiometriaPageWA"), "AudiometriaPageWA"),
+    topBar: false,
+  },
+  [ROUTES.zumbido]: {
+    load: named(() => import("./pages/ZumbidoPageWA"), "ZumbidoPageWA"),
+  },
+  [ROUTES.perdaAuditiva]: {
+    load: named(() => import("./pages/PerdaAuditivaPageWA"), "PerdaAuditivaPageWA"),
+  },
+  [ROUTES.manutencao]: {
+    load: named(() => import("./pages/ManutencaoPageWA"), "ManutencaoPageWA"),
+  },
+  [ROUTES.assistenciaTecnica]: {
+    load: named(() => import("./pages/AssistenciaTecnicaPageWA"), "AssistenciaTecnicaPageWA"),
+  },
+  [ROUTES.preco]: {
+    load: named(() => import("./pages/PrecoPage"), "PrecoPageWA"),
+  },
+  [ROUTES.discreto]: {
+    load: named(() => import("./pages/DiscretoPage"), "DiscretoPageWA"),
+  },
+  [ROUTES.recarregavel]: {
+    load: named(() => import("./pages/RecarregavelPage"), "RecarregavelPageWA"),
+  },
+  [ROUTES.melhorAparelho]: {
+    load: named(() => import("./pages/MelhorAparelhoPage"), "MelhorAparelhoPageWA"),
+  },
+  [ROUTES.idosos]: {
+    load: named(() => import("./pages/IdososPage"), "IdososPageWA"),
+  },
+  [ROUTES.starkey]: {
+    load: named(() => import("./pages/StarkeyPage"), "StarkeyPageWA"),
+  },
+  [ROUTES.argosy]: {
+    load: named(() => import("./pages/ArgosyPage"), "ArgosyPageWA"),
+  },
+  [ROUTES.rexton]: {
+    load: named(() => import("./pages/RextonPage"), "RextonPageWA"),
+  },
+  [ROUTES.beltone]: {
+    load: named(() => import("./pages/BeltonePage"), "BeltonePageWA"),
+  },
+  [ROUTES.coselgi]: {
+    load: named(() => import("./pages/CoselgiPage"), "CoselgiPageWA"),
+  },
+  [ROUTES.interton]: {
+    load: named(() => import("./pages/IntertonPage"), "IntertonPageWA"),
+  },
+}
+
+const pathname = normalizePathname(window.location.pathname)
+const route = ROUTE_PAGES[pathname] ?? ROUTE_PAGES[ROUTES.aparelhoAuditivo]
+
+/**
+ * Dispara o download do chunk agora, ainda durante a avaliação do módulo.
+ * `lazy` reaproveita a mesma promise no primeiro render.
+ */
+const routeLoader = route.load()
+const RoutePage: LazyExoticComponent<ComponentType> = lazy(() => routeLoader)
+
+/** Reserva altura da primeira dobra para o chunk não causar layout shift. */
+function RouteFallback() {
+  return <div className="min-h-[620px] bg-[#eff4f9]" aria-hidden />
+}
 
 function RedirectTo({ to }: { to: string }) {
   useEffect(() => {
@@ -41,14 +113,7 @@ function RedirectTo({ to }: { to: string }) {
   return null
 }
 
-function UnknownRoutePage() {
-  usePageMeta(PAGE_SEO.aparelhoAuditivo)
-  return <AparelhoAuditivoPageWA />
-}
-
 export default function App() {
-  const pathname = useMemo(() => normalizePathname(window.location.pathname), [])
-
   const retiredWhatsapp = retiredWhatsappTarget(pathname)
   if (retiredWhatsapp) {
     return <RedirectTo to={retiredWhatsapp} />
@@ -64,185 +129,15 @@ export default function App() {
     )
   }
 
-  switch (pathname) {
-    case ROUTES.aparelhoAuditivo:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <AparelhoAuditivoPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.audiometria:
-      return (
-        <>
-          <AudiometriaPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.zumbido:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <ZumbidoPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.perdaAuditiva:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <PerdaAuditivaPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.manutencao:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <ManutencaoPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.assistenciaTecnica:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <AssistenciaTecnicaPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.preco:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <PrecoPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.discreto:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <DiscretoPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.recarregavel:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <RecarregavelPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.melhorAparelho:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <MelhorAparelhoPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.idosos:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <IdososPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.starkey:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <StarkeyPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.argosy:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <ArgosyPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.rexton:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <RextonPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.beltone:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <BeltonePageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.coselgi:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <CoselgiPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    case ROUTES.interton:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <IntertonPageWA />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-    default:
-      return (
-        <>
-          <Section01TopBar ctaMode="whatsapp" />
-          <UnknownRoutePage />
-          <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
-          <Section13WhatsAppFloat ctaMode="whatsapp" />
-          <CookieBanner />
-        </>
-      )
-  }
+  return (
+    <>
+      {route.topBar === false ? null : <Section01TopBar ctaMode="whatsapp" />}
+      <Suspense fallback={<RouteFallback />}>
+        <RoutePage />
+      </Suspense>
+      <Section12Footer whatsappHref={WHATSAPP_LANDING_URL} />
+      <Section13WhatsAppFloat ctaMode="whatsapp" />
+      <CookieBanner />
+    </>
+  )
 }

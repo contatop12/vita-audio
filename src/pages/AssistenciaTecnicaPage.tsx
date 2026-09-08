@@ -227,6 +227,8 @@ export function AssistenciaTecnicaPage() {
                 src="/images/vita-audio-teste-audicao.webp"
                 alt="Assistência técnica de aparelho auditivo na Vita Audio"
                 className="w-full rounded-2xl object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="w-full lg:w-1/2">
@@ -262,9 +264,11 @@ export function AssistenciaTecnicaPage() {
           <div className="flex flex-col items-center gap-10 lg:flex-row">
             <div className="flex w-full items-center justify-center lg:w-1/2">
               <img
-                src="/images/f2.png"
+                src="/images/f2.webp"
                 alt="Aparelho auditivo em reparo técnico"
                 className="w-full max-w-md rounded-2xl object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </div>
             <div className="w-full lg:w-1/2">

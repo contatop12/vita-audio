@@ -7,7 +7,7 @@ const GAP_PX = 16
 
 const CARROSSEL_FILES = Array.from({ length: 20 }, (_, i) => {
   const n = String(i + 1).padStart(2, "0")
-  return `images/CARROSSEL/img feed carrol ${n}.png`
+  return `images/CARROSSEL/img feed carrol ${n}.webp`
 })
 
 function usePerView() {

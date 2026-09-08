@@ -1,7 +1,7 @@
 import { container } from "../vita-tw"
 import { publicUrl } from "../utils/publicUrl"
 
-const especialistaBackgroundImage = `url("${publicUrl("images/hero-hand-device.jpg")}")`
+const especialistaBackgroundImage = `url("${publicUrl("images/hero-hand-device.webp")}")`
 
 const bullets = [
   "Equipe completa e composta por fonoaudiólogos especializados em audiologia",
@@ -27,14 +27,18 @@ export function Section04Especialista() {
       >
         <div className="order-first flex justify-center md:order-none md:block">
           <img
-            src={publicUrl("images/f10.png")}
+            src={publicUrl("images/f10.webp")}
             alt="Aparelho auditivo na mão"
             className="w-full max-w-[420px] rounded-lg object-contain md:hidden"
+            loading="lazy"
+            decoding="async"
           />
           <img
-            src={publicUrl("images/f2.png")}
+            src={publicUrl("images/f2.webp")}
             alt="Aparelho auditivo na mão"
             className="hidden w-full max-w-[420px] rounded-lg object-cover md:block"
+            loading="lazy"
+            decoding="async"
           />
         </div>
         <div>

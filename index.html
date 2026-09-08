@@ -43,10 +43,45 @@
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!--
+      A imagem do hero entra por background-image inline, que o browser só
+      descobre depois de baixar e aplicar o CSS. O preload antecipa esse
+      download, que é o elemento de LCP em todas as landing pages.
+    -->
     <link
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600;700;800&display=swap"
-      rel="stylesheet"
+      rel="preload"
+      as="image"
+      href="%BASE_URL%images/hero-section-audi-mobile-v1.webp"
+      media="(max-width: 767px)"
+      fetchpriority="high"
     />
+    <link
+      rel="preload"
+      as="image"
+      href="%BASE_URL%images/hero-section-audi-v1.webp"
+      media="(min-width: 768px)"
+      fetchpriority="high"
+    />
+
+    <!--
+      Só os pesos realmente usados: Poppins 400/500/600/700 e Playfair 600
+      (aplicado em um único h2). A folha carrega sem bloquear o render — com
+      display=swap o texto já apareceria na fonte de fallback de qualquer forma,
+      então bloquear a primeira pintura não traria ganho nenhum.
+    -->
+    <link
+      rel="preload"
+      as="style"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500;600;700&display=swap"
+      onload="this.rel='stylesheet'"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Poppins:wght@400;500;600;700&display=swap"
+      />
+    </noscript>
   </head>
   <body>
     <!-- Google Tag Manager (noscript) -->

@@ -43,9 +43,11 @@ export function Section07NaoPercas({ ctaMode = "form" }: Props) {
         </div>
         <div className="order-first md:order-none">
           <img
-            src={publicUrl("images/f3.png")}
+            src={publicUrl("images/f3.webp")}
             alt="Família feliz reunida"
             className="max-h-[380px] w-full rounded-lg object-cover"
+            loading="lazy"
+            decoding="async"
           />
         </div>
       </div>

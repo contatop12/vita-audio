@@ -53,8 +53,12 @@ export function HeroPage({
         <div className="max-w-[560px] max-md:rounded-2xl max-md:bg-white/55 max-md:p-5 max-md:backdrop-blur-[2px]">
           {showLogo ? (
             <img
-              src={publicUrl("apple-touch-icon.png")}
+              src={publicUrl("images/vita-logo.webp")}
               alt="Vita Audio"
+              width={360}
+              height={102}
+              fetchPriority="high"
+              decoding="async"
               className="mb-5 h-auto w-[165px] object-contain sm:w-[179px]"
             />
           ) : null}

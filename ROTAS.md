@@ -33,6 +33,7 @@ Definições em `src/constants/paths.ts` (`ROUTES`, `WHATSAPP_ROUTES`).
 | `/aparelho-auditivo-beltone` | `BeltonePage` | Marca Beltone — linhas Serene, Boost Ultra e Achieve |
 | `/aparelho-auditivo-coselgi` | `CoselgiPage` | Marca Coselgi — linha Mojo |
 | `/aparelho-auditivo-interton` | `IntertonPage` | Marca Interton — linhas Move e Presto |
+| `/centro-auditivo-indaiatuba` | `CentroAuditivoPage` | Página institucional/local — a clínica, serviços, marcas, endereço |
 
 ### Subrotas
 
@@ -138,6 +139,7 @@ src/
     ├── BeltonePage.tsx              ← Exporta BeltonePage e BeltonePageWA
     ├── CoselgiPage.tsx              ← Exporta CoselgiPage e CoselgiPageWA
     ├── IntertonPage.tsx             ← Exporta IntertonPage e IntertonPageWA
+    ├── CentroAuditivoPage.tsx       ← Exporta CentroAuditivoPage e CentroAuditivoPageWA
     └── ObrigadoPage.tsx
 ```
 
@@ -154,6 +156,7 @@ src/
 | `shared/CardsLinhas` | Blocos de linha de produto (Genesis/Evolv, Vista V/B, BiCore/MotionCore/Reach) |
 | `shared/SeletorIntencao` | Microsseletor de intenção com mensagem pré-preenchida no WhatsApp |
 | `shared/PaginasRelacionadas` | Links internos entre as páginas do cluster |
+| `shared/OndeEstamos` | Endereço, horários, região atendida e link de rota |
 
 ---
 

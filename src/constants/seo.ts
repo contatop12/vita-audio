@@ -91,6 +91,11 @@ export const PAGE_SEO: Record<RouteKey, PageSeo> = {
     description:
       "Conheça os aparelhos auditivos Interton, linhas Move e Presto, modelos e valores. Atendimento especializado na Vita Audio em Indaiatuba.",
   },
+  centroAuditivo: {
+    title: "Centro Auditivo em Indaiatuba | Vita Audio",
+    description:
+      "Centro auditivo em Indaiatuba especializado em aparelhos auditivos. Avaliação, adaptação e acompanhamento com fonoaudiólogas especializadas. Agende!",
+  },
 }
 
 export function getSeoForPath(pathname: string): PageSeo {

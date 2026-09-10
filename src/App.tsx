@@ -89,6 +89,9 @@ const ROUTE_PAGES: Record<string, RouteEntry> = {
   [ROUTES.interton]: {
     load: named(() => import("./pages/IntertonPage"), "IntertonPageWA"),
   },
+  [ROUTES.centroAuditivo]: {
+    load: named(() => import("./pages/CentroAuditivoPage"), "CentroAuditivoPageWA"),
+  },
 }
 
 const pathname = normalizePathname(window.location.pathname)

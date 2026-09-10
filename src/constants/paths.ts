@@ -19,6 +19,7 @@ export const ROUTES = {
   beltone: "/aparelho-auditivo-beltone",
   coselgi: "/aparelho-auditivo-coselgi",
   interton: "/aparelho-auditivo-interton",
+  centroAuditivo: "/centro-auditivo-indaiatuba",
 } as const
 
 export const WHATSAPP_ROUTES = {
@@ -39,6 +40,7 @@ export const WHATSAPP_ROUTES = {
   beltone: "/aparelho-auditivo-beltone/whatsapp",
   coselgi: "/aparelho-auditivo-coselgi/whatsapp",
   interton: "/aparelho-auditivo-interton/whatsapp",
+  centroAuditivo: "/centro-auditivo-indaiatuba/whatsapp",
 } as const
 
 export type RouteKey = keyof typeof ROUTES

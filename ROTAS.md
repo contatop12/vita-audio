@@ -39,7 +39,7 @@ Definições em `src/constants/paths.ts` (`ROUTES`, `WHATSAPP_ROUTES`).
 
 | Rota | Componente | Descrição |
 |------|-----------|-----------|
-| `/{rota}/obrigado` | `ObrigadoPage` | Confirmação após envio de formulário — na prática só `/aparelho-auditivo/obrigado`, a única rota que ainda tem formulário |
+| `/{rota}/obrigado` | `ObrigadoPage` | Confirmação após envio de formulário. Nenhuma rota tem formulário desde `af63a57`; fica de pé só para link antigo |
 
 > Qualquer caminho não reconhecido redireciona para `/aparelho-auditivo`.
 
@@ -47,13 +47,12 @@ Definições em `src/constants/paths.ts` (`ROUTES`, `WHATSAPP_ROUTES`).
 
 ## CTA das páginas: WhatsApp direto
 
-Salvo `/aparelho-auditivo`, todas as rotas base renderizam a variante `…PageWA`:
-CTAs são links diretos para `https://wa.me/5519991460270`, sem popup de formulário
-e sem o fluxo `/obrigado`.
+Todas as rotas base renderizam a variante `…PageWA`: CTAs são links diretos para
+`https://wa.me/5519991460270`, sem popup de formulário e sem o fluxo `/obrigado`.
 
 | Rota base | Componente renderizado | CTA |
 |-----------|------------------------|-----|
-| `/aparelho-auditivo` | `AparelhoAuditivoPage` | **Formulário** (popup → `/obrigado`) |
+| `/aparelho-auditivo` | `AparelhoAuditivoPageWA` | WhatsApp direto |
 | `/audiometria` | `AudiometriaPageWA` | WhatsApp direto |
 | `/zumbido-no-ouvido` | `ZumbidoPageWA` | WhatsApp direto |
 | `/perda-auditiva` | `PerdaAuditivaPageWA` | WhatsApp direto |
@@ -70,6 +69,7 @@ e sem o fluxo `/obrigado`.
 | `/aparelho-auditivo-beltone` | `BeltonePageWA` | WhatsApp direto |
 | `/aparelho-auditivo-coselgi` | `CoselgiPageWA` | WhatsApp direto |
 | `/aparelho-auditivo-interton` | `IntertonPageWA` | WhatsApp direto |
+| `/centro-auditivo-indaiatuba` | `CentroAuditivoPageWA` | WhatsApp direto |
 
 As exportações com formulário (`PrecoPage`, `AudiometriaPage`, …) continuam nos
 arquivos, sem uso no roteamento — é o que permite reverter trocando uma linha
@@ -101,9 +101,22 @@ para não quebrar anúncio, link ou QR que ainda aponte para lá.
 | `/aparelho-auditivo-beltone/whatsapp` | `/aparelho-auditivo-beltone` |
 | `/aparelho-auditivo-coselgi/whatsapp` | `/aparelho-auditivo-coselgi` |
 | `/aparelho-auditivo-interton/whatsapp` | `/aparelho-auditivo-interton` |
+| `/aparelho-auditivo/whatsapp` | `/aparelho-auditivo` |
+| `/centro-auditivo-indaiatuba/whatsapp` | `/centro-auditivo-indaiatuba` |
 
-`/aparelho-auditivo/whatsapp` **não** redireciona — essa dupla ainda usa o modelo
-antigo (base com formulário, `/whatsapp` com CTA direto).
+---
+
+## Rastreio (GTM-5867VHW5)
+
+Cada rota base tem a **sua** conversão de clique no WhatsApp no Google Ads: uma
+tag `05 | <rota> | ADS — Conversão WhatsApp` com o gatilho `wa.me - <rota>`
+(Click URL contém `wa.me` e Page Path `^/<rota>/?$`). Não há tag genérica.
+
+**Rota nova = ação de conversão nova no Ads + tag e gatilho no GTM.** Sem isso o
+clique da página não conta no Ads (foi o que aconteceu com
+`/centro-auditivo-indaiatuba`, publicada sem tag). O resto do rastreio vale para
+qualquer rota sem configuração: protocolo no link, coletor do CRM, GA4
+(`G-F416MQ3SE8`) e o `generate_lead`.
 
 ---
 
@@ -164,5 +177,6 @@ src/
 
 | Finalidade | Link |
 |-----------|------|
-| Chat geral | `https://wa.me/5519998806076` |
-| Link de lead (formulário) | `https://wa.me/message/5V24WTVNCMCXE1` |
+| CTA de todas as páginas | `https://wa.me/5519991460270` (texto "Olá, vim pelo google…"; o GTM acrescenta `[Protocolo: VITA-…]`) |
+
+Fonte: `src/constants/site.ts`.

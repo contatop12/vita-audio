@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react"
+import { LEGAL_ROUTES } from "../constants/paths"
 
 export function CookieBanner() {
   const [visible, setVisible] = useState(false)
@@ -20,7 +21,14 @@ export function CookieBanner() {
     <div className="fixed bottom-0 left-0 right-0 z-50 bg-[#006dc4] shadow-[0_-2px_8px_rgba(0,0,0,0.2)] px-4 py-4">
       <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center gap-3 sm:gap-6">
         <p className="text-white text-sm flex-1 text-center sm:text-left">
-          Usamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa política de privacidade.
+          Usamos cookies para melhorar sua experiência. Ao continuar navegando, você concorda com nossa{" "}
+          <a
+            href={LEGAL_ROUTES.privacidade}
+            className="font-semibold underline underline-offset-2 hover:text-vita-orange"
+          >
+            política de privacidade
+          </a>
+          .
         </p>
         <button
           onClick={accept}

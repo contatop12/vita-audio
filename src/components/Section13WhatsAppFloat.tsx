@@ -1,5 +1,11 @@
 import { FormEvent, useEffect, useMemo, useState } from "react"
-import { isObrigadoPath, normalizePathname, obrigadoPathForRoute, resolveRoutePath } from "../constants/paths"
+import {
+  LEGAL_ROUTES,
+  isObrigadoPath,
+  normalizePathname,
+  obrigadoPathForRoute,
+  resolveRoutePath,
+} from "../constants/paths"
 import { LEAD_WEBHOOK_URL, WHATSAPP_LANDING_URL } from "../constants/site"
 import {
   WHATSAPP_LEAD_CODI_ID,
@@ -197,8 +203,16 @@ export function Section13WhatsAppFloat({ ctaMode = "form" }: Props) {
                   required
                 />
                 <span>
-                  Autorizo o uso dos meus dados para contato, conforme os termos de
-                  privacidade.
+                  Autorizo o uso dos meus dados para contato, conforme a{" "}
+                  <a
+                    href={LEGAL_ROUTES.privacidade}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="text-vita-blue underline underline-offset-2"
+                  >
+                    Política de Privacidade
+                  </a>
+                  .
                 </span>
               </label>
 

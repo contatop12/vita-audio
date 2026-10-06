@@ -14,7 +14,7 @@ import {
   WHATSAPP_FOOTER_URL,
   WHATSAPP_DISPLAY,
 } from "../constants/site"
-import { ROUTES } from "../constants/paths"
+import { LEGAL_ROUTES, ROUTES } from "../constants/paths"
 import { container } from "../vita-tw"
 import { publicUrl } from "../utils/publicUrl"
 import { WhatsAppIcon } from "./WhatsAppIcon"
@@ -199,6 +199,26 @@ export function Section12Footer({ whatsappHref = WHATSAPP_FOOTER_URL }: Props) {
 
         <div className="mt-5 border-t border-white/20 pt-4 text-center text-xs text-white/80">
           <p>© 2026 Vita Audio. Todos os direitos reservados.</p>
+          <nav
+            aria-label="Informações legais"
+            className="mt-2 flex flex-wrap items-center justify-center gap-x-3 gap-y-1"
+          >
+            <a
+              href={LEGAL_ROUTES.privacidade}
+              className="py-1 underline-offset-2 transition-colors hover:text-vita-orange hover:underline"
+            >
+              Política de Privacidade
+            </a>
+            <span className="text-white/40" aria-hidden>
+              ·
+            </span>
+            <a
+              href={LEGAL_ROUTES.termos}
+              className="py-1 underline-offset-2 transition-colors hover:text-vita-orange hover:underline"
+            >
+              Termos de Uso
+            </a>
+          </nav>
           <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5">
             <span className="text-white/75">Site desenvolvido por:</span>
             <a

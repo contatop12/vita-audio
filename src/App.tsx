@@ -5,6 +5,7 @@ import {
   Section13WhatsAppFloat,
 } from "./components"
 import {
+  LEGAL_ROUTES,
   ROUTES,
   isObrigadoPath,
   normalizePathname,
@@ -17,7 +18,7 @@ import { WHATSAPP_LANDING_URL } from "./constants/site"
 
 /**
  * O conteúdo de cada rota vira um chunk próprio: quem cai numa landing page
- * baixa apenas o texto dela, e não o das outras dezessete.
+ * baixa apenas o texto dela, e não o das outras rotas.
  *
  * O `import()` é disparado no escopo do módulo (ver `routeLoader` abaixo), então
  * o chunk da rota desce em paralelo com o bootstrap do React em vez de esperar
@@ -91,6 +92,12 @@ const ROUTE_PAGES: Record<string, RouteEntry> = {
   },
   [ROUTES.centroAuditivo]: {
     load: named(() => import("./pages/CentroAuditivoPage"), "CentroAuditivoPageWA"),
+  },
+  [LEGAL_ROUTES.privacidade]: {
+    load: named(() => import("./pages/PoliticaPrivacidadePage"), "PoliticaPrivacidadePage"),
+  },
+  [LEGAL_ROUTES.termos]: {
+    load: named(() => import("./pages/TermosDeUsoPage"), "TermosDeUsoPage"),
   },
 }
 

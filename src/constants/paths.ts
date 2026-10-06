@@ -46,6 +46,17 @@ export const WHATSAPP_ROUTES = {
 export type RouteKey = keyof typeof ROUTES
 
 /**
+ * Páginas institucionais (textos legais). Ficam fora de `ROUTES` porque não são
+ * landing pages: não têm variante `/whatsapp`, `/obrigado` nem conversão própria.
+ */
+export const LEGAL_ROUTES = {
+  privacidade: "/politica-de-privacidade",
+  termos: "/termos-de-uso",
+} as const
+
+export type LegalRouteKey = keyof typeof LEGAL_ROUTES
+
+/**
  * Rotas `/whatsapp` aposentadas: o comportamento delas passou para a rota base,
  * então elas apenas redirecionam. Nenhuma rota do site usa mais formulário.
  */

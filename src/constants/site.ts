@@ -41,6 +41,14 @@ export const INSTAGRAM_URL = "https://www.instagram.com/vitaaudiobrasil/"
 export const FACEBOOK_URL =
   "https://www.facebook.com/profile.php?id=61558805426979"
 
+/**
+ * Razão social e CNPJ do controlador dos dados, exibidos na Política de
+ * Privacidade e nos Termos de Uso. Enquanto `null`, as páginas identificam a
+ * empresa só como “Vita Audio”.
+ */
+export const COMPANY_LEGAL_NAME: string | null = null
+export const COMPANY_CNPJ: string | null = null
+
 /** Crédito no rodapé — agência / desenvolvimento. */
 export const P12_DIGITAL_SITE_URL = "https://sites.p12digital.com.br/"
 

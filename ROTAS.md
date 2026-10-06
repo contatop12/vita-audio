@@ -35,6 +35,18 @@ Definições em `src/constants/paths.ts` (`ROUTES`, `WHATSAPP_ROUTES`).
 | `/aparelho-auditivo-interton` | `IntertonPage` | Marca Interton — linhas Move e Presto |
 | `/centro-auditivo-indaiatuba` | `CentroAuditivoPage` | Página institucional/local — a clínica, serviços, marcas, endereço |
 
+### Páginas institucionais
+
+| Rota | Componente | Descrição |
+|------|-----------|-----------|
+| `/politica-de-privacidade` | `PoliticaPrivacidadePage` | Política de Privacidade (LGPD) — linkada no rodapé, no aviso de cookies e no consentimento do formulário |
+| `/termos-de-uso` | `TermosDeUsoPage` | Termos de Uso — linkado no rodapé |
+
+Ficam em `LEGAL_ROUTES` (fora de `ROUTES`): não são landing pages, então não têm
+variante `/whatsapp`, `/obrigado` nem conversão própria no Ads. O layout comum está
+em `shared/LegalDocument`. Razão social e CNPJ entram em `COMPANY_LEGAL_NAME` e
+`COMPANY_CNPJ` (`src/constants/site.ts`) e aparecem nos dois textos quando preenchidos.
+
 ### Subrotas
 
 | Rota | Componente | Descrição |
@@ -114,7 +126,8 @@ tag `05 | <rota> | ADS — Conversão WhatsApp` com o gatilho `wa.me - <rota>`
 
 **Rota nova = ação de conversão nova no Ads + tag e gatilho no GTM.** Sem isso o
 clique da página não conta no Ads (foi o que aconteceu com
-`/centro-auditivo-indaiatuba`, publicada sem tag). O resto do rastreio vale para
+`/centro-auditivo-indaiatuba`, publicada sem tag). As páginas institucionais são
+a exceção: não recebem anúncio, então ficam sem tag de conversão. O resto do rastreio vale para
 qualquer rota sem configuração: protocolo no link, coletor do CRM, GA4
 (`G-F416MQ3SE8`) e o `generate_lead`.
 

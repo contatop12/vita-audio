@@ -1,4 +1,4 @@
-import { type RouteKey, getRouteKeyFromPath } from "./paths"
+import { type LegalRouteKey, type RouteKey, getRouteKeyFromPath } from "./paths"
 
 export type PageSeo = {
   title: string
@@ -95,6 +95,19 @@ export const PAGE_SEO: Record<RouteKey, PageSeo> = {
     title: "Centro Auditivo em Indaiatuba | Vita Audio",
     description:
       "Centro auditivo em Indaiatuba especializado em aparelhos auditivos. Avaliação, adaptação e acompanhamento com fonoaudiólogas especializadas. Agende!",
+  },
+}
+
+export const LEGAL_SEO: Record<LegalRouteKey, PageSeo> = {
+  privacidade: {
+    title: "Política de Privacidade | Vita Audio",
+    description:
+      "Saiba quais dados pessoais a Vita Audio coleta no site e no atendimento, como eles são usados e protegidos e como exercer seus direitos pela LGPD.",
+  },
+  termos: {
+    title: "Termos de Uso | Vita Audio",
+    description:
+      "Condições de uso do site da Vita Audio: caráter informativo do conteúdo, preços e ofertas, atendimento pelo WhatsApp, propriedade intelectual e responsabilidades.",
   },
 }
 
